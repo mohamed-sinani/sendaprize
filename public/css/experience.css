@@ -161,15 +161,16 @@ body.page-shake { animation: shake-page 0.75s cubic-bezier(0.36, 0.07, 0.19, 0.9
 .experience { min-height: 100vh; display: flex; flex-direction: column; }
 .experience__main {
   flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center;
-  text-align: center; padding: 84px 20px 64px; position: relative;
+  text-align: center; padding: 76px 20px 56px; position: relative;
 }
+.experience__main .gift-stage { transform: scale(0.88); transform-origin: center; }
 .experience__top { position: absolute; top: 24px; left: 0; right: 0; display: flex; justify-content: center; }
 
 /* lock screen */
-.lock-title { font-size: clamp(1.5rem, 4vw, 2.3rem); margin-bottom: 10px; }
-.lock-sub { color: var(--ink-dim); max-width: 400px; margin: 0 auto 0; }
-.lock-btn { margin-top: 38px; }
-.lock-hint { margin-top: 24px; color: rgba(185, 173, 182, 0.7); font-size: 0.8rem; }
+.lock-title { font-size: clamp(1.4rem, 3.6vw, 2.1rem); margin-bottom: 10px; }
+.lock-sub { color: var(--ink-dim); max-width: 400px; margin: 0 auto 0; font-size: 0.96rem; }
+.lock-btn { margin-top: 34px; }
+.lock-hint { margin-top: 22px; color: rgba(185, 173, 182, 0.7); font-size: 0.78rem; }
 
 /* reveal screen */
 .reveal-screen {
@@ -436,8 +437,8 @@ body.page-shake { animation: shake-page 0.75s cubic-bezier(0.36, 0.07, 0.19, 0.9
 }
 @media (max-width: 600px) {
   .stat-grid { grid-template-columns: 1fr 1fr; }
-  .gift-stage { transform: scale(0.78); }
-  .experience__main { padding: 72px 16px 56px; }
+  .gift-stage, .experience__main .gift-stage { transform: scale(0.7); }
+  .experience__main { padding: 64px 16px 48px; }
   .wizard { padding: 40px 0 80px; }
   .wizard-card { padding: 30px 22px; }
   .type-pick { grid-template-columns: repeat(2, 1fr); }
