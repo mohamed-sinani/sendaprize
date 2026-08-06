@@ -95,11 +95,12 @@ h1, h2, h3, .serif { font-family: var(--font-head); font-weight: 700; letter-spa
   border-bottom: 1px solid var(--stroke);
 }
 .nav__inner { height: 68px; display: flex; align-items: center; justify-content: space-between; }
-.logo { display: flex; align-items: center; gap: 10px; font-weight: 800; letter-spacing: -0.02em; font-size: 1.15rem; color: var(--ink); }
+.logo { display: flex; align-items: center; gap: 0; font-weight: 800; letter-spacing: -0.02em; font-size: 1.15rem; color: var(--ink); }
 .logo .dot {
   width: 11px; height: 11px; border-radius: 50%;
   background: radial-gradient(circle at 30% 30%, var(--pink-2), var(--pink));
   box-shadow: 0 0 14px var(--pink);
+  margin-right: 10px;
 }
 .logo em { font-style: normal; color: var(--pink); }
 .nav__links { display: flex; gap: 6px; align-items: center; }
@@ -541,6 +542,9 @@ footer {
   .type-card .t-ico { margin: 0 auto 12px; }
   .type-card p { margin: 6px auto 0; max-width: 320px; }
   .hero { padding-top: 30px; padding-bottom: 50px; }
+  .hero .actions { flex-wrap: nowrap; gap: 10px; }
+  .hero .actions .btn { flex: 1; padding: 13px 12px; font-size: 0.88rem; white-space: normal; }
+  .hero .actions .btn .lucide { flex-shrink: 0; }
   .hero-stage .phone-demo { transform: scale(0.64); transform-origin: top center; }
   .section { padding: 60px 0; }
   .cta { padding: 48px 22px; }
