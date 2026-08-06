@@ -1,4 +1,4 @@
-/* sendaprize — the surprise opening experience */
+/* sendaprize, the surprise opening experience */
 
 const REACTION_ICONS = ['heart', 'sparkles', 'smile', 'party-popper', 'flame', 'star', 'thumbs-up'];
 const TYPES_ICON = {
@@ -87,14 +87,14 @@ function renderCountdown() {
   const timer = setInterval(tick, 1000);
 }
 
-/* the moment arrives — the box appears and opens itself */
+/* the moment arrives, the box appears and opens itself */
 function countdownDone() {
   $('#countdown').style.display = 'none';
   $('#lock').style.display = 'block';
   if (state.requiresPassword) {
     $('#lockSub').textContent = 'Time is up! Enter the secret to open the box.';
   } else {
-    $('#lockSub').textContent = 'The moment has arrived — opening for you.';
+    $('#lockSub').textContent = 'The moment has arrived, opening for you.';
     openBox();
   }
 }
@@ -115,9 +115,9 @@ async function openBox(password) {
     animateOpen();
   } catch (e) {
     if (e.status === 403) {
-      toast('Incorrect password — the box stays sealed');
+      toast('Incorrect password, the box stays sealed');
     } else if (e.status === 423) {
-      toast('Not yet — the countdown is still ticking');
+      toast('Not yet, the countdown is still ticking');
     } else {
       toast(e.message);
     }
@@ -154,7 +154,7 @@ function showReveal() {
   $('#rTitle').textContent = state.title;
   $('#rFrom').textContent = `for you, from ${state.from}`;
   $('#rMessage').textContent = state.message;
-  $('#rSign').textContent = `— ${state.from}`;
+  $('#rSign').textContent = `${state.from}`;
 
   renderMedia();
   renderReactions();
@@ -171,7 +171,7 @@ function showReveal() {
   revealFlourish(state.type);
 }
 
-// Petal colors by surprise type — each occasion feels like its own garden.
+// Petal colors by surprise type, each occasion feels like its own garden.
 const PETAL_PALETTES = {
   love: ['#ff5f8f', '#ff2d78', '#ff9ec2', '#ffd3e4', '#ffffff'],
   birthday: ['#ff9ec2', '#ffd9a0', '#7ce7ff', '#c3b6ff', '#ff2d78'],

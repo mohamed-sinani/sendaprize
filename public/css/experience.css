@@ -1,5 +1,5 @@
 /* ==================================================================
-   sendaprize — the experience layer
+   sendaprize, the experience layer
    Gift box · box opening · surprise reveal · create wizard · admin
    ================================================================== */
 
@@ -13,7 +13,7 @@
   filter: blur(10px);
 }
 
-/* box body — a properly measured cube */
+/* box body, a properly measured cube */
 .gift .cube { position: absolute; left: 50%; bottom: 16px; width: 220px; height: 180px; transform: translateX(-50%); transform-style: preserve-3d; }
 .cube .face {
   position: absolute; inset: 0; border-radius: 8px;
@@ -27,12 +27,12 @@
 .cube .face.f-top { transform: rotateX(90deg) translateZ(90px); background: #ff7aa8; }
 .cube .face.f-bottom { transform: rotateX(-90deg) translateZ(90px); background: #c2185b; }
 
-/* ribbons — wrapped on the front face, slightly proud of the surface */
+/* ribbons, wrapped on the front face, slightly proud of the surface */
 .ribbon { position: absolute; background: linear-gradient(180deg, #ffe4ef, #ff9ec2); box-shadow: 0 0 16px rgba(255, 158, 194, 0.55); }
 .ribbon.r-h { top: 0; bottom: 0; left: 50%; width: 34px; margin-left: -17px; transform: translateZ(61px); }
 .ribbon.r-v { left: 0; right: 0; top: 50%; height: 34px; margin-top: -17px; transform: translateZ(61px); }
 
-/* lid — a slab that lifts off the box */
+/* lid, a slab that lifts off the box */
 .gift .lid { position: absolute; left: 50%; bottom: 196px; width: 232px; height: 60px; transform: translateX(-50%); transform-style: preserve-3d; transition: transform 0.85s var(--ease); }
 .lid .face { position: absolute; inset: 0; border-radius: 6px; }
 .lid .face.l-front { transform: translateZ(64px); background: linear-gradient(150deg, #ff9ec2, #f22470); box-shadow: inset 0 -10px 20px rgba(0, 0, 0, 0.18); }
@@ -117,7 +117,7 @@
   100% { transform: translate(-50%, 50%) translateZ(150px) scale(3.2); opacity: 0; }
 }
 
-/* full-page shake — the moment before the box opens */
+/* full-page shake, the moment before the box opens */
 @keyframes shake-page {
   0%, 100% { transform: translateX(0); }
   10% { transform: translateX(-14px) rotate(-0.6deg); }

@@ -1,4 +1,4 @@
-/* sendaprize — create wizard */
+/* sendaprize, create wizard */
 
 const TYPES = {
   love: { icon: 'heart', label: 'Love letter' },

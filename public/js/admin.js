@@ -1,4 +1,4 @@
-/* sendaprize — story dashboard */
+/* sendaprize, story dashboard */
 
 const THEME_LABEL = {
   rose: 'Rose', blush: 'Blush', plum: 'Plum', coral: 'Coral',
@@ -84,7 +84,7 @@ function renderThemes(themes) {
 function renderEvents(events) {
   const wrap = $('#eventFeed');
   if (!events.length) {
-    wrap.innerHTML = '<p class="muted small">No events recorded yet — they appear live as people interact.</p>';
+    wrap.innerHTML = '<p class="muted small">No events recorded yet, they appear live as people interact.</p>';
     return;
   }
   wrap.innerHTML = events

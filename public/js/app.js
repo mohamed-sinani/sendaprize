@@ -1,4 +1,4 @@
-/* sendaprize — shared frontend helpers */
+/* sendaprize, shared frontend helpers */
 
 const $ = (sel, root = document) => root.querySelector(sel);
 const $$ = (sel, root = document) => [...root.querySelectorAll(sel)];
@@ -123,7 +123,7 @@ function startHeartRain(count = 16) {
   refreshIcons();
 }
 
-/* full-page shake — the moment before the box bursts open */
+/* full-page shake, the moment before the box bursts open */
 function shakePage(ms = 800) {
   const body = document.body;
   body.classList.remove('page-shake');
@@ -177,7 +177,7 @@ function timeAgo(iso) {
   return `${Math.floor(s / 86400)}d ago`;
 }
 
-/* hamburger menu — tablet + mobile */
+/* hamburger menu, tablet + mobile */
 function initNav() {
   const nav = document.querySelector('.nav');
   const burger = nav && document.querySelector('.nav__burger');
