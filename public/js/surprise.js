@@ -80,11 +80,23 @@ function renderCountdown() {
     $('#cdS').textContent = s;
     if (diff <= 0) {
       clearInterval(timer);
-      location.reload();
+      countdownDone();
     }
   };
   tick();
   const timer = setInterval(tick, 1000);
+}
+
+/* the moment arrives — the box appears and opens itself */
+function countdownDone() {
+  $('#countdown').style.display = 'none';
+  $('#lock').style.display = 'block';
+  if (state.requiresPassword) {
+    $('#lockSub').textContent = 'Time is up! Enter the secret to open the box.';
+  } else {
+    $('#lockSub').textContent = 'The moment has arrived — opening for you.';
+    openBox();
+  }
 }
 
 function showPassword() {
