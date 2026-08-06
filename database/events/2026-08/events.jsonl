@@ -3,4 +3,4 @@
 {"id":"event_ff6b2295ffd3","type":"QR_GENERATED","user":"user_001","target":"vUAIsR","time":"2026-08-06T19:13:22.372Z"}
 {"id":"event_588adbdd737f","type":"SURPRISE_VIEWED","user":"anonymous","target":"vUAIsR","time":"2026-08-06T19:13:38.979Z"}
 {"id":"event_fdc7ebd86258","type":"SURPRISE_OPENED","user":"anonymous","target":"vUAIsR","time":"2026-08-06T19:13:50.107Z"}
-{"reaction":"smile","id":"event_ed2ddddc06c7","type":"SURPRISE_REACTED","user":"anonymous","target":"vUAIsR","time":"2026-08-06T19:18:06.758Z"}
+{"id":"event_bc2904313de3","type":"SURPRISE_OPENED","user":"anonymous","target":"vUAIsR","time":"2026-08-06T19:18:09.864Z"}
