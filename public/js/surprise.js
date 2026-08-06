@@ -115,12 +115,17 @@ async function openBox(password) {
 function animateOpen() {
   const box = $('#giftBox');
   box.classList.remove('float', 'pulse');
-  box.classList.add('opening');
+  box.classList.add('shaking');
+
+  setTimeout(() => {
+    box.classList.remove('shaking');
+    box.classList.add('opening');
+  }, 520);
 
   setTimeout(() => {
     $('#lock').style.display = 'none';
     showReveal();
-  }, 950);
+  }, 1450);
 }
 
 function showReveal() {
