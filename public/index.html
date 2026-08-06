@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>sendaprize — send a surprise they'll never forget</title>
   <meta name="description" content="Create magical, interactive surprises — messages, photos, voice notes, countdowns and more. Every one tells a story." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -20,8 +20,8 @@
       <div class="nav__links">
         <a href="#how">How it works</a>
         <a href="#types">Occasions</a>
-        <a href="/admin.html">Story dashboard</a>
-        <a class="btn btn-primary" href="/create.html">Create a surprise</a>
+        <a href="/admin">Story dashboard</a>
+        <a class="btn btn-primary" href="/create">Create a surprise</a>
       </div>
     </div>
   </nav>
@@ -37,7 +37,7 @@
             interactive gift box. Your words deserve to arrive beautifully.
           </p>
           <div class="actions reveal in d3">
-            <a class="btn btn-primary btn-lg" href="/create.html"><i data-lucide="sparkles"></i> Create your surprise</a>
+            <a class="btn btn-primary btn-lg" href="/create"><i data-lucide="sparkles"></i> Create your surprise</a>
             <a class="btn btn-ghost btn-lg" href="#how">See how it works</a>
           </div>
         </div>
@@ -137,7 +137,7 @@
       <div class="cta reveal">
         <h2>Ready to make someone's day?</h2>
         <p>Create a surprise in under a minute. It's free, beautiful, and unforgettable.</p>
-        <a class="btn btn-primary btn-lg" href="/create.html"><i data-lucide="sparkles"></i> Create your surprise</a>
+        <a class="btn btn-primary btn-lg" href="/create"><i data-lucide="sparkles"></i> Create your surprise</a>
       </div>
     </section>
   </main>
@@ -147,7 +147,7 @@
       <div class="row">
         <a class="logo" href="/"><span class="dot"></span> send<span class="grad">aprize</span></a>
         <span>© 2026 sendaprize · All rights reserved</span>
-        <a class="btn btn-ghost" href="/admin.html" style="padding:10px 18px">Story dashboard</a>
+        <a class="btn btn-ghost" href="/admin" style="padding:10px 18px">Story dashboard</a>
       </div>
     </div>
   </footer>
@@ -160,7 +160,7 @@
     $$('#typeGrid .type-card').forEach((c) => {
       c.addEventListener('click', () => {
         localStorage.setItem('ap_type', c.dataset.type);
-        location.href = '/create.html';
+        location.href = '/create';
       });
     });
   </script>

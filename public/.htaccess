@@ -1,0 +1,35 @@
+# ============================================================
+# sendaprize — clean URLs
+# /create.html  ->  /create   (301 redirect)
+# /create       ->  serves create.html
+# ============================================================
+
+Options -Indexes
+
+RewriteEngine On
+
+# 1) Redirect any /page.html request to the clean URL /page
+RewriteCond %{THE_REQUEST} \s/(?:index)?([^/\s?]*)\.html[?\s] [NC]
+RewriteRule ^ /%1 [R=301,L]
+
+# 2) Serve /page by rewriting to page.html — but never touch /s/ links,
+#    real files, real directories, or the API.
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_URI} !^/s/ [NC]
+RewriteCond %{REQUEST_URI} !^/api/ [NC]
+RewriteRule ^([a-zA-Z0-9]+)/?$ $1.html [L]
+
+# Compression for faster mobile loads
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css text/javascript application/javascript application/json image/svg+xml
+</IfModule>
+
+# Long-lived caching for versioned static assets
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/svg+xml "access plus 7 days"
+  ExpiresByType text/css "access plus 7 days"
+  ExpiresByType text/javascript "access plus 7 days"
+  ExpiresByType application/javascript "access plus 7 days"
+</IfModule>
