@@ -377,6 +377,9 @@ footer .row { display: flex; flex-wrap: wrap; gap: 18px; align-items: center; ju
   .feature { text-align: center; }
   .feature .ico { margin: 0 auto 16px; }
   .feature p { margin: 0 auto; max-width: 340px; }
+  .type-card { text-align: center; }
+  .type-card .t-ico { margin: 0 auto 12px; }
+  .type-card p { margin: 6px auto 0; max-width: 320px; }
   .hero { padding-top: 56px; }
   .hero-stage .gift-stage { transform: scale(0.62); }
   .section { padding: 60px 0; }
