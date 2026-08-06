@@ -359,14 +359,18 @@ body.page-shake { animation: shake-page 0.75s cubic-bezier(0.36, 0.07, 0.19, 0.9
 .success-box h2 { margin-bottom: 8px; }
 .success-box > p { color: var(--ink-dim); margin-bottom: 6px; }
 .link-copy {
-  display: flex; gap: 10px; align-items: center; justify-content: center; margin: 26px 0 6px;
+  display: flex; align-items: stretch; gap: 10px; justify-content: center;
+  max-width: 520px; margin: 26px auto 6px;
+  background: var(--glass); border: 1px solid var(--stroke); border-radius: var(--radius);
+  padding: 8px;
 }
 .link-copy input {
-  flex: 1; min-width: 0; max-width: 420px; text-align: center;
-  background: rgba(255, 255, 255, 0.05); border: 1px solid var(--stroke); color: var(--pink-2);
-  border-radius: 999px; padding: 14px 20px; font-size: 0.92rem; outline: none;
+  flex: 1; min-width: 0; text-align: center; border: none; background: transparent;
+  color: var(--ink); font: inherit; font-size: 0.92rem; padding: 10px 12px; outline: none;
 }
-.link-copy .btn { flex-shrink: 0; padding: 14px 24px; }
+.link-copy .btn { flex-shrink: 0; padding: 12px 22px; }
+.btn-wa { background: rgba(37, 211, 102, 0.12); color: #4ade80; border: 1px solid rgba(37, 211, 102, 0.4); }
+.btn-wa:hover { background: rgba(37, 211, 102, 0.2); transform: translateY(-2px); }
 .qr-wrap { display: inline-block; padding: 14px; border-radius: var(--radius); background: #fff; margin: 10px 0 0; box-shadow: var(--shadow-sm); }
 .qr-wrap img { width: 172px; height: 172px; display: block; }
 .qr-cap { margin-top: 10px; color: var(--ink-dim); font-size: 0.78rem; }
@@ -485,9 +489,6 @@ body.page-shake { animation: shake-page 0.75s cubic-bezier(0.36, 0.07, 0.19, 0.9
   .wizard-actions { flex-direction: row; gap: 10px; }
   .wizard-actions .btn { flex: 1; justify-content: center; padding: 15px 20px; }
   .media-zone { padding: 26px 14px; }
-  .link-copy { flex-direction: column; align-items: stretch; }
-  .link-copy input { width: 100%; }
-  .link-copy .btn { width: 100%; }
   .qr-wrap img { width: 150px; height: 150px; }
   .success-box .actions { display: flex; flex-direction: column; gap: 12px; max-width: 420px; margin: 18px auto 0; }
   .success-box .actions .btn { width: 100%; justify-content: center; }
