@@ -14,7 +14,22 @@ const { randomCode, nextUserId, sha256 } = require('./lib/ids');
 
 const app = express();
 app.use(express.json({ limit: '12mb' }));
+
+// clean URLs — redirect /create.html -> /create (and /index.html -> /)
+app.use((req, res, next) => {
+  if (!req.path.endsWith('.html') || req.path === '/index.html') {
+    if (req.path === '/index.html') return res.redirect(301, '/');
+    return next();
+  }
+  res.redirect(301, req.path.replace(/\.html$/, ''));
+});
+
 app.use(express.static(config.publicDir));
+
+// clean page routes
+app.get(['/create', '/surprise', '/admin'], (req, res) => {
+  res.sendFile(path.join(config.publicDir, `${req.path.slice(1)}.html`));
+});
 
 const store = getStore();
 const engine = new CommitEngine();
