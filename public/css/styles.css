@@ -374,6 +374,9 @@ footer .row { display: flex; flex-wrap: wrap; gap: 18px; align-items: center; ju
   .step { text-align: center; }
   .step .n { display: block; }
   .step p { margin: 0 auto; max-width: 340px; }
+  .feature { text-align: center; }
+  .feature .ico { margin: 0 auto 16px; }
+  .feature p { margin: 0 auto; max-width: 340px; }
   .hero { padding-top: 56px; }
   .hero-stage .gift-stage { transform: scale(0.62); }
   .section { padding: 60px 0; }
