@@ -8,3 +8,4 @@
 {"id":"event_7c718b29c379","type":"SURPRISE_OPENED","user":"anonymous","target":"CLT395","time":"2026-08-06T19:32:00.465Z"}
 {"id":"event_8d58418b0efe","type":"SURPRISE_OPENED","user":"anonymous","target":"vUAIsR","time":"2026-08-06T20:00:41.459Z"}
 {"id":"event_6d4f4acb85c0","type":"QR_GENERATED","user":"user_001","target":"tap0N3","time":"2026-08-06T21:35:23.151Z"}
+{"id":"event_1b673e982465","type":"SURPRISE_VIEWED","user":"anonymous","target":"tap0N3","time":"2026-08-06T21:35:35.945Z"}
