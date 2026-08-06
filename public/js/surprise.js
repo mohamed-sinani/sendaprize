@@ -1,9 +1,9 @@
 /* sendaprize — the surprise opening experience */
 
-const REACTION_EMOJIS = ['❤️', '💖', '😍', '🎉', '😂', '🥺', '👏'];
-const TYPES_EMOJI = {
-  love: '❤️', birthday: '🎂', graduation: '🎓', congrats: '🎉',
-  anonymous: '🤫', proposal: '💍', baby: '👶', thankyou: '🙏', openwhen: '📝',
+const REACTION_ICONS = ['heart', 'sparkles', 'smile', 'party-popper', 'flame', 'star', 'thumbs-up'];
+const TYPES_ICON = {
+  love: 'heart', birthday: 'cake', graduation: 'graduation-cap', congrats: 'party-popper',
+  anonymous: 'message-circle', proposal: 'gem', baby: 'baby', thankyou: 'heart-handshake', openwhen: 'mail-open',
 };
 
 let state = null;
@@ -52,7 +52,7 @@ function renderLock() {
   if (state.requiresPassword) {
     $('#lockSub').textContent = 'It is sealed with a secret. Enter the password to open it.';
   } else {
-    $('#lockSub').textContent = `From ${state.from} · with ${TYPES_EMOJI[state.type] || '💖'} all wrapped up for you.`;
+    $('#lockSub').textContent = `From ${state.from} · with love, all wrapped up for you.`;
   }
 
   $('#openBtn').addEventListener('click', () => {
@@ -102,9 +102,9 @@ async function openBox(password) {
     animateOpen();
   } catch (e) {
     if (e.status === 403) {
-      toast('Incorrect password — the box stays sealed 🔒');
+      toast('Incorrect password — the box stays sealed');
     } else if (e.status === 423) {
-      toast('Not yet — the countdown is still ticking ⏳');
+      toast('Not yet — the countdown is still ticking');
     } else {
       toast(e.message);
     }
@@ -132,7 +132,7 @@ function showReveal() {
     '#0a0a0d',
   ].join(', ');
 
-  $('#rType').textContent = TYPES_EMOJI[state.type] || '💖';
+  $('#rType').innerHTML = `<i data-lucide="${TYPES_ICON[state.type] || 'heart'}"></i>`;
   $('#rTitle').textContent = state.title;
   $('#rFrom').textContent = `for you, from ${state.from}`;
   $('#rMessage').textContent = state.message;
@@ -148,6 +148,7 @@ function showReveal() {
   document.body.style.overflow = 'hidden';
   screen.scrollTop = 0;
 
+  refreshIcons();
   runAnimation(state.animation);
 }
 
@@ -179,23 +180,24 @@ function renderMedia() {
   wrap.innerHTML = html;
   wrap.querySelectorAll('.play').forEach((b) =>
     b.addEventListener('click', () => {
-      const src = b.dataset.src;
       const player = b.closest('.audio-card').querySelector('audio');
-      if (player.paused) { player.play(); b.textContent = '⏸'; }
-      else { player.pause(); b.textContent = '▶'; }
-      player.onended = () => (b.textContent = '▶');
+      if (player.paused) { player.play(); b.innerHTML = '<i data-lucide="pause"></i>'; }
+      else { player.pause(); b.innerHTML = '<i data-lucide="play"></i>'; }
+      player.onended = () => { b.innerHTML = '<i data-lucide="play"></i>'; refreshIcons(); };
+      refreshIcons();
     })
   );
+  refreshIcons();
 }
 
 function voiceCard(src, i) {
   return `
   <div class="audio-card">
-    <button class="play" data-src="${src}">▶</button>
+    <button class="play"><i data-lucide="play"></i></button>
     <div style="flex:1">
       <b class="small" style="color:var(--ink)">Voice note ${i + 1}</b>
       <audio src="${src}" preload="none" style="display:none"></audio>
-      <div class="muted" style="font-size:.78rem">recorded with 💖 on sendaprize</div>
+      <div class="muted" style="font-size:.78rem">recorded with love on sendaprize</div>
     </div>
   </div>`;
 }
@@ -203,24 +205,25 @@ function voiceCard(src, i) {
 function renderReactions() {
   const wrap = $('#rReactions');
   const reactions = state.reactions || {};
-  wrap.innerHTML = REACTION_EMOJIS.map(
-    (emo, i) => `
-    <button class="reaction-btn" data-i="${i}" data-emo="${emo}">
-      <span class="r-emoji">${emo}</span>
-      <span class="r-count">${reactions[emo] || 0}</span>
+  wrap.innerHTML = REACTION_ICONS.map(
+    (icon, i) => `
+    <button class="reaction-btn" data-icon="${icon}">
+      <span class="r-ico"><i data-lucide="${icon}"></i></span>
+      <span class="r-count">${reactions[icon] || 0}</span>
     </button>`
   ).join('');
+  refreshIcons();
 
   wrap.querySelectorAll('.reaction-btn').forEach((b) => {
     b.addEventListener('click', async () => {
-      const emo = b.dataset.emo;
+      const icon = b.dataset.icon;
       b.style.transform = 'scale(0.8)';
       setTimeout(() => (b.style.transform = ''), 150);
       const countEl = b.querySelector('.r-count');
       const cur = parseInt(countEl.textContent, 10) || 0;
       countEl.textContent = cur + 1;
       if (Math.random() > 0.5) burstConfetti(b, 30);
-      try { await api(`/api/surprise/${code}/react`, { method: 'POST', body: { type: emo } }); }
+      try { await api(`/api/surprise/${code}/react`, { method: 'POST', body: { type: icon } }); }
       catch { /* keep local optimism */ }
     });
   });
@@ -232,10 +235,10 @@ function renderShare() {
     b.addEventListener('click', async () => {
       const ch = b.dataset.ch;
       api(`/api/surprise/${code}/share`, { method: 'POST', body: { channel: ch } }).catch(() => {});
-      const text = `I sent you a surprise on sendaprize 💖 ${link}`;
+      const text = `I sent you a surprise on sendaprize: ${link}`;
       if (ch === 'whatsapp') window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, '_blank');
       else if (ch === 'x') window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}`, '_blank');
-      else if (ch === 'telegram') window.open(`https://t.me/share/url?url=${encodeURIComponent(link)}&text=${encodeURIComponent('I sent you a surprise 💖')}`, '_blank');
+      else if (ch === 'telegram') window.open(`https://t.me/share/url?url=${encodeURIComponent(link)}&text=${encodeURIComponent('I sent you a surprise on sendaprize')}`, '_blank');
       else copyText(link, 'Link copied!');
     });
   });
@@ -264,3 +267,4 @@ function runAnimation(anim) {
 }
 
 load();
+refreshIcons();
