@@ -38,6 +38,10 @@ function copyText(text, msg = 'Copied to clipboard') {
   navigator.clipboard.writeText(text).then(() => toast(msg)).catch(() => toast('Could not copy'));
 }
 
+function refreshIcons() {
+  if (window.lucide) window.lucide.createIcons();
+}
+
 /* lightweight confetti burst on a canvas */
 function burstConfetti(originEl, count = 160) {
   const canvas = document.createElement('canvas');
@@ -98,21 +102,25 @@ function burstConfetti(originEl, count = 160) {
   raf = requestAnimationFrame(tick);
 }
 
-/* slow falling hearts overlay */
+/* slow falling hearts overlay (lucide heart icons) */
 function startHeartRain(count = 16) {
   const wrap = document.createElement('div');
   wrap.className = 'hearts';
   document.body.appendChild(wrap);
-  const emojis = ['💗', '💖', '💕', '💞', '🌸', '✨'];
+  const colors = ['#ff2d78', '#ff5f8f', '#ff9ec2', '#ffd3e4', '#ffffff'];
   for (let i = 0; i < count; i++) {
-    const h = document.createElement('i');
-    h.textContent = emojis[i % emojis.length];
-    h.style.left = `${Math.random() * 100}%`;
-    h.style.fontSize = `${12 + Math.random() * 16}px`;
-    h.style.animationDuration = `${9 + Math.random() * 10}s`;
-    h.style.animationDelay = `${Math.random() * 12}s`;
-    wrap.appendChild(h);
+    const holder = document.createElement('span');
+    holder.className = 'rain-h';
+    holder.style.left = `${Math.random() * 100}%`;
+    holder.style.animationDuration = `${9 + Math.random() * 10}s`;
+    holder.style.animationDelay = `${Math.random() * 12}s`;
+    holder.style.color = colors[i % colors.length];
+    const icon = document.createElement('i');
+    icon.setAttribute('data-lucide', 'heart');
+    holder.appendChild(icon);
+    wrap.appendChild(holder);
   }
+  refreshIcons();
 }
 
 function revealOnScroll() {
