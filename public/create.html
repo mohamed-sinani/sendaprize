@@ -9,14 +9,14 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/css/styles.css" />
   <link rel="stylesheet" href="/css/experience.css" />
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💖</text></svg>" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23ff2d78'><path d='M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z'/></svg>" />
 </head>
 <body>
 
   <nav class="nav">
     <div class="container nav__inner">
       <a class="logo" href="/"><span class="dot"></span> send<span class="grad">aprize</span></a>
-      <div class="nav__links"><a class="btn btn-ghost" href="/">← Home</a></div>
+      <div class="nav__links"><a class="btn btn-ghost" href="/"><i data-lucide="arrow-left"></i> Home</a></div>
     </div>
   </nav>
 
@@ -27,7 +27,7 @@
 
       <!-- STEP 1 · occasion -->
       <div class="wizard-step" data-step="1">
-        <h2>What are we celebrating? 💕</h2>
+        <h2>What are we celebrating?</h2>
         <p class="hint">Pick the occasion — you can personalise everything next.</p>
         <div class="grid type-pick" id="typePick"></div>
       </div>
@@ -57,7 +57,7 @@
           </div>
           <div class="field">
             <label>From</label>
-            <input class="input" id="fFrom" placeholder="Mom ❤️" maxlength="60" />
+            <input class="input" id="fFrom" placeholder="Mom" maxlength="60" />
           </div>
         </div>
         <div class="field" style="margin-top:18px">
@@ -72,7 +72,7 @@
         <p class="hint">Photos, your voice, music or a video — all optional.</p>
         <div class="media-pick">
           <div class="media-zone" id="imgZone">
-            <div class="mz-ico">🖼️</div>
+            <div class="mz-ico"><i data-lucide="image"></i></div>
             <b>Add photos</b>
             <div class="mz-note">Tap to choose images (max 6MB each)</div>
             <input type="file" id="imgInput" accept="image/*" multiple />
@@ -80,18 +80,18 @@
           <div class="preview-thumbs" id="imgThumbs"></div>
 
           <div class="media-zone" id="voiceZone">
-            <div class="mz-ico" id="micIcon">🎙️</div>
+            <div class="mz-ico" id="micIcon"><i data-lucide="mic"></i></div>
             <b id="voiceLabel">Record a voice note</b>
             <div class="mz-note" id="voiceNote">Tap to record, tap again to stop</div>
           </div>
 
           <div class="grid" style="grid-template-columns:1fr 1fr; gap:18px">
             <div class="field">
-              <label>🎵 Music (optional URL)</label>
+              <label>Music (optional URL)</label>
               <input class="input" id="fMusic" placeholder="https://…/song.mp3" />
             </div>
             <div class="field">
-              <label>🎬 Video (optional URL)</label>
+              <label>Video (optional URL)</label>
               <input class="input" id="fVideo" placeholder="https://…/video.mp4" />
             </div>
           </div>
@@ -104,12 +104,12 @@
         <p class="hint">Lock the box, or keep it sealed until the perfect moment.</p>
         <div class="grid" style="grid-template-columns:1fr 1fr; gap:18px">
           <div class="field">
-            <label>🔒 Password (optional)</label>
+            <label>Password (optional)</label>
             <input class="input" id="fPassword" type="text" placeholder="Leave empty for no password" maxlength="40" />
             <span class="muted small">They'll need this to open the box.</span>
           </div>
           <div class="field">
-            <label>⏳ Open on (optional countdown)</label>
+            <label>Open on (optional countdown)</label>
             <input class="input" id="fOpenAt" type="datetime-local" />
             <span class="muted small">The box stays sealed until this time.</span>
           </div>
@@ -134,7 +134,7 @@
             </div>
           </div>
           <div class="preview-card">
-            <span class="chip" id="pvType">❤️ Love letter</span>
+            <span class="chip" id="pvType">Love letter</span>
             <h3 id="pvTitle" style="margin-top:14px">Your surprise preview</h3>
             <p id="pvFrom" class="muted">from someone who loves you</p>
             <p id="pvBadges" class="badge-pw" style="display:none"></p>
@@ -145,7 +145,7 @@
       <!-- STEP 6 · success -->
       <div class="wizard-step" data-step="6" style="display:none">
         <div class="success-box">
-          <div class="tick">💖</div>
+          <div class="tick"><i data-lucide="heart"></i></div>
           <h2>Your surprise is ready!</h2>
           <p class="muted">Send this link — the box is waiting to be opened.</p>
           <div class="link-copy">
@@ -156,15 +156,15 @@
             <div class="qr-wrap"><img id="qrImg" alt="QR code" /></div>
           </div>
           <div class="actions" style="justify-content:center; flex-wrap:wrap; gap:12px">
-            <button class="btn btn-ghost wa" id="shareWa">Share on WhatsApp</button>
+            <button class="btn btn-ghost" id="shareWa"><i data-lucide="send"></i> Share on WhatsApp</button>
             <a class="btn btn-ghost" href="/">Create another</a>
           </div>
         </div>
       </div>
 
       <div class="wizard-actions" id="wizActions">
-        <button class="btn btn-ghost" id="btnBack">← Back</button>
-        <button class="btn btn-primary" id="btnNext">Continue →</button>
+        <button class="btn btn-ghost" id="btnBack"><i data-lucide="arrow-left"></i> Back</button>
+        <button class="btn btn-primary" id="btnNext">Continue <i data-lucide="arrow-right"></i></button>
       </div>
 
     </div>
@@ -174,11 +174,12 @@
     <div class="container">
       <div class="row">
         <a class="logo" href="/"><span class="dot"></span> send<span class="grad">aprize</span></a>
-        <span>Made with 💖 · every surprise becomes a commit in our living story</span>
+        <span>Made with <i data-lucide="heart" style="color:var(--pink-2);vertical-align:-0.1em"></i> · every surprise becomes a commit in our living story</span>
       </div>
     </div>
   </footer>
 
+  <script src="https://unpkg.com/lucide@latest"></script>
   <script src="/js/app.js"></script>
   <script src="/js/create.js"></script>
 </body>
