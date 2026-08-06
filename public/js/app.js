@@ -123,6 +123,36 @@ function startHeartRain(count = 16) {
   refreshIcons();
 }
 
+/* full-page shake — the moment before the box bursts open */
+function shakePage(ms = 800) {
+  const body = document.body;
+  body.classList.remove('page-shake');
+  void body.offsetWidth; /* restart the animation */
+  body.classList.add('page-shake');
+  setTimeout(() => body.classList.remove('page-shake'), ms);
+}
+
+/* flower-petal shower across the whole page */
+function startPetals({ colors, count = 26, duration = 11000 } = {}) {
+  const wrap = document.createElement('div');
+  wrap.className = 'petals';
+  document.body.appendChild(wrap);
+  for (let i = 0; i < count; i++) {
+    const p = document.createElement('span');
+    p.className = 'petal';
+    const size = 11 + Math.random() * 13;
+    p.style.setProperty('--x', `${(Math.random() * 100).toFixed(1)}%`);
+    p.style.setProperty('--size', `${size.toFixed(1)}px`);
+    p.style.setProperty('--sway', `${(Math.random() * 70 - 35).toFixed(0)}px`);
+    p.style.setProperty('--dur', `${(5 + Math.random() * 6).toFixed(1)}s`);
+    p.style.setProperty('--delay', `${(Math.random() * 6).toFixed(1)}s`);
+    p.style.setProperty('--pc', colors[i % colors.length]);
+    wrap.appendChild(p);
+  }
+  setTimeout(() => wrap.classList.add('done'), duration);
+  setTimeout(() => wrap.remove(), duration + 1400);
+}
+
 function revealOnScroll() {
   const io = new IntersectionObserver(
     (entries) => entries.forEach((e) => e.isIntersecting && e.target.classList.add('in')),
