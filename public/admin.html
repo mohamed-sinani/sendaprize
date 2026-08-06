@@ -28,53 +28,70 @@
   </nav>
 
   <div class="container admin">
-    <div class="admin-head">
-      <div>
-        <span class="chip">Story dashboard</span>
+
+    <header class="admin-head">
+      <div class="admin-title">
+        <span class="chip"><i data-lucide="scroll-text"></i> Story dashboard</span>
         <h1>The living story of <span class="grad">sendaprize</span></h1>
         <p class="muted">Every interaction below is a real event recorded in our GitHub history.</p>
       </div>
-      <div class="flex wrap">
-        <span class="mode-pill preview" id="modePill"><i></i><span>connecting…</span></span>
+      <span class="mode-pill preview" id="modePill"><i></i><span>connecting…</span></span>
+    </header>
+
+    <section class="admin-section">
+      <div class="admin-section-head">
+        <h2><i data-lucide="gauge"></i> Platform pulse</h2>
+        <span class="muted small">Totals across the whole story</span>
       </div>
-    </div>
-
-    <div class="grid stat-grid">
-      <div class="stat reveal"><div class="ico"><i data-lucide="user"></i></div><b id="stUsers">–</b><span>users</span></div>
-      <div class="stat reveal d1"><div class="ico"><i data-lucide="gift"></i></div><b id="stSurprises">–</b><span>surprises</span></div>
-      <div class="stat reveal d2"><div class="ico"><i data-lucide="eye"></i></div><b id="stViews">–</b><span>views</span></div>
-      <div class="stat reveal d3"><div class="ico"><i data-lucide="package-open"></i></div><b id="stOpens">–</b><span>opens</span></div>
-      <div class="stat reveal"><div class="ico"><i data-lucide="heart"></i></div><b id="stReactions">–</b><span>reactions</span></div>
-      <div class="stat reveal d1"><div class="ico"><i data-lucide="share-2"></i></div><b id="stShares">–</b><span>shares</span></div>
-      <div class="stat reveal d2"><div class="ico"><i data-lucide="image"></i></div><b id="stImages">–</b><span>memories added</span></div>
-      <div class="stat reveal d3"><div class="ico"><i data-lucide="git-commit-horizontal"></i></div><b id="stCommits">–</b><span>commits</span></div>
-    </div>
-
-    <div class="admin-grid">
-      <div class="panel reveal">
-        <h3><i data-lucide="palette"></i> Most popular themes</h3>
-        <div id="themesChart"></div>
+      <div class="grid stat-grid">
+        <div class="stat reveal"><div class="ico"><i data-lucide="user"></i></div><b id="stUsers">–</b><span>users</span></div>
+        <div class="stat reveal d1"><div class="ico"><i data-lucide="gift"></i></div><b id="stSurprises">–</b><span>surprises</span></div>
+        <div class="stat reveal d2"><div class="ico"><i data-lucide="eye"></i></div><b id="stViews">–</b><span>views</span></div>
+        <div class="stat reveal d3"><div class="ico"><i data-lucide="package-open"></i></div><b id="stOpens">–</b><span>opens</span></div>
+        <div class="stat reveal"><div class="ico"><i data-lucide="heart"></i></div><b id="stReactions">–</b><span>reactions</span></div>
+        <div class="stat reveal d1"><div class="ico"><i data-lucide="share-2"></i></div><b id="stShares">–</b><span>shares</span></div>
+        <div class="stat reveal d2"><div class="ico"><i data-lucide="image"></i></div><b id="stImages">–</b><span>memories added</span></div>
+        <div class="stat reveal d3"><div class="ico"><i data-lucide="git-commit-horizontal"></i></div><b id="stCommits">–</b><span>commits</span></div>
       </div>
-      <div class="panel reveal d1">
-        <h3><i data-lucide="zap"></i> Recent events</h3>
-        <div class="event-feed" id="eventFeed"></div>
+    </section>
+
+    <section class="admin-section">
+      <div class="admin-section-head">
+        <h2><i data-lucide="activity"></i> Live activity</h2>
+        <span class="muted small">Updated in real time as people interact</span>
       </div>
-    </div>
+      <div class="admin-grid">
+        <div class="panel reveal">
+          <h3><i data-lucide="zap"></i> Recent events</h3>
+          <div class="event-feed" id="eventFeed"></div>
+        </div>
+        <div class="panel reveal d1">
+          <h3><i data-lucide="palette"></i> Most popular themes</h3>
+          <div id="themesChart"></div>
+        </div>
+      </div>
+    </section>
 
-    <div class="panel reveal" style="margin-top:22px">
-      <h3><i data-lucide="git-branch"></i> Latest commits to the story</h3>
-      <div class="commit-feed" id="commitFeed"></div>
-    </div>
+    <section class="admin-section">
+      <div class="admin-section-head">
+        <h2><i data-lucide="git-branch"></i> The GitHub story</h2>
+        <span class="muted small">Every commit is a moment in the platform's history</span>
+      </div>
+      <div class="admin-grid">
+        <div class="panel reveal">
+          <h3><i data-lucide="git-commit-horizontal"></i> Latest commits to the story</h3>
+          <div class="commit-feed" id="commitFeed"></div>
+        </div>
+        <div class="panel reveal d1 heartbeat-box">
+          <div class="hb-icon"><i data-lucide="heart-pulse"></i></div>
+          <h3>Daily heartbeat report</h3>
+          <p class="muted small">Writes a daily activity summary commit so the GitHub graph tells the platform's story.</p>
+          <pre id="heartbeatPreview">No heartbeat yet…</pre>
+          <button class="btn btn-primary" id="heartbeatBtn"><i data-lucide="heart-pulse"></i> Write heartbeat now</button>
+        </div>
+      </div>
+    </section>
 
-    <div class="heartbeat-box reveal">
-      <div style="display:grid;place-items:center;color:var(--pink-2)"><i data-lucide="heart-pulse" style="width:2rem;height:2rem"></i></div>
-      <h3 style="margin:10px 0 6px">Daily heartbeat report</h3>
-      <p class="muted small" style="max-width:460px;margin:0 auto 8px">
-        Writes a daily activity summary commit so the GitHub graph tells the platform's story.
-      </p>
-      <pre id="heartbeatPreview">No heartbeat yet…</pre>
-      <button class="btn btn-primary" id="heartbeatBtn"><i data-lucide="heart-pulse"></i> Write heartbeat now</button>
-    </div>
   </div>
 
   <footer>

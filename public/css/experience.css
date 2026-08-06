@@ -371,24 +371,48 @@ body.page-shake { animation: shake-page 0.75s cubic-bezier(0.36, 0.07, 0.19, 0.9
 /* ==================================================================
    admin dashboard
    ================================================================== */
-.admin { padding: 40px 0 90px; }
-.admin-head { display: flex; align-items: flex-end; justify-content: space-between; flex-wrap: wrap; gap: 18px; margin-bottom: 30px; }
-.admin-head h1 { font-size: clamp(1.7rem, 4vw, 2.4rem); }
+.admin { padding: 44px 0 90px; }
 
+/* header */
+.admin-head { display: flex; align-items: flex-start; justify-content: space-between; flex-wrap: wrap; gap: 20px 26px; }
+.admin-title { max-width: 640px; }
+.admin-title .chip { margin-bottom: 18px; }
+.admin-head h1 { font-size: clamp(1.9rem, 4.2vw, 2.8rem); line-height: 1.12; margin: 0 0 10px; }
+.admin-head .muted { font-size: 0.98rem; line-height: 1.7; }
+.admin-head .mode-pill { flex-shrink: 0; margin-top: 26px; }
+
+/* section scaffolding */
+.admin-section { margin-top: 38px; }
+.admin-section-head {
+  display: flex; align-items: baseline; justify-content: space-between;
+  gap: 14px; flex-wrap: wrap; margin-bottom: 16px;
+}
+.admin-section-head h2 {
+  display: flex; align-items: center; gap: 10px;
+  font-size: 1.14rem; letter-spacing: 0;
+}
+.admin-section-head h2 .lucide { width: 1.15rem; height: 1.15rem; color: var(--pink-2); }
+
+/* KPI tiles */
 .stat-grid { grid-template-columns: repeat(4, 1fr); }
 .stat {
-  padding: 22px; border-radius: var(--radius);
+  padding: 20px 22px; border-radius: var(--radius);
   background: var(--glass); border: 1px solid var(--stroke);
   transition: transform 0.3s var(--ease), border-color 0.3s;
 }
 .stat:hover { transform: translateY(-4px); border-color: rgba(255, 45, 120, 0.35); }
-.stat .ico { color: var(--pink-2); }
-.stat .ico .lucide { width: 1.5rem; height: 1.5rem; }
-.stat b { display: block; font-size: 2.1rem; font-family: var(--font-head); margin: 6px 0 2px; }
+.stat .ico {
+  width: 42px; height: 42px; border-radius: 13px;
+  display: grid; place-items: center; color: var(--pink-2);
+  background: linear-gradient(140deg, rgba(255, 45, 120, 0.2), rgba(255, 45, 120, 0.05));
+  border: 1px solid rgba(255, 45, 120, 0.28);
+}
+.stat .ico .lucide { width: 1.35rem; height: 1.35rem; }
+.stat b { display: block; font-size: 2.1rem; font-family: var(--font-head); margin: 14px 0 2px; line-height: 1; }
 .stat b small { font-size: 1rem; color: var(--ink-dim); }
-.stat span { font-size: 0.8rem; color: var(--ink-dim); text-transform: uppercase; letter-spacing: 0.08em; }
+.stat span { font-size: 0.78rem; color: var(--ink-dim); text-transform: uppercase; letter-spacing: 0.08em; }
 
-.admin-grid { display: grid; grid-template-columns: 1.3fr 1fr; gap: 22px; margin-top: 26px; }
+.admin-grid { display: grid; grid-template-columns: 1.3fr 1fr; gap: 22px; }
 .panel { padding: 24px; border-radius: var(--radius); background: var(--glass); border: 1px solid var(--stroke); }
 .panel h3 { font-size: 1.05rem; margin-bottom: 18px; display: flex; align-items: center; gap: 10px; }
 
@@ -422,9 +446,18 @@ body.page-shake { animation: shake-page 0.75s cubic-bezier(0.36, 0.07, 0.19, 0.9
 .mode-pill.preview { background: rgba(255, 200, 90, 0.12); color: #fbbf24; border: 1px solid rgba(255, 200, 90, 0.35); }
 .mode-pill i { width: 8px; height: 8px; border-radius: 50%; background: currentColor; box-shadow: 0 0 8px currentColor; }
 
-.heartbeat-box { margin-top: 26px; text-align: center; padding: 26px; border-radius: var(--radius); border: 1px dashed rgba(255, 45, 120, 0.4); background: rgba(255, 45, 120, 0.05); }
+.heartbeat-box { text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+.heartbeat-box .hb-icon {
+  width: 52px; height: 52px; border-radius: 16px;
+  display: grid; place-items: center; color: var(--pink-2);
+  background: linear-gradient(140deg, rgba(255, 45, 120, 0.22), rgba(255, 45, 120, 0.05));
+  border: 1px solid rgba(255, 45, 120, 0.3);
+}
+.heartbeat-box .hb-icon .lucide { width: 1.7rem; height: 1.7rem; }
+.heartbeat-box h3 { margin: 14px 0 8px; justify-content: center; }
+.heartbeat-box > p { max-width: 320px; margin: 0 auto 6px; }
 .heartbeat-box pre {
-  text-align: left; margin: 16px auto; max-width: 460px; overflow-x: auto;
+  text-align: left; margin: 16px auto; width: 100%; overflow-x: auto;
   background: rgba(0, 0, 0, 0.4); border: 1px solid var(--stroke); border-radius: var(--radius-sm);
   padding: 16px; font-size: 0.84rem; line-height: 1.8; color: var(--pink-3);
 }
