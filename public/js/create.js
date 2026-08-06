@@ -30,6 +30,18 @@ const ANIMS = [
   { key: 'sparkles', label: 'Sparkles', icon: 'sparkles' },
 ];
 
+const PLACEHOLDERS = {
+  love: { title: 'For my dearest…', from: 'Someone who loves you', message: 'Every word here is just for you…' },
+  birthday: { title: 'Happy Birthday Maya!', from: 'Mom', message: 'Wishing you the most beautiful day…' },
+  graduation: { title: 'So proud of you, Aya!', from: 'Dad', message: 'All those late nights finally paid off…' },
+  congrats: { title: 'You did it!', from: 'Your biggest fan', message: 'So proud of everything you achieved…' },
+  anonymous: { title: 'A little mystery…', from: 'A secret admirer', message: 'You might not guess who wrote this…' },
+  proposal: { title: 'Will you marry me?', from: 'Yours, forever', message: 'Every moment with you feels like home…' },
+  baby: { title: 'Welcome to the world!', from: 'Auntie Salma', message: 'Tiny hands, tiny toes, a whole lot of love…' },
+  thankyou: { title: 'Thank you!', from: 'Grateful, always', message: 'I could never say it enough…' },
+  openwhen: { title: 'Open when…', from: 'Someone who cares', message: 'For the moment you need it most…' },
+};
+
 const draft = {
   type: localStorage.getItem('ap_type') || 'love',
   theme: 'rose',
@@ -50,6 +62,13 @@ const draft = {
 let step = 1;
 const TOTAL_STEPS = 5;
 
+function updatePlaceholders() {
+  const p = PLACEHOLDERS[draft.type] || PLACEHOLDERS.love;
+  $('#fTitle').placeholder = p.title;
+  $('#fFrom').placeholder = p.from;
+  $('#fMessage').placeholder = p.message;
+}
+
 function renderTypes() {
   $('#typePick').innerHTML = Object.entries(TYPES)
     .map(
@@ -64,6 +83,7 @@ function renderTypes() {
     c.addEventListener('click', () => {
       draft.type = c.dataset.key;
       $$('#typePick .type-card').forEach((x) => x.classList.toggle('sel', x === c));
+      updatePlaceholders();
       updatePreview();
     })
   );
@@ -349,6 +369,7 @@ function showSuccess(code, qrUrl) {
 
 /* ---- boot ---- */
 renderTypes();
+updatePlaceholders();
 renderThemes();
 renderAnims();
 setupFields();
