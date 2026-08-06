@@ -56,3 +56,4 @@
 {"id":"event_3a0407261980","type":"SURPRISE_OPENED","user":"anonymous","target":"GjVPVB","time":"2026-08-06T23:41:40.331Z"}
 {"type":"SURPRISE_CREATED","id":"event_d71c96667e28","user":"user_001","target":"h8Ij4D","time":"2026-08-06T23:46:18.861Z"}
 {"id":"event_78f1c84506af","type":"QR_GENERATED","user":"user_001","target":"h8Ij4D","time":"2026-08-06T23:46:22.550Z"}
+{"id":"event_116c54984731","type":"SURPRISE_VIEWED","user":"anonymous","target":"h8Ij4D","time":"2026-08-06T23:46:54.372Z"}
