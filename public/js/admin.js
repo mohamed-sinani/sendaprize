@@ -1,25 +1,25 @@
 /* sendaprize — story dashboard */
 
 const THEME_LABEL = {
-  rose: 'Rose 🌹', blush: 'Blush 🩷', plum: 'Plum 🍇', coral: 'Coral 🍊',
-  gold: 'Gold ✨', berry: 'Berry 🫐', candy: 'Candy 🍬', midnight: 'Midnight 🌙',
+  rose: 'Rose', blush: 'Blush', plum: 'Plum', coral: 'Coral',
+  gold: 'Gold', berry: 'Berry', candy: 'Candy', midnight: 'Midnight',
 };
 
 const EVENT_LABEL = {
-  USER_CREATED: ['👤', 'created a user account'],
-  LOGIN: ['🔑', 'signed in'],
-  SURPRISE_CREATED: ['🎁', 'created a surprise'],
-  SURPRISE_VIEWED: ['👀', 'viewed a surprise'],
-  SURPRISE_OPENED: ['📦', 'opened a surprise'],
-  SURPRISE_SHARED: ['📤', 'shared a surprise'],
-  SURPRISE_REACTED: ['💖', 'reacted to a surprise'],
-  MESSAGE_UPDATED: ['✏️', 'updated a message'],
-  IMAGE_ADDED: ['🖼️', 'added an image'],
-  VOICE_ADDED: ['🎙️', 'added a voice note'],
-  PASSWORD_CREATED: ['🔒', 'added a password'],
-  QR_GENERATED: ['🔳', 'generated a QR code'],
-  THEME_CHANGED: ['🎨', 'changed a theme'],
-  HEARTBEAT: ['💓', 'heartbeat report'],
+  USER_CREATED: ['user', 'created a user account'],
+  LOGIN: ['log-in', 'signed in'],
+  SURPRISE_CREATED: ['gift', 'created a surprise'],
+  SURPRISE_VIEWED: ['eye', 'viewed a surprise'],
+  SURPRISE_OPENED: ['package-open', 'opened a surprise'],
+  SURPRISE_SHARED: ['share-2', 'shared a surprise'],
+  SURPRISE_REACTED: ['heart', 'reacted to a surprise'],
+  MESSAGE_UPDATED: ['pen-line', 'updated a message'],
+  IMAGE_ADDED: ['image', 'added an image'],
+  VOICE_ADDED: ['mic', 'added a voice note'],
+  PASSWORD_CREATED: ['lock', 'added a password'],
+  QR_GENERATED: ['qr-code', 'generated a QR code'],
+  THEME_CHANGED: ['palette', 'changed a theme'],
+  HEARTBEAT: ['heart-pulse', 'heartbeat report'],
 };
 
 async function load() {
@@ -89,11 +89,11 @@ function renderEvents(events) {
   }
   wrap.innerHTML = events
     .map((e) => {
-      const meta = EVENT_LABEL[e.type] || ['📌', e.type.toLowerCase().replace(/_/g, ' ')];
+      const meta = EVENT_LABEL[e.type] || ['radio', e.type.toLowerCase().replace(/_/g, ' ')];
       const isSystem = e.type === 'HEARTBEAT' || e.user === 'system';
       return `
       <div class="event-item ${isSystem ? 'system' : ''}">
-        <span class="e-emoji">${meta[0]}</span>
+        <span class="e-ico"><i data-lucide="${meta[0]}"></i></span>
         <div class="e-msg">
           <b>${e.user === 'system' ? 'system' : e.user}</b> ${meta[1]}
           ${e.target ? `<span class="muted">${e.target}</span>` : ''}
@@ -102,6 +102,7 @@ function renderEvents(events) {
       </div>`;
     })
     .join('');
+  refreshIcons();
 }
 
 function renderCommits(commits) {
@@ -139,14 +140,16 @@ $('#heartbeatBtn').addEventListener('click', async (e) => {
   try {
     const r = await api('/api/heartbeat', { method: 'POST' });
     $('#heartbeatPreview').textContent = r.report;
-    toast('Heartbeat committed to the story 💓');
+    toast('Heartbeat committed to the story');
     load();
   } catch (err) {
     toast(err.message);
   } finally {
     btn.disabled = false;
-    btn.innerHTML = '💓 Write heartbeat now';
+    btn.innerHTML = '<i data-lucide="heart-pulse"></i> Write heartbeat now';
+    refreshIcons();
   }
 });
 
 load();
+refreshIcons();
