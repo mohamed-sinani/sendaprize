@@ -46,25 +46,46 @@
           </div>
         </div>
         <div class="hero-stage reveal in d4">
-          <div class="gift-stage">
-            <div class="gift float pulse">
-              <div class="sparkles">
-                <i></i><i></i><i></i><i></i><i></i><i></i>
+          <div class="phone-demo">
+            <div class="phone">
+              <span class="side sb1"></span><span class="side sb2"></span><span class="side sb3"></span>
+              <div class="phone__screen">
+                <div class="phone-status">
+                  <span>9:41</span>
+                  <span class="phone-status__icons"><i></i><i></i><i></i></span>
+                </div>
+
+                <div class="demo-box">
+                  <div class="gift-stage">
+                    <div class="gift pulse" id="phoneGift">
+                      <div class="sparkles"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+                      <div class="shade"></div>
+                      <div class="lid">
+                        <div class="face l-top"></div><div class="face l-bottom"></div>
+                        <div class="face l-left"></div><div class="face l-right"></div>
+                        <div class="face l-front"></div><div class="face l-back"></div>
+                        <div class="bow"><div class="knot"></div></div>
+                      </div>
+                      <div class="cube">
+                        <div class="face f-front"></div><div class="face f-back"></div>
+                        <div class="face f-left"></div><div class="face f-right"></div>
+                        <div class="face f-top"></div><div class="face f-bottom"></div>
+                        <div class="ribbon r-h"></div><div class="ribbon r-v"></div>
+                      </div>
+                      <div class="burst"><i style="--dx:-70px;--dy:-90px"></i><i style="--dx:70px;--dy:-90px"></i><i style="--dx:0;--dy:-120px"></i><i style="--dx:-110px;--dy:-40px"></i><i style="--dx:110px;--dy:-40px"></i><i style="--dx:-40px;--dy:-130px"></i><i style="--dx:40px;--dy:-130px"></i></div>
+                      <div class="beam"></div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="demo-caption"><span class="demo-chip"><i data-lucide="sparkles"></i> A surprise is waiting</span></div>
+
+                <div class="demo-reveal" id="phoneReveal">
+                  <div class="demo-reveal__icon"><i data-lucide="heart"></i></div>
+                  <b>You have a surprise!</b>
+                  <span>for you, from someone who loves you</span>
+                </div>
               </div>
-              <div class="shade"></div>
-              <div class="lid">
-                <div class="face l-top"></div><div class="face l-bottom"></div>
-                <div class="face l-left"></div><div class="face l-right"></div>
-                <div class="face l-front"></div><div class="face l-back"></div>
-                <div class="bow"><div class="knot"></div></div>
-              </div>
-              <div class="cube">
-                <div class="face f-front"></div><div class="face f-back"></div>
-                <div class="face f-left"></div><div class="face f-right"></div>
-                <div class="face f-top"></div><div class="face f-bottom"></div>
-                <div class="ribbon r-h"></div><div class="ribbon r-v"></div>
-              </div>
-              <div class="beam"></div>
             </div>
           </div>
         </div>
@@ -218,6 +239,32 @@
         location.href = '/create';
       });
     });
+
+    /* phone mockup — loops the gift-opening animation */
+    (function demoPhone() {
+      const gift = $('#phoneGift');
+      const reveal = $('#phoneReveal');
+      if (!gift) return;
+
+      const reset = () => {
+        gift.classList.remove('shaking', 'opening', 'float');
+        reveal.classList.remove('show');
+        void gift.offsetWidth;
+        void reveal.offsetWidth;
+        gift.classList.add('pulse');
+      };
+
+      const loop = () => {
+        reset();
+        const openAt = 1600;
+        setTimeout(() => { gift.classList.remove('pulse'); gift.classList.add('shaking'); }, openAt);
+        setTimeout(() => { gift.classList.remove('shaking'); gift.classList.add('opening'); }, openAt + 520);
+        setTimeout(() => reveal.classList.add('show'), openAt + 920);
+        setTimeout(loop, openAt + 920 + 3400);
+      };
+
+      loop();
+    })();
   </script>
 </body>
 </html>
