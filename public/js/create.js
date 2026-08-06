@@ -1,15 +1,15 @@
 /* sendaprize — create wizard */
 
 const TYPES = {
-  love: { emoji: '❤️', label: 'Love letter' },
-  birthday: { emoji: '🎂', label: 'Birthday' },
-  graduation: { emoji: '🎓', label: 'Graduation' },
-  congrats: { emoji: '🎉', label: 'Congratulations' },
-  anonymous: { emoji: '🤫', label: 'Anonymous message' },
-  proposal: { emoji: '💍', label: 'Proposal' },
-  baby: { emoji: '👶', label: 'Baby announcement' },
-  thankyou: { emoji: '🙏', label: 'Thank you' },
-  openwhen: { emoji: '📝', label: 'Open when…' },
+  love: { icon: 'heart', label: 'Love letter' },
+  birthday: { icon: 'cake', label: 'Birthday' },
+  graduation: { icon: 'graduation-cap', label: 'Graduation' },
+  congrats: { icon: 'party-popper', label: 'Congratulations' },
+  anonymous: { icon: 'message-circle', label: 'Anonymous message' },
+  proposal: { icon: 'gem', label: 'Proposal' },
+  baby: { icon: 'baby', label: 'Baby announcement' },
+  thankyou: { icon: 'heart-handshake', label: 'Thank you' },
+  openwhen: { icon: 'mail-open', label: 'Open when…' },
 };
 
 const THEMES = {
@@ -24,10 +24,10 @@ const THEMES = {
 };
 
 const ANIMS = [
-  { key: 'giftbox', label: '🎁 Gift box' },
-  { key: 'confetti', label: '🎊 Confetti' },
-  { key: 'hearts', label: '💞 Hearts' },
-  { key: 'sparkles', label: '✨ Sparkles' },
+  { key: 'giftbox', label: 'Gift box', icon: 'gift' },
+  { key: 'confetti', label: 'Confetti', icon: 'party-popper' },
+  { key: 'hearts', label: 'Hearts', icon: 'heart' },
+  { key: 'sparkles', label: 'Sparkles', icon: 'sparkles' },
 ];
 
 const draft = {
@@ -55,7 +55,8 @@ function renderTypes() {
     .map(
       ([k, t]) => `
       <div class="type-card ${draft.type === k ? 'sel' : ''}" data-key="${k}">
-        <span class="emoji">${t.emoji}</span><h4>${t.label}</h4>
+        <span class="t-ico"><i data-lucide="${t.icon}"></i></span>
+        <h4>${t.label}</h4>
       </div>`
     )
     .join('');
@@ -66,6 +67,7 @@ function renderTypes() {
       updatePreview();
     })
   );
+  refreshIcons();
 }
 
 function renderThemes() {
@@ -86,7 +88,10 @@ function renderThemes() {
 
 function renderAnims() {
   $('#animPick').innerHTML = ANIMS.map(
-    (a) => `<div class="anim-opt ${draft.animation === a.key ? 'sel' : ''}" data-key="${a.key}">${a.label}</div>`
+    (a) => `
+    <div class="anim-opt ${draft.animation === a.key ? 'sel' : ''}" data-key="${a.key}">
+      <i data-lucide="${a.icon}"></i> ${a.label}
+    </div>`
   ).join('');
   $$('#animPick .anim-opt').forEach((d) =>
     d.addEventListener('click', () => {
@@ -94,18 +99,19 @@ function renderAnims() {
       $$('#animPick .anim-opt').forEach((x) => x.classList.toggle('sel', x === d));
     })
   );
+  refreshIcons();
 }
 
 function updatePreview() {
-  $('#pvType').textContent = `${TYPES[draft.type].emoji} ${TYPES[draft.type].label}`;
+  $('#pvType').textContent = TYPES[draft.type].label;
   $('#pvTitle').textContent = draft.title || 'Your surprise preview';
   $('#pvFrom').textContent = `from ${draft.from || 'someone who loves you'}`;
   const badges = [];
-  if (draft.password) badges.push('🔒 Password protected');
-  if (draft.openAt) badges.push('⏳ Countdown');
-  if (draft.images.length) badges.push('🖼️ Photos');
-  if (draft.voiceBlob) badges.push('🎙️ Voice note');
-  if (draft.music) badges.push('🎵 Music');
+  if (draft.password) badges.push('Password protected');
+  if (draft.openAt) badges.push('Countdown');
+  if (draft.images.length) badges.push('Photos');
+  if (draft.voiceBlob) badges.push('Voice note');
+  if (draft.music) badges.push('Music');
   const el = $('#pvBadges');
   if (badges.length) { el.style.display = 'inline-flex'; el.textContent = badges.join(' · '); }
   else el.style.display = 'none';
@@ -130,14 +136,15 @@ function showStep(n) {
 
   const last = n === TOTAL_STEPS;
   const success = n === TOTAL_STEPS + 1;
-  $('#btnNext').textContent = last ? '✨ Create surprise' : 'Continue →';
+  $('#btnNext').innerHTML = last ? '<i data-lucide="sparkles"></i> Create surprise' : 'Continue <i data-lucide="arrow-right"></i>';
+  refreshIcons();
   $('#btnBack').style.visibility = n === 1 || success ? 'hidden' : 'visible';
   $('#wizActions').style.display = success ? 'none' : '';
 }
 
 function validateStep(n) {
   if (n === 3) {
-    if (!$('#fMessage').value.trim()) { toast('Write a message to put inside the gift 💌'); return false; }
+    if (!$('#fMessage').value.trim()) { toast('Write a message to put inside the gift'); return false; }
     if (!$('#fTitle').value.trim()) { toast('Give your surprise a title'); return false; }
   }
   return true;
@@ -179,7 +186,7 @@ function renderThumbs() {
       (img, i) => `
       <div class="th">
         <img src="${img.dataUrl}" />
-        <button class="x" data-i="${i}">✕</button>
+        <button class="x" data-i="${i}"><i data-lucide="x"></i></button>
       </div>`
     )
     .join('');
@@ -190,6 +197,7 @@ function renderThumbs() {
       updatePreview();
     })
   );
+  refreshIcons();
 }
 
 function compressImage(file) {
@@ -233,7 +241,8 @@ function setupVoice() {
       zone.classList.remove('sel');
       $('#voiceLabel').textContent = 'Record a voice note';
       $('#voiceNote').textContent = 'Tap to record, tap again to stop';
-      $('#micIcon').textContent = '🎙️';
+      $('#micIcon').innerHTML = '<i data-lucide="mic"></i>';
+      refreshIcons();
       return;
     }
     navigator.mediaDevices
@@ -250,9 +259,10 @@ function setupVoice() {
             draft.voice = fr.result.split(',')[1];
             draft.voiceBlob = blob;
             zone.classList.add('sel');
-            $('#voiceLabel').textContent = '✅ Voice note recorded';
+            $('#voiceLabel').textContent = 'Voice note recorded';
             $('#voiceNote').textContent = 'Tap again to remove it';
-            $('#micIcon').textContent = '🔊';
+            $('#micIcon').innerHTML = '<i data-lucide="volume-2"></i>';
+            refreshIcons();
             updatePreview();
           };
           fr.readAsDataURL(blob);
@@ -260,9 +270,10 @@ function setupVoice() {
           stream.getTracks().forEach((t) => t.stop());
         };
         recorder.start();
-        $('#voiceLabel').textContent = '🔴 Recording…';
+        $('#voiceLabel').textContent = 'Recording…';
         $('#voiceNote').textContent = 'Tap to stop';
-        $('#micIcon').textContent = '🎙️';
+        $('#micIcon').innerHTML = '<i data-lucide="mic"></i>';
+        refreshIcons();
       })
       .catch(() => toast('Microphone access was blocked'));
   });
@@ -317,7 +328,8 @@ async function createSurprise() {
   } catch (e) {
     toast(e.message);
     btn.disabled = false;
-    btn.textContent = '✨ Create surprise';
+    btn.innerHTML = '<i data-lucide="sparkles"></i> Create surprise';
+    refreshIcons();
   }
 }
 
@@ -330,7 +342,7 @@ function showSuccess(code, qrUrl) {
   startHeartRain(10);
   $('#copyLinkBtn').addEventListener('click', () => copyText(link, 'Link copied!'));
   $('#shareWa').addEventListener('click', () => {
-    const text = `You have a surprise waiting for you 💖 ${link}`;
+    const text = `You have a surprise waiting for you ${link}`;
     window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, '_blank');
   });
 }
@@ -343,6 +355,7 @@ setupFields();
 setupImages();
 setupVoice();
 updatePreview();
+refreshIcons();
 showStep(1);
 
 $('#btnBack').addEventListener('click', () => showStep(step - 1));
