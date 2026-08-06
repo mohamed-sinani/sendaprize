@@ -2,3 +2,4 @@
 {"type":"SURPRISE_CREATED","id":"event_e53675e9a96a","user":"user_001","target":"vUAIsR","time":"2026-08-06T19:13:19.115Z"}
 {"id":"event_ff6b2295ffd3","type":"QR_GENERATED","user":"user_001","target":"vUAIsR","time":"2026-08-06T19:13:22.372Z"}
 {"id":"event_588adbdd737f","type":"SURPRISE_VIEWED","user":"anonymous","target":"vUAIsR","time":"2026-08-06T19:13:38.979Z"}
+{"id":"event_fdc7ebd86258","type":"SURPRISE_OPENED","user":"anonymous","target":"vUAIsR","time":"2026-08-06T19:13:50.107Z"}
