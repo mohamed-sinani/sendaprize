@@ -176,3 +176,31 @@ function timeAgo(iso) {
   if (s < 86400) return `${Math.floor(s / 3600)}h ago`;
   return `${Math.floor(s / 86400)}d ago`;
 }
+
+/* hamburger menu — tablet + mobile */
+function initNav() {
+  const nav = document.querySelector('.nav');
+  const burger = nav && document.querySelector('.nav__burger');
+  if (!nav || !burger) return;
+
+  const setOpen = (open) => {
+    nav.classList.toggle('open', open);
+    burger.setAttribute('aria-expanded', String(open));
+  };
+
+  burger.addEventListener('click', () => setOpen(!nav.classList.contains('open')));
+
+  nav.querySelectorAll('.nav__links a').forEach((a) =>
+    a.addEventListener('click', () => setOpen(false))
+  );
+
+  document.addEventListener('click', (e) => {
+    if (nav.classList.contains('open') && !nav.contains(e.target)) setOpen(false);
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && nav.classList.contains('open')) setOpen(false);
+  });
+}
+
+document.addEventListener('DOMContentLoaded', initNav);
