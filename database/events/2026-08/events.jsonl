@@ -53,4 +53,4 @@
 {"id":"event_ba90556173f8","type":"QR_GENERATED","user":"user_001","target":"me41Ns","time":"2026-08-06T23:22:43.871Z"}
 {"type":"SURPRISE_CREATED","id":"event_48704ff97e99","user":"user_001","target":"GjVPVB","time":"2026-08-06T23:40:43.802Z"}
 {"id":"event_dea2bacf9f05","type":"QR_GENERATED","user":"user_001","target":"GjVPVB","time":"2026-08-06T23:40:47.084Z"}
-{"id":"event_1086be9c8880","type":"SURPRISE_VIEWED","user":"anonymous","target":"GjVPVB","time":"2026-08-06T23:41:40.329Z"}
+{"id":"event_3a0407261980","type":"SURPRISE_OPENED","user":"anonymous","target":"GjVPVB","time":"2026-08-06T23:41:40.331Z"}
