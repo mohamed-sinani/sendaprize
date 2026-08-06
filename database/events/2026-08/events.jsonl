@@ -1,1 +1,2 @@
 {"id":"event_c23d4c0b2cfd","type":"USER_CREATED","user":"user_001","target":null,"time":"2026-08-06T19:13:14.307Z"}
+{"type":"SURPRISE_CREATED","id":"event_e53675e9a96a","user":"user_001","target":"vUAIsR","time":"2026-08-06T19:13:19.115Z"}
