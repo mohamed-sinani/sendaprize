@@ -182,7 +182,7 @@ body.page-shake { animation: shake-page 0.75s cubic-bezier(0.36, 0.07, 0.19, 0.9
     radial-gradient(100% 80% at 80% 100%, rgba(255, 95, 143, 0.14), transparent 60%),
     var(--black);
   opacity: 0; pointer-events: none;
-  transition: opacity 0.9s var(--ease), transform 0.9s var(--ease);
+  transition: opacity 0.65s var(--ease), transform 0.65s var(--ease);
 }
 .reveal-screen:not(.show) { transform: scale(0.985); }
 .reveal-screen.show { opacity: 1; pointer-events: auto; transform: none; }

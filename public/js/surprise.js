@@ -109,19 +109,30 @@ function showPassword() {
 }
 
 async function openBox(password) {
-  try {
-    const data = await api(`/api/surprise/${code}/open`, { method: 'POST', body: { password } });
-    $('#pwOverlay').style.display = 'none';
-    animateOpen();
-  } catch (e) {
-    if (e.status === 403) {
-      toast('Incorrect password, the box stays sealed');
-    } else if (e.status === 423) {
-      toast('Not yet, the countdown is still ticking');
-    } else {
-      toast(e.message);
+  if (state.requiresPassword) {
+    try {
+      const data = await api(`/api/surprise/${code}/open`, { method: 'POST', body: { password } });
+      $('#pwOverlay').style.display = 'none';
+      animateOpen();
+    } catch (e) {
+      if (e.status === 403) {
+        toast('Incorrect password, the box stays sealed');
+      } else if (e.status === 423) {
+        toast('Not yet, the countdown is still ticking');
+      } else {
+        toast(e.message);
+      }
     }
+    return;
   }
+
+  /* fire the open request in parallel so the box starts moving right away */
+  $('#pwOverlay').style.display = 'none';
+  animateOpen();
+  api(`/api/surprise/${code}/open`, { method: 'POST', body: { password } }).catch((e) => {
+    if (e.status === 423) toast('Not yet, the countdown is still ticking');
+    else if (e.status) toast(e.message);
+  });
 }
 
 function animateOpen() {
@@ -137,7 +148,7 @@ function animateOpen() {
   setTimeout(() => {
     $('#lock').style.display = 'none';
     showReveal();
-  }, 1450);
+  }, 1350);
 }
 
 function showReveal() {
