@@ -371,6 +371,9 @@ footer .row { display: flex; flex-wrap: wrap; gap: 18px; align-items: center; ju
 @media (max-width: 600px) {
   .feature-grid, .type-grid { grid-template-columns: 1fr; }
   .steps { grid-template-columns: 1fr; }
+  .step { text-align: center; }
+  .step .n { display: block; }
+  .step p { margin: 0 auto; max-width: 340px; }
   .hero { padding-top: 56px; }
   .hero-stage .gift-stage { transform: scale(0.62); }
   .section { padding: 60px 0; }
