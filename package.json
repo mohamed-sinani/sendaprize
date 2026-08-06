@@ -1,0 +1,17 @@
+{
+  "name": "sendaprize",
+  "version": "1.0.0",
+  "description": "SendAPrize — send a surprise. GitHub is the database. Every interaction becomes a commit.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2"
+  }
+}

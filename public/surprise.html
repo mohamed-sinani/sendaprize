@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>A surprise is waiting for you 💖</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/styles.css" />
+  <link rel="stylesheet" href="/css/experience.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💖</text></svg>" />
+</head>
+<body>
+
+  <div class="experience">
+    <div class="experience__top">
+      <a class="logo" href="/"><span class="dot"></span> send<span class="grad">aprize</span></a>
+    </div>
+
+    <main class="experience__main">
+
+      <!-- loading -->
+      <div id="loading" class="center">
+        <span class="spinner"></span>
+        <p class="muted" style="margin-top:14px">Finding your surprise…</p>
+      </div>
+
+      <!-- lock screen -->
+      <div id="lock" style="display:none">
+        <div class="gift-stage">
+          <div class="gift float pulse" id="giftBox">
+            <div class="sparkles"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+            <div class="shade"></div>
+            <div class="lid">
+              <div class="face l-top"></div><div class="face l-bottom"></div>
+              <div class="face l-left"></div><div class="face l-right"></div>
+              <div class="face l-front"></div><div class="face l-back"></div>
+              <div class="bow"><div class="knot"></div></div>
+            </div>
+            <div class="cube">
+              <div class="face f-front"></div><div class="face f-back"></div>
+              <div class="face f-left"></div><div class="face f-right"></div>
+              <div class="face f-top"></div><div class="face f-bottom"></div>
+              <div class="ribbon r-h"></div><div class="ribbon r-v"></div>
+            </div>
+            <div class="burst"><i style="--dx:-70px;--dy:-90px"></i><i style="--dx:70px;--dy:-90px"></i><i style="--dx:0;--dy:-120px"></i><i style="--dx:-110px;--dy:-40px"></i><i style="--dx:110px;--dy:-40px"></i><i style="--dx:-40px;--dy:-130px"></i><i style="--dx:40px;--dy:-130px"></i></div>
+          </div>
+        </div>
+        <h1 class="lock-title" id="lockTitle">You have a surprise! 💝</h1>
+        <p class="lock-sub" id="lockSub">Someone wrapped something special just for you.</p>
+        <button class="btn btn-primary btn-lg lock-btn" id="openBtn">🎁 Open your gift</button>
+        <p class="lock-hint">Every moment of this surprise is part of its living story</p>
+      </div>
+
+      <!-- password overlay -->
+      <div id="pwOverlay" style="display:none">
+        <div class="overlay-card">
+          <div style="font-size:2.4rem">🔒</div>
+          <h2 style="margin:12px 0 6px">This box is sealed</h2>
+          <p class="muted small">Enter the secret to open it.</p>
+          <input class="input" id="pwInput" type="password" placeholder="Secret password" style="margin:18px 0 14px; text-align:center" />
+          <button class="btn btn-primary btn-block" id="pwSubmit">Open the box</button>
+          <button class="btn btn-ghost btn-block" id="pwCancel" style="margin-top:10px">Never mind</button>
+        </div>
+      </div>
+
+      <!-- countdown overlay -->
+      <div id="countdown" style="display:none">
+        <div class="overlay-card">
+          <div style="font-size:2.4rem">⏳</div>
+          <h2 style="margin:12px 0 6px">Almost ready…</h2>
+          <p class="muted small">This surprise opens at the perfect moment.</p>
+          <div class="countdown-grid">
+            <div class="cd-box"><b id="cdD">0</b><span>days</span></div>
+            <div class="cd-box"><b id="cdH">0</b><span>hours</span></div>
+            <div class="cd-box"><b id="cdM">0</b><span>mins</span></div>
+            <div class="cd-box"><b id="cdS">0</b><span>secs</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- not found -->
+      <div id="notfound" style="display:none">
+        <div style="font-size:4rem">🫧</div>
+        <h1 style="margin:16px 0 8px">This surprise has gone</h1>
+        <p class="muted" style="max-width:380px;margin:0 auto 24px">
+          The link may have expired or was never opened. Ask the sender for a fresh one.
+        </p>
+        <a class="btn btn-primary" href="/">Create your own surprise</a>
+      </div>
+
+    </main>
+  </div>
+
+  <!-- reveal screen -->
+  <div class="reveal-screen" id="reveal">
+    <div class="reveal-inner">
+      <div class="reveal-type" id="rType">💖</div>
+      <h1 class="reveal-title" id="rTitle"></h1>
+      <p class="reveal-from" id="rFrom"></p>
+      <div class="letter">
+        <div class="message" id="rMessage"></div>
+        <div class="sign" id="rSign"></div>
+      </div>
+      <div class="reveal-media" id="rMedia"></div>
+      <div class="reactions" id="rReactions"></div>
+      <p class="muted small" style="margin-top:14px">React to show them you felt it</p>
+      <div class="share-row">
+        <button class="share-btn wa" data-ch="whatsapp">WhatsApp</button>
+        <button class="share-btn x" data-ch="x">Post on X</button>
+        <button class="share-btn tg" data-ch="telegram">Telegram</button>
+        <button class="share-btn cp" data-ch="link">Copy link</button>
+      </div>
+      <div class="counts">
+        <div class="c"><b id="ctViews">0</b><span>views</span></div>
+        <div class="c"><b id="ctOpens">0</b><span>opens</span></div>
+        <div class="c"><b id="ctShares">0</b><span>shares</span></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/js/app.js"></script>
+  <script src="/js/surprise.js"></script>
+</body>
+</html>
