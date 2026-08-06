@@ -56,6 +56,7 @@ function renderLock() {
   }
 
   $('#openBtn').addEventListener('click', () => {
+    shakePage();
     if (state.requiresPassword) showPassword();
     else openBox();
   });
@@ -150,6 +151,27 @@ function showReveal() {
 
   refreshIcons();
   runAnimation(state.animation);
+  revealFlourish(state.type);
+}
+
+// Petal colors by surprise type — each occasion feels like its own garden.
+const PETAL_PALETTES = {
+  love: ['#ff5f8f', '#ff2d78', '#ff9ec2', '#ffd3e4', '#ffffff'],
+  birthday: ['#ff9ec2', '#ffd9a0', '#7ce7ff', '#c3b6ff', '#ff2d78'],
+  graduation: ['#ffd9a0', '#c3b6ff', '#ff9ec2', '#ffffff', '#7ce7ff'],
+  congrats: ['#ffd9a0', '#7ce7ff', '#ff9ec2', '#ff2d78', '#ffffff'],
+  proposal: ['#ffd3e4', '#ffffff', '#ff9ec2', '#ff5f8f', '#ff2d78'],
+  baby: ['#ffd3e4', '#e7f3ff', '#c9f2e0', '#ffe9c9', '#ffffff'],
+  anonymous: ['#c3b6ff', '#7ce7ff', '#ff9ec2', '#ffffff', '#ffd9a0'],
+  thankyou: ['#ff9ec2', '#ffd9a0', '#ffffff', '#ffd3e4', '#ff5f8f'],
+  openwhen: ['#ffd3e4', '#e7f3ff', '#ffffff', '#c3b6ff', '#ff9ec2'],
+};
+
+function revealFlourish(type) {
+  const colors = PETAL_PALETTES[type] || PETAL_PALETTES.love;
+  const celebration = ['birthday', 'congrats', 'graduation'].includes(type);
+  startPetals({ colors, count: celebration ? 36 : 26, duration: 12000 });
+  if (celebration) setTimeout(() => burstConfetti(null, 200), 350);
 }
 
 const THEME_STOPS = {
