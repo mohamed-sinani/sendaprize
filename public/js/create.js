@@ -138,7 +138,7 @@ function showStep(n) {
   const success = n === TOTAL_STEPS + 1;
   $('#btnNext').innerHTML = last ? '<i data-lucide="sparkles"></i> Create surprise' : 'Continue <i data-lucide="arrow-right"></i>';
   refreshIcons();
-  $('#btnBack').style.visibility = n === 1 || success ? 'hidden' : 'visible';
+  $('#btnBack').style.display = n === 1 || success ? 'none' : '';
   $('#wizActions').style.display = success ? 'none' : '';
 }
 

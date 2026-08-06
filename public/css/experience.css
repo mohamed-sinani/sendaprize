@@ -480,8 +480,8 @@ body.page-shake { animation: shake-page 0.75s cubic-bezier(0.36, 0.07, 0.19, 0.9
   .fields-2 { grid-template-columns: 1fr; gap: 14px; }
   .wizard-step h2 { font-size: 1.45rem; }
   .wizard-step .hint { margin-bottom: 20px; }
-  .wizard-actions { flex-direction: column; gap: 10px; }
-  .wizard-actions .btn { width: 100%; justify-content: center; padding: 15px 20px; }
+  .wizard-actions { flex-direction: row; gap: 10px; }
+  .wizard-actions .btn { flex: 1; justify-content: center; padding: 15px 20px; }
   .media-zone { padding: 26px 14px; }
   .link-copy { flex-direction: column; }
   .link-copy input { width: 100%; }
