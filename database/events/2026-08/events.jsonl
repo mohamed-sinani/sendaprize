@@ -67,4 +67,4 @@
 {"id":"event_bc188b3b3b6d","type":"USER_CREATED","user":"user_002","target":null,"time":"2026-08-07T11:38:21.561Z"}
 {"type":"SURPRISE_CREATED","id":"event_f8659413291d","user":"user_002","target":"Qohkbc","time":"2026-08-07T11:38:25.003Z"}
 {"id":"event_0fe283a8f941","type":"QR_GENERATED","user":"user_002","target":"Qohkbc","time":"2026-08-07T11:38:27.384Z"}
-{"id":"event_5921d6234430","type":"SURPRISE_VIEWED","user":"anonymous","target":"Qohkbc","time":"2026-08-07T11:38:37.701Z"}
+{"id":"event_e96aed23796f","type":"SURPRISE_OPENED","user":"anonymous","target":"Qohkbc","time":"2026-08-07T11:38:39.694Z"}
