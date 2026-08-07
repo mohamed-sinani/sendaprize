@@ -121,7 +121,7 @@ async function openBox(password) {
       animateOpen();
     } catch (e) {
       if (e.status === 403) {
-        toast('Incorrect secret word, the letter stays sealed');
+        toast('Incorrect secret word, the surprise stays sealed');
       } else if (e.status === 423) {
         toast('Not yet, the moment has not arrived');
       } else {
@@ -159,8 +159,8 @@ function animateOpen() {
 function showReveal() {
   const screen = $('#reveal');
   screen.style.background = [
-    'radial-gradient(120% 90% at 50% 0%, rgba(16, 185, 129, 0.24), transparent 60%)',
-    'radial-gradient(100% 80% at 80% 100%, rgba(245, 199, 106, 0.16), transparent 60%)',
+    'radial-gradient(120% 90% at 50% 0%, rgba(255, 45, 120, 0.22), transparent 60%)',
+    'radial-gradient(100% 80% at 80% 100%, rgba(255, 95, 143, 0.14), transparent 60%)',
     '#0a0a0d',
   ].join(', ');
 
