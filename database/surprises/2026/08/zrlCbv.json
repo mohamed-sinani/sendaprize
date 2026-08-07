@@ -1,0 +1,19 @@
+{
+  "id": "zrlCbv",
+  "code": "zrlCbv",
+  "type": "eid",
+  "title": "Eid Mubarak!",
+  "message": "May Allah accept our good deeds.",
+  "from": "Your family",
+  "theme": "emerald",
+  "media": {
+    "images": [],
+    "audio": []
+  },
+  "passwordHash": null,
+  "openAt": null,
+  "creatorId": "anonymous",
+  "status": "published",
+  "created_at": "2026-08-07T20:34:33.617Z",
+  "updated_at": null
+}
