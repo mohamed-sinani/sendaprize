@@ -164,7 +164,7 @@ body.page-shake { animation: shake-page 0.75s cubic-bezier(0.36, 0.07, 0.19, 0.9
   justify-content: center; justify-content: safe center;
   text-align: center; padding: 76px 20px 56px; position: relative;
 }
-.experience__main .gift-stage { transform: scale(0.88); transform-origin: center; }
+.experience__main .gift-stage { transform: scale(0.88); transform-origin: center; height: 282px; }
 .experience__top { position: absolute; top: calc(24px + env(safe-area-inset-top, 0px)); left: 0; right: 0; display: flex; justify-content: center; }
 
 /* lock screen */
@@ -342,7 +342,7 @@ body.page-shake { animation: shake-page 0.75s cubic-bezier(0.36, 0.07, 0.19, 0.9
 .preview-thumbs .th .x { position: absolute; top: 4px; right: 4px; width: 22px; height: 22px; border-radius: 50%; background: rgba(0, 0, 0, 0.7); color: #fff; border: none; cursor: pointer; font-size: 0.7rem; }
 
 .preview-live { display: grid; gap: 24px; grid-template-columns: 1fr 1.3fr; align-items: center; padding: 28px; border-radius: var(--radius); background: rgba(255, 255, 255, 0.03); border: 1px solid var(--stroke); }
-.preview-live .gift-stage { transform: scale(0.66); transform-origin: center; }
+.preview-live .gift-stage { transform: scale(0.66); transform-origin: center; height: 211px; }
 .preview-card { text-align: center; }
 .preview-card h3 { font-size: 1.55rem; }
 .preview-card p { color: var(--ink-dim); }
@@ -482,6 +482,7 @@ body.page-shake { animation: shake-page 0.75s cubic-bezier(0.36, 0.07, 0.19, 0.9
 @media (max-width: 600px) {
   .stat-grid { grid-template-columns: 1fr 1fr; }
   .gift-stage, .experience__main .gift-stage { transform: scale(0.7); }
+  .experience__main .gift-stage, .preview-live .gift-stage { height: 224px; }
   .experience__main { padding: calc(64px + env(safe-area-inset-top, 0px)) 16px calc(48px + env(safe-area-inset-bottom, 0px)); }
   .wizard { padding: 28px 0 72px; }
   .wizard-card { padding: 26px 18px; }
@@ -496,7 +497,6 @@ body.page-shake { animation: shake-page 0.75s cubic-bezier(0.36, 0.07, 0.19, 0.9
   .success-box .actions { display: flex; flex-direction: column; gap: 14px; max-width: 420px; margin: 18px auto 0; }
   .success-box .actions .btn { width: 100%; justify-content: center; }
   .preview-live { padding: 20px 14px; }
-  .preview-live .gift-stage { margin-bottom: -109px; }
   .overlay-card { padding: 28px 22px; }
   .letter { padding: 26px 22px 30px; }
   .share-row { display: grid; grid-template-columns: 1fr 1fr; }
