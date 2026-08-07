@@ -458,6 +458,25 @@
     if (typeof refreshIcons === 'function') refreshIcons();
   }
 
+  /* Browser-only: a compact, curated preview grid (landing page).
+     Shows only `keys`, with an optional "see all" CTA. */
+  function featuredGrid(el, opts) {
+    opts = opts || {};
+    var items = (opts.keys || []).map(function (k) { return byKey[k]; }).filter(Boolean);
+    var html = '<div class="grid type-grid">' + items.map(function (o) { return cardHTML(o, null); }).join('') + '</div>';
+    if (opts.seeAll) {
+      html += '<div class="occ-more"><a class="btn btn-ghost btn-lg" href="' + opts.seeAll.href + '"><i data-lucide="search"></i> ' +
+        (opts.seeAll.label || 'Browse all occasions') + '</a></div>';
+    }
+    el.innerHTML = html;
+    syncIcons();
+    Array.prototype.forEach.call(el.querySelectorAll('.type-card'), function (c) {
+      c.addEventListener('click', function () {
+        opts.onPick && opts.onPick(c.getAttribute('data-key'));
+      });
+    });
+  }
+
   /* Browser-only: builds the search bar + category chips + grid into `el`. */
   function picker(el, opts) {
     opts = opts || {};
@@ -551,5 +570,5 @@
     renderGrid();
   }
 
-  return { list: REC, byKey: byKey, cats: CATS, months: MONTHS, themes: THEMES, themeHint: themeHint, dateLabel: dateLabel, filter: filter, cardHTML: cardHTML, picker: picker, iconName: iconName };
+  return { list: REC, byKey: byKey, cats: CATS, months: MONTHS, themes: THEMES, themeHint: themeHint, dateLabel: dateLabel, filter: filter, cardHTML: cardHTML, picker: picker, iconName: iconName, featuredGrid: featuredGrid };
 });

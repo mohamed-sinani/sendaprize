@@ -154,7 +154,7 @@
       <div class="section-head">
         <span class="chip">Occasions</span>
         <h2>Made for the ones you love</h2>
-        <p class="muted">Tanzanian holidays, Islamic days and 150+ world days — search or browse, then tap one to start.</p>
+        <p class="muted">A taste of the moments made for them. Explore every occasion when you create.</p>
       </div>
       <div id="occasionsPicker"></div>
     </section>
@@ -221,11 +221,13 @@
   <script>
     refreshIcons();
     revealOnScroll();
-    OCCASIONS.picker($('#occasionsPicker'), {
+    OCCASIONS.featuredGrid($('#occasionsPicker'), {
+      keys: ['spouse', 'parents', 'friend', 'baby', 'nikah', 'graduation', 'eidf', 'eida', 'ramadan', 'maulid', 'nanenane', 'sabasaba'],
       onPick: (key) => {
         localStorage.setItem('ap_type', key);
         location.href = '/create';
       },
+      seeAll: { href: '/create', label: 'Browse all occasions' },
     });
 
     /* phone mockup, loops the letter-opening animation */
