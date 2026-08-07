@@ -138,6 +138,8 @@ function animateOpen() {
   setTimeout(() => {
     box.classList.remove('shaking');
     box.classList.add('opening');
+    burstConfetti(box, 300);
+    setTimeout(() => burstConfetti(box, 200), 250);
   }, 520);
 
   setTimeout(() => {
