@@ -311,7 +311,7 @@ footer {
   padding: 10px 0 16px;
 }
 .hero__copy .chip { margin-bottom: 18px; }
-.hero h1 { font-size: clamp(2.2rem, 4vw, 3.05rem); line-height: 1.15; margin: 0 0 18px; text-wrap: balance; }
+.hero h1 { font-size: clamp(2.2rem, 4.5vw, 3.6rem); line-height: 1.15; margin: 0 0 18px; text-wrap: balance; }
 .hero h1 .grad { display: inline-block; }
 .hero p.lead { font-size: clamp(1rem, 2vw, 1.13rem); color: var(--ink-dim); max-width: 540px; margin: 0 0 28px; line-height: 1.8; }
 .hero .actions { display: flex; gap: 14px; justify-content: flex-start; flex-wrap: wrap; }
