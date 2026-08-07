@@ -159,7 +159,6 @@ function showReveal() {
   $('#rType').innerHTML = `<i data-lucide="${OCCASIONS.iconName(OCCASIONS.byKey[state.type])}"></i>`;
   refreshIcons();
   $('#rTitle').textContent = state.title;
-  $('#rFrom').textContent = `for you, from ${state.from}`;
   $('#rMessage').textContent = state.message;
   $('#rSign').textContent = `${state.from}`;
 
