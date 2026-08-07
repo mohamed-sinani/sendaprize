@@ -9,7 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/css/styles.css" />
   <link rel="stylesheet" href="/css/experience.css" />
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23ff2d78'><path d='M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z'/></svg>" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2310b981'><path d='M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z'/></svg>" />
 </head>
 <body>
 
@@ -18,7 +18,7 @@
       <a class="logo" href="/"><span class="dot"></span> Send<span class="grad">Aprize</span></a>
       <div class="nav__links">
         <a href="/">Home</a>
-        <a class="btn btn-primary" href="/create">Create a surprise</a>
+        <a class="btn btn-primary" href="/create">Write a letter</a>
       </div>
       <button class="nav__burger" aria-label="Toggle menu" aria-expanded="false">
         <i data-lucide="menu"></i>
@@ -33,7 +33,7 @@
       <div class="admin-title">
         <span class="chip"><i data-lucide="scroll-text"></i> Story dashboard</span>
         <h1>The living story of <span class="grad">sendaprize</span></h1>
-        <p class="muted">Every interaction below is a real event recorded in our GitHub history.</p>
+        <p class="muted">Every letter and interaction below is a real event recorded in our versioned history.</p>
       </div>
       <span class="mode-pill preview" id="modePill"><i></i><span>connecting…</span></span>
     </header>
@@ -45,7 +45,7 @@
       </div>
       <div class="grid stat-grid">
         <div class="stat reveal"><div class="ico"><i data-lucide="user"></i></div><b id="stUsers">–</b><span>users</span></div>
-        <div class="stat reveal d1"><div class="ico"><i data-lucide="gift"></i></div><b id="stSurprises">–</b><span>surprises</span></div>
+        <div class="stat reveal d1"><div class="ico"><i data-lucide="mail-open"></i></div><b id="stSurprises">–</b><span>letters</span></div>
         <div class="stat reveal d2"><div class="ico"><i data-lucide="eye"></i></div><b id="stViews">–</b><span>views</span></div>
         <div class="stat reveal d3"><div class="ico"><i data-lucide="package-open"></i></div><b id="stOpens">–</b><span>opens</span></div>
         <div class="stat reveal"><div class="ico"><i data-lucide="heart"></i></div><b id="stReactions">–</b><span>reactions</span></div>
@@ -66,8 +66,8 @@
           <div class="event-feed" id="eventFeed"></div>
         </div>
         <div class="panel reveal d1">
-          <h3><i data-lucide="palette"></i> Most popular themes</h3>
-          <div id="themesChart"></div>
+          <h3><i data-lucide="mail-open"></i> Most popular occasions</h3>
+          <div id="occasionsChart"></div>
         </div>
       </div>
     </section>
@@ -100,7 +100,7 @@
 
         <div class="footer-brand">
           <a class="logo" href="/"><span class="dot"></span> Send<span class="grad">Aprize</span></a>
-          <p>Magical, interactive surprises, messages, photos, voice notes and more, wrapped in a gift that opens like a heart.</p>
+          <p>Open-when letters for your spouse, your parents, your family. Beautiful words, delivered at the right moment.</p>
           <div class="footer-social">
             <a href="#" aria-label="Instagram" rel="noreferrer"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg></a>
             <a href="#" aria-label="Facebook" rel="noreferrer"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
@@ -118,20 +118,19 @@
           <h4>Explore</h4>
           <ul>
             <li><a href="/">Home</a></li>
-            <li><a href="/create">Create a surprise</a></li>
+            <li><a href="/create">Write a letter</a></li>
             <li><a href="/#how">How it works</a></li>
-            <li><a href="/#types">Occasions</a></li>
+            <li><a href="/#occasions">Occasions</a></li>
           </ul>
         </div>
 
         <div class="footer-col">
-          <h4>Occasions</h4>
+          <h4>For the ones you love</h4>
           <ul>
-            <li><a href="/create">Love letters</a></li>
-            <li><a href="/create">Birthdays</a></li>
-            <li><a href="/create">Congratulations</a></li>
-            <li><a href="/create">Proposals</a></li>
-            <li><a href="/create">Thank you</a></li>
+            <li><a href="/create">For my spouse</a></li>
+            <li><a href="/create">For my parents</a></li>
+            <li><a href="/create">Eid Mubarak</a></li>
+            <li><a href="/create">A new beginning</a></li>
           </ul>
         </div>
 

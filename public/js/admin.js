@@ -1,24 +1,29 @@
 /* sendaprize, story dashboard */
 
-const THEME_LABEL = {
-  rose: 'Rose', blush: 'Blush', plum: 'Plum', coral: 'Coral',
-  gold: 'Gold', berry: 'Berry', candy: 'Candy', midnight: 'Midnight',
+const OCCASIONS_LABEL = {
+  spouse: 'For my spouse',
+  parents: 'For my parents',
+  family: 'For my family',
+  friend: 'For a friend',
+  eid: 'Eid Mubarak',
+  nikah: 'A new beginning',
+  baby: 'Our new baby',
+  hifz: 'Quran completed',
 };
 
 const EVENT_LABEL = {
   USER_CREATED: ['user', 'created a user account'],
   LOGIN: ['log-in', 'signed in'],
-  SURPRISE_CREATED: ['gift', 'created a surprise'],
-  SURPRISE_VIEWED: ['eye', 'viewed a surprise'],
-  SURPRISE_OPENED: ['package-open', 'opened a surprise'],
-  SURPRISE_SHARED: ['share-2', 'shared a surprise'],
-  SURPRISE_REACTED: ['heart', 'reacted to a surprise'],
+  SURPRISE_CREATED: ['mail-open', 'sent a letter'],
+  SURPRISE_VIEWED: ['eye', 'viewed a letter'],
+  SURPRISE_OPENED: ['package-open', 'opened a letter'],
+  SURPRISE_SHARED: ['share-2', 'shared a letter'],
+  SURPRISE_REACTED: ['heart', 'reacted to a letter'],
   MESSAGE_UPDATED: ['pen-line', 'updated a message'],
   IMAGE_ADDED: ['image', 'added an image'],
   VOICE_ADDED: ['mic', 'added a voice note'],
-  PASSWORD_CREATED: ['lock', 'added a password'],
+  PASSWORD_CREATED: ['lock', 'added a secret word'],
   QR_GENERATED: ['qr-code', 'generated a QR code'],
-  THEME_CHANGED: ['palette', 'changed a theme'],
   HEARTBEAT: ['heart-pulse', 'heartbeat report'],
 };
 
@@ -26,7 +31,7 @@ async function load() {
   const d = await api('/api/admin/stats');
   renderMode(d);
   renderStats(d);
-  renderThemes(d.themes);
+  renderOccasions(d.occasions);
   renderEvents(d.events);
   renderCommits(d.recentCommits);
   renderHeartbeat(d.heartbeat);
@@ -58,11 +63,11 @@ function renderStats(d) {
   set('#stCommits', d.commits);
 }
 
-function renderThemes(themes) {
-  const wrap = $('#themesChart');
-  const entries = Object.entries(themes).sort((a, b) => b[1] - a[1]).slice(0, 8);
+function renderOccasions(occasions) {
+  const wrap = $('#occasionsChart');
+  const entries = Object.entries(occasions).sort((a, b) => b[1] - a[1]).slice(0, 8);
   if (!entries.length) {
-    wrap.innerHTML = '<p class="muted small">No themes used yet.</p>';
+    wrap.innerHTML = '<p class="muted small">No occasions used yet.</p>';
     return;
   }
   const max = Math.max(...entries.map((e) => e[1]));
@@ -70,7 +75,7 @@ function renderThemes(themes) {
     .map(
       ([k, v]) => `
       <div class="bar-row">
-        <span>${THEME_LABEL[k] || k}</span>
+        <span>${OCCASIONS_LABEL[k] || k}</span>
         <div class="bar"><i style="width:0%" data-w="${(v / max) * 100}%"></i></div>
         <b>${v}</b>
       </div>`
