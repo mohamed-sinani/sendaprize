@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <title>Create a surprise, sendaprize</title>
+  <title>Write an open-when letter, sendaprize</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/css/styles.css" />
   <link rel="stylesheet" href="/css/experience.css" />
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23ff2d78'><path d='M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z'/></svg>" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2310b981'><path d='M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z'/></svg>" />
 </head>
 <body>
 
@@ -25,31 +25,35 @@
 
     <div class="card card--glow wizard-card" id="stepCard">
 
-      <!-- STEP 1 · occasion -->
+      <!-- STEP 1 · who is it for -->
       <div class="wizard-step" data-step="1">
-        <h2>What are we celebrating?</h2>
-        <p class="hint">Pick the occasion, you can personalise everything next.</p>
+        <h2>Who is the letter for?</h2>
+        <p class="hint">Pick the person, you can personalise everything next.</p>
         <div class="grid type-pick" id="typePick"></div>
       </div>
 
-      <!-- STEP 2 · theme + animation -->
+      <!-- STEP 2 · the moment -->
       <div class="wizard-step" data-step="2">
-        <h2>Wrap it beautifully</h2>
-        <p class="hint">Choose the gift-box look and how the surprise opens.</p>
-        <div class="field" style="margin-bottom:24px">
-          <label>Theme</label>
-          <div class="theme-pick" id="themePick"></div>
-        </div>
-        <div class="field">
-          <label>Opening animation</label>
-          <div class="anim-pick" id="animPick"></div>
+        <h2>Choose the moment</h2>
+        <p class="hint">Keep the letter sealed until the right time, or let them open it whenever.</p>
+        <div class="grid fields-2">
+          <div class="field">
+            <label>Open on (optional)</label>
+            <input class="input" id="fOpenAt" type="datetime-local" />
+            <span class="muted small">The letter stays sealed until this moment.</span>
+          </div>
+          <div class="field">
+            <label>Secret word (optional)</label>
+            <input class="input" id="fPassword" type="text" placeholder="Leave empty for no secret" maxlength="40" />
+            <span class="muted small">They'll need this to open the letter.</span>
+          </div>
         </div>
       </div>
 
-      <!-- STEP 3 · message -->
+      <!-- STEP 3 · the words -->
       <div class="wizard-step" data-step="3">
         <h2>Write the words</h2>
-        <p class="hint">This is the moment they'll read inside the gift.</p>
+        <p class="hint">This is the moment they'll read when the letter opens.</p>
         <div class="grid fields-2">
           <div class="field">
             <label>Title</label>
@@ -66,10 +70,10 @@
         </div>
       </div>
 
-      <!-- STEP 4 · media -->
+      <!-- STEP 4 · memories -->
       <div class="wizard-step" data-step="4">
-        <h2>Fill the box with memories</h2>
-        <p class="hint">Photos, your voice, music or a video, all optional.</p>
+        <h2>Add a memory to the letter</h2>
+        <p class="hint">Photos and a voice note, all optional.</p>
         <div class="media-pick">
           <div class="media-zone" id="imgZone">
             <div class="mz-ico"><i data-lucide="image"></i></div>
@@ -84,37 +88,14 @@
             <b id="voiceLabel">Record a voice note</b>
             <div class="mz-note" id="voiceNote">Tap to record, tap again to stop</div>
           </div>
-
-        <div class="grid fields-2">
-            <div class="field">
-              <label>Music (optional URL)</label>
-              <input class="input" id="fMusic" placeholder="https://…/song.mp3" />
-            </div>
-            <div class="field">
-              <label>Video (optional URL)</label>
-              <input class="input" id="fVideo" placeholder="https://…/video.mp4" />
-            </div>
-          </div>
         </div>
       </div>
 
-      <!-- STEP 5 · secrets -->
+      <!-- STEP 5 · preview -->
       <div class="wizard-step" data-step="5">
-        <h2>Secrets &amp; timing</h2>
-        <p class="hint">Lock the box, or keep it sealed until the perfect moment.</p>
-        <div class="grid fields-2">
-          <div class="field">
-            <label>Password (optional)</label>
-            <input class="input" id="fPassword" type="text" placeholder="Leave empty for no password" maxlength="40" />
-            <span class="muted small">They'll need this to open the box.</span>
-          </div>
-          <div class="field">
-            <label>Open on (optional countdown)</label>
-            <input class="input" id="fOpenAt" type="datetime-local" />
-            <span class="muted small">The box stays sealed until this time.</span>
-          </div>
-        </div>
-        <div class="preview-live" style="margin-top:30px">
+        <h2>Almost there</h2>
+        <p class="hint">Here is how the letter will feel.</p>
+        <div class="preview-live">
           <div class="gift-stage">
             <div class="gift float pulse">
               <div class="sparkles"><i></i><i></i><i></i><i></i><i></i><i></i></div>
@@ -135,8 +116,8 @@
             </div>
           </div>
           <div class="preview-card">
-            <span class="chip" id="pvType">Love letter</span>
-            <h3 id="pvTitle" style="margin-top:14px">Your surprise preview</h3>
+            <span class="chip" id="pvType">For my spouse</span>
+            <h3 id="pvTitle" style="margin-top:14px">Your letter preview</h3>
             <p id="pvFrom" class="muted">from someone who loves you</p>
             <p id="pvBadges" class="badge-pw" style="display:none"></p>
           </div>
@@ -147,19 +128,19 @@
       <div class="wizard-step" data-step="6" style="display:none">
         <div class="success-box">
           <div class="tick"><i data-lucide="heart"></i></div>
-          <h2>Your surprise is ready!</h2>
-          <p class="muted">Send this link, the box is waiting to be opened.</p>
+          <h2>Your letter is ready!</h2>
+          <p class="muted">Send this link, the letter will open at the right moment.</p>
           <div class="link-copy">
             <input id="shareLink" readonly />
             <button class="btn btn-primary" id="copyLinkBtn">Copy</button>
           </div>
           <div>
             <div class="qr-wrap"><img id="qrImg" alt="QR code" /></div>
-            <p class="qr-cap">Scan to open on their phone</p>
+            <p class="qr-cap">Print it or scan to open on their phone</p>
           </div>
           <div class="actions" style="justify-content:center; flex-wrap:wrap; gap:18px">
             <button class="btn btn-wa" id="shareWa"><i data-lucide="send"></i> Share on WhatsApp</button>
-            <a class="btn btn-ghost" href="/">Create another</a>
+            <a class="btn btn-ghost" href="/">Write another</a>
           </div>
         </div>
       </div>
@@ -178,38 +159,26 @@
 
         <div class="footer-brand">
           <a class="logo" href="/"><span class="dot"></span> Send<span class="grad">Aprize</span></a>
-          <p>Magical, interactive surprises, messages, photos, voice notes and more, wrapped in a gift that opens like a heart.</p>
-          <div class="footer-social">
-            <a href="#" aria-label="Instagram" rel="noreferrer"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg></a>
-            <a href="#" aria-label="Facebook" rel="noreferrer"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
-            <a href="#" aria-label="LinkedIn" rel="noreferrer"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg></a>
-            <a href="#" aria-label="TikTok" rel="noreferrer">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.6 6.7a5.3 5.3 0 0 1-3.4-1.5v9.6a5.6 5.6 0 1 1-5.6-5.6c.3 0 .6 0 .9.1v2.8a2.8 2.8 0 1 0 1.9 2.7V2h2.7a5.3 5.3 0 0 0 3.5 4.7v0Z"/></svg>
-            </a>
-            <a href="#" aria-label="X" rel="noreferrer">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2H21l-6.52 7.45L22.5 22h-6.79l-4.77-6.24L5.3 22H2.54l7.03-8.03L1.5 2h6.96l4.3 5.71L18.24 2Zm-1.19 18.19h1.87L7.05 3.72H5.05l12 16.47Z"/></svg>
-            </a>
-          </div>
+          <p>Open-when letters for your spouse, your parents, your family. Beautiful words, delivered at the right moment.</p>
         </div>
 
         <div class="footer-col">
           <h4>Explore</h4>
           <ul>
             <li><a href="/">Home</a></li>
-            <li><a href="/create">Create a surprise</a></li>
+            <li><a href="/create">Write a letter</a></li>
             <li><a href="/#how">How it works</a></li>
-            <li><a href="/#types">Occasions</a></li>
+            <li><a href="/#occasions">Occasions</a></li>
           </ul>
         </div>
 
         <div class="footer-col">
-          <h4>Occasions</h4>
+          <h4>For the ones you love</h4>
           <ul>
-            <li><a href="/create">Love letters</a></li>
-            <li><a href="/create">Birthdays</a></li>
-            <li><a href="/create">Congratulations</a></li>
-            <li><a href="/create">Proposals</a></li>
-            <li><a href="/create">Thank you</a></li>
+            <li><a href="/create">For my spouse</a></li>
+            <li><a href="/create">For my parents</a></li>
+            <li><a href="/create">Eid Mubarak</a></li>
+            <li><a href="/create">A new beginning</a></li>
           </ul>
         </div>
 
@@ -219,8 +188,6 @@
             <li><a href="#">Terms of service</a></li>
             <li><a href="#">Privacy policy</a></li>
             <li><a href="#">Cookie policy</a></li>
-            <li><a href="#">About us</a></li>
-            <li><a href="#">Contact</a></li>
           </ul>
         </div>
 

@@ -1,56 +1,32 @@
-/* sendaprize, create wizard */
+/* sendaprize, create wizard — open-when letters for family & loved ones */
 
-const TYPES = {
-  love: { icon: 'heart', label: 'Love letter' },
-  birthday: { icon: 'cake', label: 'Birthday' },
-  graduation: { icon: 'graduation-cap', label: 'Graduation' },
-  congrats: { icon: 'party-popper', label: 'Congratulations' },
-  anonymous: { icon: 'message-circle', label: 'Anonymous message' },
-  proposal: { icon: 'gem', label: 'Proposal' },
-  baby: { icon: 'baby', label: 'Baby announcement' },
-  thankyou: { icon: 'heart-handshake', label: 'Thank you' },
-  openwhen: { icon: 'mail-open', label: 'Open when…' },
+const OCCASIONS = {
+  spouse:  { icon: 'heart',           label: 'For my spouse',  hint: 'Affection & mercy between you' },
+  parents: { icon: 'user-heart',      label: 'For my parents', hint: 'Kindness & gratitude' },
+  family:  { icon: 'users',           label: 'For my family',  hint: 'Ties of kinship' },
+  friend:  { icon: 'heart-handshake', label: 'For a friend',   hint: 'A kind word, well timed' },
+  eid:     { icon: 'moon-star',       label: 'Eid Mubarak',    hint: 'A blessed celebration' },
+  nikah:   { icon: 'rings',           label: 'A new beginning',hint: 'A blessed marriage' },
+  baby:    { icon: 'baby',            label: 'Our new baby',   hint: 'A welcome from the heart' },
+  hifz:    { icon: 'book-open-text',  label: 'Quran completed',hint: 'A milestone of iman' },
 };
-
-const THEMES = {
-  rose: { a: '#ff2d78', b: '#ff5f8f' },
-  blush: { a: '#ff7aa8', b: '#ffb3c8' },
-  plum: { a: '#b80f5f', b: '#e12168' },
-  coral: { a: '#ff5a5f', b: '#ff8a65' },
-  gold: { a: '#ff2d78', b: '#ffd9a0' },
-  berry: { a: '#9d174d', b: '#ff2d78' },
-  candy: { a: '#ff2d78', b: '#ffd3e4' },
-  midnight: { a: '#ff2d78', b: '#3a0ca3' },
-};
-
-const ANIMS = [
-  { key: 'giftbox', label: 'Gift box', icon: 'gift' },
-  { key: 'confetti', label: 'Confetti', icon: 'party-popper' },
-  { key: 'hearts', label: 'Hearts', icon: 'heart' },
-  { key: 'sparkles', label: 'Sparkles', icon: 'sparkles' },
-];
 
 const PLACEHOLDERS = {
-  love: { title: 'For my dearest…', from: 'Someone who loves you', message: 'Every word here is just for you…' },
-  birthday: { title: 'Happy Birthday Maya!', from: 'Mom', message: 'Wishing you the most beautiful day…' },
-  graduation: { title: 'So proud of you, Aya!', from: 'Dad', message: 'All those late nights finally paid off…' },
-  congrats: { title: 'You did it!', from: 'Your biggest fan', message: 'So proud of everything you achieved…' },
-  anonymous: { title: 'A little mystery…', from: 'A secret admirer', message: 'You might not guess who wrote this…' },
-  proposal: { title: 'Will you marry me?', from: 'Yours, forever', message: 'Every moment with you feels like home…' },
-  baby: { title: 'Welcome to the world!', from: 'Auntie Salma', message: 'Tiny hands, tiny toes, a whole lot of love…' },
-  thankyou: { title: 'Thank you!', from: 'Grateful, always', message: 'I could never say it enough…' },
-  openwhen: { title: 'Open when…', from: 'Someone who cares', message: 'For the moment you need it most…' },
+  spouse:  { title: 'For my dearest', from: 'Your loving spouse', message: 'I thank Allah for you every day…' },
+  parents: { title: 'For my parents', from: 'Your loving child', message: 'May Allah reward you for everything you have done for me…' },
+  family:  { title: 'For my family', from: 'Your family', message: 'However far apart we are, you are always in my heart…' },
+  friend:  { title: 'For a dear friend', from: 'Your friend', message: 'A good friend is a blessing from Allah…' },
+  eid:     { title: 'Eid Mubarak!', from: 'Your family', message: 'May Allah accept our good deeds and fill this day with peace…' },
+  nikah:   { title: 'A new beginning', from: 'Your family', message: 'May Allah bless your marriage, unite you in goodness, and keep you together…' },
+  baby:    { title: 'Welcome, little one', from: 'Your family', message: 'Every child is a trust from Allah. May he be a comfort to his parents…' },
+  hifz:    { title: 'Quran completed', from: 'Your family', message: 'May the Quran intercede for you and be your companion…' },
 };
 
 const draft = {
-  type: localStorage.getItem('ap_type') || 'love',
-  theme: 'rose',
-  animation: 'giftbox',
+  type: localStorage.getItem('ap_type') || 'spouse',
   title: '',
   message: '',
   from: '',
-  music: '',
-  video: '',
   password: '',
   openAt: '',
   images: [],
@@ -63,19 +39,20 @@ let step = 1;
 const TOTAL_STEPS = 5;
 
 function updatePlaceholders() {
-  const p = PLACEHOLDERS[draft.type] || PLACEHOLDERS.love;
+  const p = PLACEHOLDERS[draft.type] || PLACEHOLDERS.spouse;
   $('#fTitle').placeholder = p.title;
   $('#fFrom').placeholder = p.from;
   $('#fMessage').placeholder = p.message;
 }
 
 function renderTypes() {
-  $('#typePick').innerHTML = Object.entries(TYPES)
+  $('#typePick').innerHTML = Object.entries(OCCASIONS)
     .map(
       ([k, t]) => `
       <div class="type-card ${draft.type === k ? 'sel' : ''}" data-key="${k}">
         <span class="t-ico"><i data-lucide="${t.icon}"></i></span>
         <h4>${t.label}</h4>
+        <p>${t.hint}</p>
       </div>`
     )
     .join('');
@@ -90,48 +67,15 @@ function renderTypes() {
   refreshIcons();
 }
 
-function renderThemes() {
-  $('#themePick').innerHTML = Object.entries(THEMES)
-    .map(
-      ([k, t]) => `
-      <div class="theme-dot ${draft.theme === k ? 'sel' : ''}" data-key="${k}" title="${k}"
-           style="background:linear-gradient(140deg, ${t.a}, ${t.b})"></div>`
-    )
-    .join('');
-  $$('#themePick .theme-dot').forEach((d) =>
-    d.addEventListener('click', () => {
-      draft.theme = d.dataset.key;
-      $$('#themePick .theme-dot').forEach((x) => x.classList.toggle('sel', x === d));
-    })
-  );
-}
-
-function renderAnims() {
-  $('#animPick').innerHTML = ANIMS.map(
-    (a) => `
-    <div class="anim-opt ${draft.animation === a.key ? 'sel' : ''}" data-key="${a.key}">
-      <i data-lucide="${a.icon}"></i> ${a.label}
-    </div>`
-  ).join('');
-  $$('#animPick .anim-opt').forEach((d) =>
-    d.addEventListener('click', () => {
-      draft.animation = d.dataset.key;
-      $$('#animPick .anim-opt').forEach((x) => x.classList.toggle('sel', x === d));
-    })
-  );
-  refreshIcons();
-}
-
 function updatePreview() {
-  $('#pvType').textContent = TYPES[draft.type].label;
-  $('#pvTitle').textContent = draft.title || 'Your surprise preview';
+  $('#pvType').textContent = OCCASIONS[draft.type].label;
+  $('#pvTitle').textContent = draft.title || 'Your letter preview';
   $('#pvFrom').textContent = `from ${draft.from || 'someone who loves you'}`;
   const badges = [];
-  if (draft.password) badges.push('Password protected');
-  if (draft.openAt) badges.push('Countdown');
+  if (draft.password) badges.push('Sealed with a secret');
+  if (draft.openAt) badges.push('Opens at a set time');
   if (draft.images.length) badges.push('Photos');
   if (draft.voiceBlob) badges.push('Voice note');
-  if (draft.music) badges.push('Music');
   const el = $('#pvBadges');
   if (badges.length) { el.style.display = 'inline-flex'; el.textContent = badges.join(' · '); }
   else el.style.display = 'none';
@@ -156,7 +100,7 @@ function showStep(n) {
 
   const last = n === TOTAL_STEPS;
   const success = n === TOTAL_STEPS + 1;
-  $('#btnNext').innerHTML = last ? '<i data-lucide="sparkles"></i> Create surprise' : 'Continue <i data-lucide="arrow-right"></i>';
+  $('#btnNext').innerHTML = last ? '<i data-lucide="sparkles"></i> Wrap the letter' : 'Continue <i data-lucide="arrow-right"></i>';
   refreshIcons();
   $('#btnBack').style.display = n === 1 || success ? 'none' : '';
   $('#wizActions').style.display = success ? 'none' : '';
@@ -164,16 +108,16 @@ function showStep(n) {
 
 function validateStep(n) {
   if (n === 3) {
-    if (!$('#fMessage').value.trim()) { toast('Write a message to put inside the gift'); return false; }
-    if (!$('#fTitle').value.trim()) { toast('Give your surprise a title'); return false; }
+    if (!$('#fMessage').value.trim()) { toast('Write a message to put inside the letter'); return false; }
+    if (!$('#fTitle').value.trim()) { toast('Give your letter a title'); return false; }
   }
   return true;
 }
 
 function setupFields() {
-  ['fTitle', 'fFrom', 'fMessage', 'fMusic', 'fVideo', 'fPassword'].forEach((id) => {
+  ['fTitle', 'fFrom', 'fMessage', 'fPassword'].forEach((id) => {
     const el = document.getElementById(id);
-    const key = id === 'fTitle' ? 'title' : id === 'fFrom' ? 'from' : id === 'fMessage' ? 'message' : id === 'fMusic' ? 'music' : id === 'fVideo' ? 'video' : 'password';
+    const key = id === 'fTitle' ? 'title' : id === 'fFrom' ? 'from' : id === 'fMessage' ? 'message' : 'password';
     el.addEventListener('input', () => {
       draft[key] = el.value;
       if (id === 'fTitle' || id === 'fFrom') updatePreview();
@@ -191,7 +135,7 @@ function setupImages() {
   zone.addEventListener('click', () => input.click());
   input.addEventListener('change', () => {
     for (const file of input.files) {
-      if (draft.images.length >= 6) { toast('Up to 6 photos per surprise'); break; }
+      if (draft.images.length >= 6) { toast('Up to 6 photos per letter'); break; }
       compressImage(file).then(({ dataUrl, ext }) => draft.images.push({ dataUrl, ext }));
     }
     input.value = '';
@@ -309,7 +253,7 @@ async function ensureUser() {
 async function createSurprise() {
   const btn = $('#btnNext');
   btn.disabled = true;
-  btn.innerHTML = '<span class="spinner"></span> Wrapping your gift…';
+  btn.innerHTML = '<span class="spinner"></span> Sealing your letter…';
   try {
     const creatorId = await ensureUser();
     const res = await api('/api/surprise', {
@@ -319,10 +263,6 @@ async function createSurprise() {
         title: draft.title,
         message: draft.message,
         from: draft.from,
-        theme: draft.theme,
-        animation: draft.animation,
-        music: draft.music || null,
-        video: draft.video || null,
         password: draft.password || null,
         openAt: draft.openAt || null,
         creatorId,
@@ -348,7 +288,7 @@ async function createSurprise() {
   } catch (e) {
     toast(e.message);
     btn.disabled = false;
-    btn.innerHTML = '<i data-lucide="sparkles"></i> Create surprise';
+    btn.innerHTML = '<i data-lucide="sparkles"></i> Wrap the letter';
     refreshIcons();
   }
 }
@@ -362,7 +302,7 @@ function showSuccess(code, qrUrl) {
   startHeartRain(10);
   $('#copyLinkBtn').addEventListener('click', () => copyText(link, 'Link copied!'));
   $('#shareWa').addEventListener('click', () => {
-    const text = `You have a surprise waiting for you ${link}`;
+    const text = `A letter is waiting for you ${link}`;
     window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, '_blank');
   });
 }
@@ -370,8 +310,6 @@ function showSuccess(code, qrUrl) {
 /* ---- boot ---- */
 renderTypes();
 updatePlaceholders();
-renderThemes();
-renderAnims();
 setupFields();
 setupImages();
 setupVoice();
