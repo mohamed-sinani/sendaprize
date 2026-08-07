@@ -43,7 +43,7 @@ function renderLock() {
     return;
   }
 
-  $('#lock').style.display = 'block';
+  $('#lock').style.display = 'flex';
   if (state.requiresPassword) {
     $('#lockSub').textContent = 'It is sealed with a secret word. Enter it to open the surprise.';
   } else {
@@ -85,7 +85,7 @@ function renderCountdown() {
 /* the moment arrives, the box appears and opens itself */
 function countdownDone() {
   $('#countdown').style.display = 'none';
-  $('#lock').style.display = 'block';
+  $('#lock').style.display = 'flex';
   if (state.requiresPassword) {
     $('#lockSub').textContent = 'The moment has arrived. Enter the secret word to open the surprise.';
   } else {
