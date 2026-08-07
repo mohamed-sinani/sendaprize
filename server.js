@@ -37,26 +37,8 @@ const engine = new CommitEngine();
 const SURPRISE_DIR = (code) =>
   `database/surprises/${new Date().getFullYear()}/${String(new Date().getMonth() + 1).padStart(2, '0')}`;
 
-const TYPE_LABEL = {
-  spouse: 'surprise for a spouse',
-  parents: 'surprise for parents',
-  family: 'surprise for family',
-  friend: 'surprise for a friend',
-  nikah: 'wedding invitation surprise',
-  baby: 'baby aqiqah announcement',
-  hifz: 'Quran completion surprise',
-  graduation: 'graduation surprise',
-  congratulations: 'congratulations surprise',
-  eidf: 'Eid al-Fitr surprise',
-  eida: 'Eid al-Adha surprise',
-  ramadan: 'Ramadan Kareem surprise',
-  maulid: 'Maulid surprise',
-  nanenane: 'Nane Nane surprise',
-  sabasaba: 'Saba Saba surprise',
-  union: 'Union Day surprise',
-  independence: 'Independence Day surprise',
-  revolution: 'Zanzibar Revolution Day surprise',
-};
+const OCCASIONS = require('./public/js/occasions.js');
+const typeLabel = (t) => (OCCASIONS.byKey[t] && OCCASIONS.byKey[t].name) || t;
 
 function now() {
   return new Date().toISOString();
@@ -251,7 +233,7 @@ app.post('/api/surprise', api(async (req, res) => {
     });
   }
 
-  const label = TYPE_LABEL[surprise.type] || surprise.type;
+  const label = typeLabel(surprise.type);
   await engine.record({
     message: `Create ${label} surprise ${code}`,
     files: staged,
@@ -405,7 +387,7 @@ app.put('/api/surprise/:code', api(async (req, res) => {
     s.updated_at = now();
   });
 
-  const label = TYPE_LABEL[surprise.type] || 'surprise';
+  const label = typeLabel(surprise.type);
   message = eventType === 'PASSWORD_CREATED'
     ? `Add password protection to ${label} ${code}`
     : `Update ${label} surprise ${code}`;

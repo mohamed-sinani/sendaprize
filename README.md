@@ -6,6 +6,14 @@ secret word, with photos, voice notes and halal occasions like Eid al-Fitr,
 Eid al-Adha, Ramadan, Maulid, a wedding (nikah), a new baby (aqiqah), Quran
 completion (hifz), graduation and Tanzanian holidays like Nane Nane and Saba Saba.
 
+Every occasion is a searchable card with an emoji icon: all Tanzanian 2026
+public holidays (New Year, Zanzibar Revolution, Karume, Union, Labour, Saba
+Saba, Nane Nane, Maulid, Mwalimu Nyerere, Independence, Christmas and Easter),
+Islamic days by lunar date, and 180+ UN/WHO International & World Days grouped
+under month headers. Category chips (Family / Islamic / Celebrations / Tanzania
+/ World Days) let you filter, and the shared dataset lives in
+`public/js/occasions.js` — used by the browser and the server alike.
+
 **GitHub is the database.** Every meaningful interaction becomes a commit in your own
 repository, which doubles as the platform's complete, immutable event history.
 
