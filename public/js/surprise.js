@@ -1,13 +1,18 @@
-/* sendaprize, the surprise opening experience */
+/* sendaprize, the open-when letter experience */
 
-const REACTION_ICONS = ['heart', 'sparkles', 'smile', 'party-popper', 'flame', 'star', 'thumbs-up'];
-const TYPES_ICON = {
-  love: 'heart', birthday: 'cake', graduation: 'graduation-cap', congrats: 'party-popper',
-  anonymous: 'message-circle', proposal: 'gem', baby: 'baby', thankyou: 'heart-handshake', openwhen: 'mail-open',
+const REACTION_ICONS = ['heart', 'sparkles', 'smile', 'flame', 'star', 'thumbs-up', 'book-open-text'];
+const OCCASIONS_ICON = {
+  spouse: 'heart',
+  parents: 'user-heart',
+  family: 'users',
+  friend: 'heart-handshake',
+  eid: 'moon-star',
+  nikah: 'rings',
+  baby: 'baby',
+  hifz: 'book-open-text',
 };
 
 let state = null;
-let audioEl = null;
 
 const code = location.pathname.split('/').pop();
 if (!code) location.href = '/';
@@ -50,9 +55,9 @@ function renderLock() {
 
   $('#lock').style.display = 'block';
   if (state.requiresPassword) {
-    $('#lockSub').textContent = 'It is sealed with a secret. Enter the password to open it.';
+    $('#lockSub').textContent = 'It is sealed with a secret word. Enter it to open the letter.';
   } else {
-    $('#lockSub').textContent = `From ${state.from} · with love, all wrapped up for you.`;
+    $('#lockSub').textContent = `From ${state.from} · a letter written just for you.`;
   }
 
   $('#openBtn').addEventListener('click', () => {
@@ -92,7 +97,7 @@ function countdownDone() {
   $('#countdown').style.display = 'none';
   $('#lock').style.display = 'block';
   if (state.requiresPassword) {
-    $('#lockSub').textContent = 'Time is up! Enter the secret to open the box.';
+    $('#lockSub').textContent = 'The moment has arrived. Enter the secret word to open the letter.';
   } else {
     $('#lockSub').textContent = 'The moment has arrived, opening for you.';
     openBox();
@@ -116,9 +121,9 @@ async function openBox(password) {
       animateOpen();
     } catch (e) {
       if (e.status === 403) {
-        toast('Incorrect password, the box stays sealed');
+        toast('Incorrect secret word, the letter stays sealed');
       } else if (e.status === 423) {
-        toast('Not yet, the countdown is still ticking');
+        toast('Not yet, the moment has not arrived');
       } else {
         toast(e.message);
       }
@@ -130,7 +135,7 @@ async function openBox(password) {
   $('#pwOverlay').style.display = 'none';
   animateOpen();
   api(`/api/surprise/${code}/open`, { method: 'POST', body: { password } }).catch((e) => {
-    if (e.status === 423) toast('Not yet, the countdown is still ticking');
+    if (e.status === 423) toast('Not yet, the moment has not arrived');
     else if (e.status) toast(e.message);
   });
 }
@@ -153,15 +158,13 @@ function animateOpen() {
 
 function showReveal() {
   const screen = $('#reveal');
-  const t = THEME_STOPS[state.theme] || THEME_STOPS.rose;
-
   screen.style.background = [
-    `radial-gradient(120% 90% at 50% 0%, ${t.a}, transparent 60%)`,
-    `radial-gradient(100% 80% at 80% 100%, ${t.b}, transparent 60%)`,
+    'radial-gradient(120% 90% at 50% 0%, rgba(16, 185, 129, 0.24), transparent 60%)',
+    'radial-gradient(100% 80% at 80% 100%, rgba(245, 199, 106, 0.16), transparent 60%)',
     '#0a0a0d',
   ].join(', ');
 
-  $('#rType').innerHTML = `<i data-lucide="${TYPES_ICON[state.type] || 'heart'}"></i>`;
+  $('#rType').innerHTML = `<i data-lucide="${OCCASIONS_ICON[state.type] || 'heart'}"></i>`;
   $('#rTitle').textContent = state.title;
   $('#rFrom').textContent = `for you, from ${state.from}`;
   $('#rMessage').textContent = state.message;
@@ -171,47 +174,22 @@ function showReveal() {
   renderReactions();
   renderShare();
   renderCounts();
-  playMusic();
 
   screen.classList.add('show');
   document.body.style.overflow = 'hidden';
   screen.scrollTop = 0;
 
   refreshIcons();
-  runAnimation(state.animation);
-  revealFlourish(state.type);
+  revealFlourish();
 }
 
-// Petal colors by surprise type, each occasion feels like its own garden.
-const PETAL_PALETTES = {
-  love: ['#ff5f8f', '#ff2d78', '#ff9ec2', '#ffd3e4', '#ffffff'],
-  birthday: ['#ff9ec2', '#ffd9a0', '#7ce7ff', '#c3b6ff', '#ff2d78'],
-  graduation: ['#ffd9a0', '#c3b6ff', '#ff9ec2', '#ffffff', '#7ce7ff'],
-  congrats: ['#ffd9a0', '#7ce7ff', '#ff9ec2', '#ff2d78', '#ffffff'],
-  proposal: ['#ffd3e4', '#ffffff', '#ff9ec2', '#ff5f8f', '#ff2d78'],
-  baby: ['#ffd3e4', '#e7f3ff', '#c9f2e0', '#ffe9c9', '#ffffff'],
-  anonymous: ['#c3b6ff', '#7ce7ff', '#ff9ec2', '#ffffff', '#ffd9a0'],
-  thankyou: ['#ff9ec2', '#ffd9a0', '#ffffff', '#ffd3e4', '#ff5f8f'],
-  openwhen: ['#ffd3e4', '#e7f3ff', '#ffffff', '#c3b6ff', '#ff9ec2'],
-};
-
-function revealFlourish(type) {
-  const colors = PETAL_PALETTES[type] || PETAL_PALETTES.love;
-  const celebration = ['birthday', 'congrats', 'graduation'].includes(type);
-  startPetals({ colors, count: celebration ? 36 : 26, duration: 12000 });
-  if (celebration) setTimeout(() => burstConfetti(null, 200), 350);
+function revealFlourish() {
+  startPetals({
+    colors: ['#34d399', '#10b981', '#6ee7b7', '#f5c76a', '#ffd9a0'],
+    count: 22,
+    duration: 12000,
+  });
 }
-
-const THEME_STOPS = {
-  rose: { a: 'rgba(255,45,120,0.32)', b: 'rgba(255,95,143,0.18)' },
-  blush: { a: 'rgba(255,122,168,0.3)', b: 'rgba(255,179,200,0.16)' },
-  plum: { a: 'rgba(184,15,95,0.4)', b: 'rgba(225,33,104,0.18)' },
-  coral: { a: 'rgba(255,90,95,0.3)', b: 'rgba(255,138,101,0.18)' },
-  gold: { a: 'rgba(255,45,120,0.3)', b: 'rgba(255,217,160,0.14)' },
-  berry: { a: 'rgba(157,23,77,0.42)', b: 'rgba(255,45,120,0.2)' },
-  candy: { a: 'rgba(255,45,120,0.3)', b: 'rgba(255,211,228,0.18)' },
-  midnight: { a: 'rgba(255,45,120,0.28)', b: 'rgba(58,12,163,0.3)' },
-};
 
 function renderMedia() {
   const wrap = $('#rMedia');
@@ -223,9 +201,6 @@ function renderMedia() {
   }
   if (media.audio && media.audio.length) {
     html += media.audio.map((a, i) => voiceCard(a, i)).join('');
-  }
-  if (state.video) {
-    html += `<video src="${state.video}" controls playsinline></video>`;
   }
   wrap.innerHTML = html;
   wrap.querySelectorAll('.play').forEach((b) =>
@@ -247,7 +222,7 @@ function voiceCard(src, i) {
     <div style="flex:1">
       <b class="small" style="color:var(--ink)">Voice note ${i + 1}</b>
       <audio src="${src}" preload="none" style="display:none"></audio>
-      <div class="muted" style="font-size:.78rem">recorded with love on sendaprize</div>
+      <div class="muted" style="font-size:.78rem">a voice note for you, on sendaprize</div>
     </div>
   </div>`;
 }
@@ -285,10 +260,10 @@ function renderShare() {
     b.addEventListener('click', async () => {
       const ch = b.dataset.ch;
       api(`/api/surprise/${code}/share`, { method: 'POST', body: { channel: ch } }).catch(() => {});
-      const text = `I sent you a surprise on sendaprize: ${link}`;
+      const text = `I sent you a letter on sendaprize: ${link}`;
       if (ch === 'whatsapp') window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, '_blank');
       else if (ch === 'x') window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}`, '_blank');
-      else if (ch === 'telegram') window.open(`https://t.me/share/url?url=${encodeURIComponent(link)}&text=${encodeURIComponent('I sent you a surprise on sendaprize')}`, '_blank');
+      else if (ch === 'telegram') window.open(`https://t.me/share/url?url=${encodeURIComponent(link)}&text=${encodeURIComponent('I sent you a letter on sendaprize')}`, '_blank');
       else copyText(link, 'Link copied!');
     });
   });
@@ -298,22 +273,6 @@ function renderCounts() {
   $('#ctViews').textContent = state.views || 0;
   $('#ctOpens').textContent = state.opens || 0;
   $('#ctShares').textContent = state.shares || 0;
-}
-
-function playMusic() {
-  if (!state.music) return;
-  try {
-    audioEl = new Audio(state.music);
-    audioEl.loop = true;
-    audioEl.volume = 0.5;
-    audioEl.play().catch(() => {});
-  } catch { /* fine */ }
-}
-
-function runAnimation(anim) {
-  if (anim === 'confetti') burstConfetti(null, 240);
-  else if (anim === 'hearts') startHeartRain(18);
-  else if (anim === 'sparkles') { /* sparkles already on box + twinkle */ }
 }
 
 load();
