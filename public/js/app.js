@@ -52,7 +52,7 @@ function burstConfetti(originEl, count = 160) {
   document.body.appendChild(canvas);
 
   const ctx = canvas.getContext('2d');
-  const colors = ['#ff2d78', '#ff5f8f', '#ff9ec2', '#ffd3e4', '#ffffff', '#ffd9a0'];
+  const colors = ['#10b981', '#34d399', '#6ee7b7', '#f5c76a', '#ffd9a0', '#d1fae5'];
   const parts = [];
 
   const ox = originEl ? originEl.getBoundingClientRect().left + originEl.offsetWidth / 2 : innerWidth / 2;
@@ -107,7 +107,7 @@ function startHeartRain(count = 16) {
   const wrap = document.createElement('div');
   wrap.className = 'hearts';
   document.body.appendChild(wrap);
-  const colors = ['#ff2d78', '#ff5f8f', '#ff9ec2', '#ffd3e4', '#ffffff'];
+  const colors = ['#10b981', '#34d399', '#6ee7b7', '#f5c76a', '#ffd9a0'];
   for (let i = 0; i < count; i++) {
     const holder = document.createElement('span');
     holder.className = 'rain-h';
