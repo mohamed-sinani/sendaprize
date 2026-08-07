@@ -305,7 +305,7 @@ function showSuccess(code, qrUrl) {
   });
 }
 
-/* ---- boot ---- */
+/* boot */
 renderTypes();
 updatePlaceholders();
 setupFields();

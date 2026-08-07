@@ -3,7 +3,7 @@
    Gift box · box opening · surprise reveal · create wizard · admin
    ================================================================== */
 
-/* ---------- 3D gift box ---------- */
+/* 3D gift box */
 .gift-stage { position: relative; width: 320px; height: 320px; perspective: 900px; }
 .gift { position: absolute; inset: 0; transform-style: preserve-3d; }
 .gift .shade {
@@ -82,7 +82,7 @@
 .gift.pulse .cube { animation: boxpulse 2.2s ease-in-out infinite; }
 @keyframes boxpulse { 0%, 100% { transform: translateX(-50%) scale(1); } 50% { transform: translateX(-50%) scale(1.03); } }
 
-/* ---------- the OPEN animation ---------- */
+/* the OPEN animation */
 /* the box gets excited first, then the lid springs off with light */
 .gift.shaking { animation: box-shake 0.55s ease-in-out; }
 @keyframes box-shake {
@@ -157,7 +157,7 @@ body.page-shake { animation: shake-page 0.75s cubic-bezier(0.36, 0.07, 0.19, 0.9
   .petals { display: none; }
 }
 
-/* ---------- experience shell ---------- */
+/* experience shell */
 .experience { min-height: 100vh; min-height: 100dvh; display: flex; flex-direction: column; }
 .experience__main {
   flex: 1; display: flex; flex-direction: column; align-items: center;

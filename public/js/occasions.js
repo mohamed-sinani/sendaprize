@@ -163,7 +163,7 @@
     add({ month: m, day: d, name: name, cat: 'world', th: th, note: note || null });
   }
 
-  /* ---------- family ---------- */
+  /* family */
   add({ key: 'spouse', name: 'For my spouse', cat: 'family', hint: 'Affection & mercy between you' });
   add({ key: 'parents', name: 'For my parents', cat: 'family', hint: 'Kindness that can never be repaid' });
   add({ key: 'family', name: 'For my family', cat: 'family', hint: 'Ties of kinship, kept close' });
@@ -173,7 +173,7 @@
   add({ key: 'mother', name: 'For my mother', cat: 'family', hint: 'A mother\u2019s du\u2019a, always' });
   add({ key: 'father', name: 'For my father', cat: 'family', hint: 'Strength & kindness' });
 
-  /* ---------- islamic ---------- */
+  /* islamic */
   add({ key: 'ramadan', name: 'Ramadan Kareem', cat: 'islamic', hint: 'A month of mercy & fasting', month: 2, day: 18, note: 'Lunar date' });
   add({ key: 'laylatulqadr', name: 'Laylat al-Qadr', cat: 'islamic', hint: 'The Night of Power', month: 3, day: 14, note: 'Lunar date' });
   add({ key: 'eidf', name: 'Eid al-Fitr', cat: 'islamic', hint: 'A blessed celebration', month: 3, day: 20, note: 'Lunar date' });
@@ -186,7 +186,7 @@
   add({ key: 'isrami', name: 'Isra & Mi\u2019raj', cat: 'islamic', hint: 'The night journey', month: 1, day: 8, note: 'Lunar date' });
   add({ key: 'hifz', name: 'Quran completed', cat: 'islamic', hint: 'A milestone of iman, celebrated' });
 
-  /* ---------- celebrations ---------- */
+  /* celebrations */
   add({ key: 'nikah', name: 'Wedding invitation', cat: 'celebration', hint: 'A new beginning, blessed' });
   add({ key: 'engagement', name: 'Engagement', cat: 'celebration', hint: 'A promise about to begin' });
   add({ key: 'anniversary', name: 'Anniversary', cat: 'celebration', hint: 'Years of love & mercy' });
@@ -198,7 +198,7 @@
   add({ key: 'retirement', name: 'Retirement', cat: 'celebration', hint: 'A new chapter of rest' });
   add({ key: 'housewarming', name: 'Housewarming', cat: 'celebration', hint: 'A home full of barakah' });
 
-  /* ---------- tanzania public holidays ---------- */
+  /* tanzania public holidays */
   add({ key: 'newyear', name: 'New Year\u2019s Day', cat: 'tanzania', hint: 'A fresh beginning', month: 1, day: 1 });
   add({ key: 'revolution', name: 'Zanzibar Revolution Day', cat: 'tanzania', hint: 'A day of freedom', month: 1, day: 12 });
   add({ key: 'karume', name: 'Karume Day', cat: 'tanzania', hint: 'Honouring Abeid Amani Karume', month: 4, day: 7 });
@@ -213,7 +213,7 @@
   add({ key: 'goodfriday', name: 'Good Friday', cat: 'tanzania', hint: 'A day of reflection', month: 4, day: 3 });
   add({ key: 'eastermonday', name: 'Easter Monday', cat: 'tanzania', hint: 'A spring celebration', month: 4, day: 6 });
 
-  /* ---------- january world days ---------- */
+  /* january world days */
   W(1, 4, 'World Braille Day', 'people');
   W(1, 24, 'International Day of Education', 'education');
   W(1, 26, 'International Day of Clean Energy', 'nature');
@@ -222,7 +222,7 @@
   W(1, 30, 'World Neglected Tropical Diseases Day', 'health');
   W(1, 25, 'World Leprosy Day', 'health', 'Last Sunday of January');
 
-  /* ---------- february world days ---------- */
+  /* february world days */
   W(2, 1, 'World Interfaith Harmony Week', 'faith', '1\u20137 February (week)');
   W(2, 2, 'World Wetlands Day', 'nature');
   W(2, 4, 'International Day of Human Fraternity', 'peace');
@@ -236,7 +236,7 @@
   W(2, 20, 'World Day of Social Justice', 'society');
   W(2, 21, 'International Mother Language Day', 'culture');
 
-  /* ---------- march world days ---------- */
+  /* march world days */
   W(3, 1, 'Zero Discrimination Day', 'people');
   W(3, 3, 'World Wildlife Day', 'nature');
   W(3, 3, 'World Hearing Day', 'health');
@@ -257,7 +257,7 @@
   W(3, 25, 'International Day of Solidarity with Detained and Missing Staff', 'peace');
   W(3, 30, 'International Day of Zero Waste', 'nature');
 
-  /* ---------- april world days ---------- */
+  /* april world days */
   W(4, 2, 'World Autism Awareness Day', 'people');
   W(4, 4, 'International Day for Mine Awareness', 'peace');
   W(4, 6, 'International Day of Sport for Development and Peace', 'sport');
@@ -277,7 +277,7 @@
   W(4, 29, 'International Day in Memory of Victims of Earthquakes', 'peace');
   W(4, 30, 'International Jazz Day', 'culture');
 
-  /* ---------- may world days ---------- */
+  /* may world days */
   W(5, 1, 'International Workers\u2019 Day / Labour Day', 'society');
   W(5, 3, 'World Press Freedom Day', 'people');
   W(5, 5, 'World Hand Hygiene Day', 'health');
@@ -298,7 +298,7 @@
   W(5, 30, 'International Day of Potato', 'food');
   W(5, 31, 'World No Tobacco Day', 'health');
 
-  /* ---------- june world days ---------- */
+  /* june world days */
   W(6, 1, 'Global Day of Parents', 'family');
   W(6, 3, 'World Bicycle Day', 'sport');
   W(6, 4, 'International Day of Innocent Children Victims of Aggression', 'peace');
@@ -326,7 +326,7 @@
   W(6, 30, 'International Asteroid Day', 'science');
   W(6, 30, 'International Day of Parliamentarism', 'society');
 
-  /* ---------- july world days ---------- */
+  /* july world days */
   W(7, 4, 'International Day of Cooperatives', 'society');
   W(7, 6, 'World Zoonoses Day', 'health');
   W(7, 11, 'World Population Day', 'society');
@@ -338,7 +338,7 @@
   W(7, 30, 'International Day of Friendship', 'people');
   W(7, 30, 'World Day Against Trafficking in Persons', 'people');
 
-  /* ---------- august world days ---------- */
+  /* august world days */
   W(8, 1, 'World Breastfeeding Week', 'health', '1\u20137 August (week)');
   W(8, 9, 'International Day of the World\u2019s Indigenous Peoples', 'people');
   W(8, 12, 'International Youth Day', 'people');
@@ -349,7 +349,7 @@
   W(8, 30, 'International Day of the Victims of Enforced Disappearances', 'peace');
   W(8, 31, 'International Day for People of African Descent', 'people');
 
-  /* ---------- september world days ---------- */
+  /* september world days */
   W(9, 5, 'International Day of Charity', 'society');
   W(9, 7, 'International Day of Clean Air for Blue Skies', 'nature');
   W(9, 8, 'International Literacy Day', 'education');
@@ -366,7 +366,7 @@
   W(9, 29, 'International Day of Awareness of Food Loss and Waste', 'food');
   W(9, 30, 'International Translation Day', 'culture');
 
-  /* ---------- october world days ---------- */
+  /* october world days */
   W(10, 1, 'International Day of Older Persons', 'people');
   W(10, 2, 'International Day of Non-Violence', 'peace');
   W(10, 4, 'World Space Week', 'science', '4\u201310 October (week)');
@@ -384,7 +384,7 @@
   W(10, 27, 'World Day for Audiovisual Heritage', 'culture');
   W(10, 31, 'World Cities Day', 'society');
 
-  /* ---------- november world days ---------- */
+  /* november world days */
   W(11, 2, 'International Day to End Impunity for Crimes against Journalists', 'people');
   W(11, 5, 'World Tsunami Awareness Day', 'nature');
   W(11, 10, 'World Science Day for Peace and Development', 'science');
@@ -400,7 +400,7 @@
   W(11, 25, 'International Day for the Elimination of Violence against Women', 'people');
   W(11, 29, 'International Day of Solidarity with the Palestinian People', 'peace');
 
-  /* ---------- december world days ---------- */
+  /* december world days */
   W(12, 1, 'World AIDS Day', 'health');
   W(12, 2, 'International Day for the Abolition of Slavery', 'peace');
   W(12, 3, 'International Day of Persons with Disabilities', 'people');
@@ -421,7 +421,7 @@
   W(12, 24, 'International Anti-Cybercrime Day', 'society');
   W(12, 27, 'International Day of Epidemic Preparedness', 'health');
 
-  /* ---------- module ---------- */
+  /* module */
   var byKey = {};
   REC.forEach(function (o) { byKey[o.key] = o; });
 
