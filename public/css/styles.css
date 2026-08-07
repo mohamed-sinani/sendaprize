@@ -517,8 +517,8 @@ footer {
 .cat-head .lucide { width: 1.15rem; height: 1.15rem; flex-shrink: 0; color: var(--pink-2); }
 .cat-head::after { content: ""; flex: 1; height: 1px; background: var(--stroke); }
 .occ-more { display: flex; justify-content: center; margin-top: 30px; }
-.occ-picked { grid-column: 1 / -1; display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
-.occ-picked .type-card { flex: 1; min-width: 240px; }
+.occ-picked { grid-column: 1 / -1; display: flex; flex-direction: column; align-items: center; gap: 16px; }
+.occ-picked .type-card { width: 100%; }
 .occ-picked .occ-change { flex-shrink: 0; }
 .occ-picked .occ-change .lucide { width: 1.05rem; height: 1.05rem; }
 
