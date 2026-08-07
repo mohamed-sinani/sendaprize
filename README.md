@@ -1,7 +1,9 @@
 # 💖 sendaprize
 
-Send a surprise that opens like a gift. Messages, photos, voice notes, music, countdowns
-and password-protected boxes — wrapped in a beautiful interactive experience.
+Open-when letters for the ones you love — your spouse, your parents, your family.
+Beautiful words wrapped in an interactive moment: sealed until a chosen time or a
+secret word, with photos, voice notes and halal occasions like Eid, a new
+beginning (nikah), a new baby (aqiqah) and Quran completion (hifz).
 
 **GitHub is the database.** Every meaningful interaction becomes a commit in your own
 repository, which doubles as the platform's complete, immutable event history.
