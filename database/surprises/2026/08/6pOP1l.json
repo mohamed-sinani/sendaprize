@@ -1,0 +1,19 @@
+{
+  "id": "6pOP1l",
+  "code": "6pOP1l",
+  "type": "nanenane",
+  "title": "Nane Nane Mubarak",
+  "message": "Thanks for feeding the nation",
+  "from": "Your family",
+  "theme": "emerald",
+  "media": {
+    "images": [],
+    "audio": []
+  },
+  "passwordHash": null,
+  "openAt": null,
+  "creatorId": "test",
+  "status": "published",
+  "created_at": "2026-08-07T21:12:48.914Z",
+  "updated_at": null
+}
