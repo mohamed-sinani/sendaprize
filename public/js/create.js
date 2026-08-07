@@ -1,14 +1,24 @@
-/* sendaprize, create wizard — open-when letters for family & loved ones */
+/* sendaprize, create wizard — surprise gifts for family & loved ones */
 
 const OCCASIONS = {
-  spouse:  { icon: 'heart',           label: 'For my spouse',  hint: 'Affection & mercy between you' },
-  parents: { icon: 'user-heart',      label: 'For my parents', hint: 'Kindness & gratitude' },
-  family:  { icon: 'users',           label: 'For my family',  hint: 'Ties of kinship' },
-  friend:  { icon: 'heart-handshake', label: 'For a friend',   hint: 'A kind word, well timed' },
-  eid:     { icon: 'moon-star',       label: 'Eid Mubarak',    hint: 'A blessed celebration' },
-  nikah:   { icon: 'rings',           label: 'A new beginning',hint: 'A blessed marriage' },
-  baby:    { icon: 'baby',            label: 'Our new baby',   hint: 'A welcome from the heart' },
-  hifz:    { icon: 'book-open-text',  label: 'Quran completed',hint: 'A milestone of iman' },
+  spouse:  { icon: 'heart',           label: 'For my spouse',      hint: 'Affection & mercy between you' },
+  parents: { icon: 'user-heart',      label: 'For my parents',     hint: 'Kindness & gratitude' },
+  family:  { icon: 'users',           label: 'For my family',      hint: 'Ties of kinship' },
+  friend:  { icon: 'heart-handshake', label: 'For a friend',       hint: 'A kind word, well timed' },
+  nikah:   { icon: 'rings',           label: 'Wedding invitation', hint: 'A new beginning, blessed' },
+  baby:    { icon: 'baby',            label: 'Our new baby',       hint: 'A welcome from the heart' },
+  hifz:    { icon: 'book-open-text',  label: 'Quran completed',    hint: 'A milestone of iman' },
+  graduation: { icon: 'graduation-cap', label: 'Graduation',       hint: 'Proud of you, always' },
+  congratulations: { icon: 'party-popper', label: 'Congratulations', hint: 'Good news, well shared' },
+  eidf:    { icon: 'moon-star',       label: 'Eid al-Fitr',        hint: 'A blessed celebration' },
+  eida:    { icon: 'star',            label: 'Eid al-Adha',        hint: 'A day of gratitude' },
+  ramadan: { icon: 'moon',            label: 'Ramadan Kareem',     hint: 'A month of mercy' },
+  maulid:  { icon: 'book-heart',      label: 'Maulid',             hint: 'The Prophet\u2019s blessed birth' },
+  nanenane:{ icon: 'tractor',         label: 'Nane Nane',          hint: 'Farmers\u2019 Day' },
+  sabasaba:{ icon: 'factory',         label: 'Saba Saba',          hint: 'Industry Day' },
+  union:   { icon: 'flag',            label: 'Union Day',          hint: 'One nation, Tanganyika & Zanzibar' },
+  independence: { icon: 'landmark',   label: 'Independence Day',   hint: '9 Desemba, a day of pride' },
+  revolution: { icon: 'waves',        label: 'Zanzibar Revolution', hint: 'A day of freedom' },
 };
 
 const PLACEHOLDERS = {
@@ -16,10 +26,20 @@ const PLACEHOLDERS = {
   parents: { title: 'For my parents', from: 'Your loving child', message: 'May Allah reward you for everything you have done for me…' },
   family:  { title: 'For my family', from: 'Your family', message: 'However far apart we are, you are always in my heart…' },
   friend:  { title: 'For a dear friend', from: 'Your friend', message: 'A good friend is a blessing from Allah…' },
-  eid:     { title: 'Eid Mubarak!', from: 'Your family', message: 'May Allah accept our good deeds and fill this day with peace…' },
-  nikah:   { title: 'A new beginning', from: 'Your family', message: 'May Allah bless your marriage, unite you in goodness, and keep you together…' },
+  nikah:   { title: 'Our wedding invitation', from: 'Your family', message: 'In the name of Allah, we joyfully invite you to celebrate our new beginning…' },
   baby:    { title: 'Welcome, little one', from: 'Your family', message: 'Every child is a trust from Allah. May he be a comfort to his parents…' },
   hifz:    { title: 'Quran completed', from: 'Your family', message: 'May the Quran intercede for you and be your companion…' },
+  graduation: { title: 'MashaAllah, you graduated!', from: 'Your family', message: 'Alhamdulillah! May this achievement be the beginning of even greater good…' },
+  congratulations: { title: 'Congratulations!', from: 'Your family', message: 'Mabarak! May Allah bless you in this new chapter…' },
+  eidf:    { title: 'Eid al-Fitr Mubarak!', from: 'Your family', message: 'May Allah accept our fasting and prayers, and fill this day with peace…' },
+  eida:    { title: 'Eid al-Adha Mubarak!', from: 'Your family', message: 'May Allah accept our sacrifice and fill your home with barakah…' },
+  ramadan: { title: 'Ramadan Kareem!', from: 'Your family', message: 'May this month bring us closer to Allah and to one another…' },
+  maulid:  { title: 'Maulid Mubarak', from: 'Your family', message: 'May we follow the blessed example of the Prophet ﷺ…' },
+  nanenane:{ title: 'Nane Nane Mubarak', from: 'Your family', message: 'Thank you for feeding this nation. May Allah bless your harvest…' },
+  sabasaba:{ title: 'Saba Saba Mubarak', from: 'Your family', message: 'Proud of you and the work you do. May it keep growing…' },
+  union:   { title: 'Union Day Mubarak', from: 'Your family', message: 'Happy Union Day to all Tanzanians, in unity and peace…' },
+  independence: { title: 'Happy Independence Day', from: 'Your family', message: 'Proud to be Tanzanian. May our nation grow in unity and peace…' },
+  revolution: { title: 'Zanzibar Revolution Day', from: 'Your family', message: 'Salamu za siku hii ya uhuru, kwa ndugu zetu wa Zanzibar…' },
 };
 
 const draft = {
@@ -69,7 +89,7 @@ function renderTypes() {
 
 function updatePreview() {
   $('#pvType').textContent = OCCASIONS[draft.type].label;
-  $('#pvTitle').textContent = draft.title || 'Your letter preview';
+  $('#pvTitle').textContent = draft.title || 'Your surprise preview';
   $('#pvFrom').textContent = `from ${draft.from || 'someone who loves you'}`;
   const badges = [];
   if (draft.password) badges.push('Sealed with a secret');
@@ -100,7 +120,7 @@ function showStep(n) {
 
   const last = n === TOTAL_STEPS;
   const success = n === TOTAL_STEPS + 1;
-  $('#btnNext').innerHTML = last ? '<i data-lucide="sparkles"></i> Wrap the letter' : 'Continue <i data-lucide="arrow-right"></i>';
+  $('#btnNext').innerHTML = last ? '<i data-lucide="sparkles"></i> Wrap your surprise' : 'Continue <i data-lucide="arrow-right"></i>';
   refreshIcons();
   $('#btnBack').style.display = n === 1 || success ? 'none' : '';
   $('#wizActions').style.display = success ? 'none' : '';
@@ -108,8 +128,8 @@ function showStep(n) {
 
 function validateStep(n) {
   if (n === 3) {
-    if (!$('#fMessage').value.trim()) { toast('Write a message to put inside the letter'); return false; }
-    if (!$('#fTitle').value.trim()) { toast('Give your letter a title'); return false; }
+    if (!$('#fMessage').value.trim()) { toast('Write a message to put inside the surprise'); return false; }
+    if (!$('#fTitle').value.trim()) { toast('Give your surprise a title'); return false; }
   }
   return true;
 }
@@ -135,7 +155,7 @@ function setupImages() {
   zone.addEventListener('click', () => input.click());
   input.addEventListener('change', () => {
     for (const file of input.files) {
-      if (draft.images.length >= 6) { toast('Up to 6 photos per letter'); break; }
+      if (draft.images.length >= 6) { toast('Up to 6 photos per surprise'); break; }
       compressImage(file).then(({ dataUrl, ext }) => draft.images.push({ dataUrl, ext }));
     }
     input.value = '';
@@ -253,7 +273,7 @@ async function ensureUser() {
 async function createSurprise() {
   const btn = $('#btnNext');
   btn.disabled = true;
-  btn.innerHTML = '<span class="spinner"></span> Sealing your letter…';
+  btn.innerHTML = '<span class="spinner"></span> Wrapping your surprise…';
   try {
     const creatorId = await ensureUser();
     const res = await api('/api/surprise', {
@@ -288,7 +308,7 @@ async function createSurprise() {
   } catch (e) {
     toast(e.message);
     btn.disabled = false;
-    btn.innerHTML = '<i data-lucide="sparkles"></i> Wrap the letter';
+    btn.innerHTML = '<i data-lucide="sparkles"></i> Wrap your surprise';
     refreshIcons();
   }
 }
@@ -302,7 +322,7 @@ function showSuccess(code, qrUrl) {
   startHeartRain(10);
   $('#copyLinkBtn').addEventListener('click', () => copyText(link, 'Link copied!'));
   $('#shareWa').addEventListener('click', () => {
-    const text = `A letter is waiting for you ${link}`;
+    const text = `A surprise is waiting for you ${link}`;
     window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, '_blank');
   });
 }

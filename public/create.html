@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <title>Write an open-when letter, sendaprize</title>
+  <title>Create a surprise gift, sendaprize</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/css/styles.css" />
   <link rel="stylesheet" href="/css/experience.css" />
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2310b981'><path d='M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z'/></svg>" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23ff2d78'><path d='M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z'/></svg>" />
 </head>
 <body>
 
@@ -27,7 +27,7 @@
 
       <!-- STEP 1 · who is it for -->
       <div class="wizard-step" data-step="1">
-        <h2>Who is the letter for?</h2>
+        <h2>Who is the surprise for?</h2>
         <p class="hint">Pick the person, you can personalise everything next.</p>
         <div class="grid type-pick" id="typePick"></div>
       </div>
@@ -35,17 +35,17 @@
       <!-- STEP 2 · the moment -->
       <div class="wizard-step" data-step="2">
         <h2>Choose the moment</h2>
-        <p class="hint">Keep the letter sealed until the right time, or let them open it whenever.</p>
+        <p class="hint">Keep the surprise sealed until the right time, or let them open it whenever.</p>
         <div class="grid fields-2">
           <div class="field">
             <label>Open on (optional)</label>
             <input class="input" id="fOpenAt" type="datetime-local" />
-            <span class="muted small">The letter stays sealed until this moment.</span>
+            <span class="muted small">The surprise stays sealed until this moment.</span>
           </div>
           <div class="field">
             <label>Secret word (optional)</label>
             <input class="input" id="fPassword" type="text" placeholder="Leave empty for no secret" maxlength="40" />
-            <span class="muted small">They'll need this to open the letter.</span>
+            <span class="muted small">They'll need this to open the surprise.</span>
           </div>
         </div>
       </div>
@@ -53,7 +53,7 @@
       <!-- STEP 3 · the words -->
       <div class="wizard-step" data-step="3">
         <h2>Write the words</h2>
-        <p class="hint">This is the moment they'll read when the letter opens.</p>
+        <p class="hint">This is the moment they'll read when the surprise opens.</p>
         <div class="grid fields-2">
           <div class="field">
             <label>Title</label>
@@ -72,7 +72,7 @@
 
       <!-- STEP 4 · memories -->
       <div class="wizard-step" data-step="4">
-        <h2>Add a memory to the letter</h2>
+        <h2>Add a memory to the surprise</h2>
         <p class="hint">Photos and a voice note, all optional.</p>
         <div class="media-pick">
           <div class="media-zone" id="imgZone">
@@ -94,7 +94,7 @@
       <!-- STEP 5 · preview -->
       <div class="wizard-step" data-step="5">
         <h2>Almost there</h2>
-        <p class="hint">Here is how the letter will feel.</p>
+        <p class="hint">Here is how the surprise will feel.</p>
         <div class="preview-live">
           <div class="gift-stage">
             <div class="gift float pulse">
@@ -117,7 +117,7 @@
           </div>
           <div class="preview-card">
             <span class="chip" id="pvType">For my spouse</span>
-            <h3 id="pvTitle" style="margin-top:14px">Your letter preview</h3>
+            <h3 id="pvTitle" style="margin-top:14px">Your surprise preview</h3>
             <p id="pvFrom" class="muted">from someone who loves you</p>
             <p id="pvBadges" class="badge-pw" style="display:none"></p>
           </div>
@@ -128,8 +128,8 @@
       <div class="wizard-step" data-step="6" style="display:none">
         <div class="success-box">
           <div class="tick"><i data-lucide="heart"></i></div>
-          <h2>Your letter is ready!</h2>
-          <p class="muted">Send this link, the letter will open at the right moment.</p>
+          <h2>Your surprise is ready!</h2>
+          <p class="muted">Send this link, the surprise will open at the right moment.</p>
           <div class="link-copy">
             <input id="shareLink" readonly />
             <button class="btn btn-primary" id="copyLinkBtn">Copy</button>
@@ -140,7 +140,7 @@
           </div>
           <div class="actions" style="justify-content:center; flex-wrap:wrap; gap:18px">
             <button class="btn btn-wa" id="shareWa"><i data-lucide="send"></i> Share on WhatsApp</button>
-            <a class="btn btn-ghost" href="/">Write another</a>
+            <a class="btn btn-ghost" href="/">Create another</a>
           </div>
         </div>
       </div>
@@ -159,14 +159,14 @@
 
         <div class="footer-brand">
           <a class="logo" href="/"><span class="dot"></span> Send<span class="grad">Aprize</span></a>
-          <p>Open-when letters for your spouse, your parents, your family. Beautiful words, delivered at the right moment.</p>
+          <p>Surprise gifts for your spouse, your parents, your family. Beautiful words, delivered at the right moment.</p>
         </div>
 
         <div class="footer-col">
           <h4>Explore</h4>
           <ul>
             <li><a href="/">Home</a></li>
-            <li><a href="/create">Write a letter</a></li>
+            <li><a href="/create">Create a surprise</a></li>
             <li><a href="/#how">How it works</a></li>
             <li><a href="/#occasions">Occasions</a></li>
           </ul>

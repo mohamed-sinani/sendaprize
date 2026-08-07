@@ -1,9 +1,10 @@
 # 💖 sendaprize
 
-Open-when letters for the ones you love — your spouse, your parents, your family.
+Surprise gifts for the ones you love — your spouse, your parents, your family.
 Beautiful words wrapped in an interactive moment: sealed until a chosen time or a
-secret word, with photos, voice notes and halal occasions like Eid, a new
-beginning (nikah), a new baby (aqiqah) and Quran completion (hifz).
+secret word, with photos, voice notes and halal occasions like Eid al-Fitr,
+Eid al-Adha, Ramadan, Maulid, a wedding (nikah), a new baby (aqiqah), Quran
+completion (hifz), graduation and Tanzanian holidays like Nane Nane and Saba Saba.
 
 **GitHub is the database.** Every meaningful interaction becomes a commit in your own
 repository, which doubles as the platform's complete, immutable event history.

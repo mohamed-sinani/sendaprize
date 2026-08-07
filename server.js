@@ -38,14 +38,24 @@ const SURPRISE_DIR = (code) =>
   `database/surprises/${new Date().getFullYear()}/${String(new Date().getMonth() + 1).padStart(2, '0')}`;
 
 const TYPE_LABEL = {
-  spouse: 'letter for a spouse',
-  parents: 'letter for parents',
-  family: 'letter for family',
-  friend: 'letter for a friend',
-  eid: 'Eid Mubarak letter',
-  nikah: 'nikah congratulations letter',
+  spouse: 'surprise for a spouse',
+  parents: 'surprise for parents',
+  family: 'surprise for family',
+  friend: 'surprise for a friend',
+  nikah: 'wedding invitation surprise',
   baby: 'baby aqiqah announcement',
-  hifz: 'Quran completion letter',
+  hifz: 'Quran completion surprise',
+  graduation: 'graduation surprise',
+  congratulations: 'congratulations surprise',
+  eidf: 'Eid al-Fitr surprise',
+  eida: 'Eid al-Adha surprise',
+  ramadan: 'Ramadan Kareem surprise',
+  maulid: 'Maulid surprise',
+  nanenane: 'Nane Nane surprise',
+  sabasaba: 'Saba Saba surprise',
+  union: 'Union Day surprise',
+  independence: 'Independence Day surprise',
+  revolution: 'Zanzibar Revolution Day surprise',
 };
 
 function now() {
@@ -203,7 +213,7 @@ app.post('/api/surprise', api(async (req, res) => {
     id: code,
     code,
     type: b.type || 'spouse',
-    title: (b.title || 'A letter for you').slice(0, 120),
+    title: (b.title || 'A surprise for you').slice(0, 120),
     message: (b.message || '').slice(0, 5000),
     from: (b.from || 'someone who loves you').slice(0, 60),
     theme: 'emerald',

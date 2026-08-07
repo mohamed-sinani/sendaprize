@@ -1,4 +1,4 @@
-/* sendaprize, the open-when letter experience */
+/* sendaprize, the surprise opening experience */
 
 const REACTION_ICONS = ['heart', 'sparkles', 'smile', 'flame', 'star', 'thumbs-up', 'book-open-text'];
 const OCCASIONS_ICON = {
@@ -6,10 +6,20 @@ const OCCASIONS_ICON = {
   parents: 'user-heart',
   family: 'users',
   friend: 'heart-handshake',
-  eid: 'moon-star',
   nikah: 'rings',
   baby: 'baby',
   hifz: 'book-open-text',
+  graduation: 'graduation-cap',
+  congratulations: 'party-popper',
+  eidf: 'moon-star',
+  eida: 'star',
+  ramadan: 'moon',
+  maulid: 'book-heart',
+  nanenane: 'tractor',
+  sabasaba: 'factory',
+  union: 'flag',
+  independence: 'landmark',
+  revolution: 'waves',
 };
 
 let state = null;
@@ -55,9 +65,9 @@ function renderLock() {
 
   $('#lock').style.display = 'block';
   if (state.requiresPassword) {
-    $('#lockSub').textContent = 'It is sealed with a secret word. Enter it to open the letter.';
+    $('#lockSub').textContent = 'It is sealed with a secret word. Enter it to open the surprise.';
   } else {
-    $('#lockSub').textContent = `From ${state.from} · a letter written just for you.`;
+    $('#lockSub').textContent = `From ${state.from} · a surprise wrapped just for you.`;
   }
 
   $('#openBtn').addEventListener('click', () => {
@@ -97,7 +107,7 @@ function countdownDone() {
   $('#countdown').style.display = 'none';
   $('#lock').style.display = 'block';
   if (state.requiresPassword) {
-    $('#lockSub').textContent = 'The moment has arrived. Enter the secret word to open the letter.';
+    $('#lockSub').textContent = 'The moment has arrived. Enter the secret word to open the surprise.';
   } else {
     $('#lockSub').textContent = 'The moment has arrived, opening for you.';
     openBox();
@@ -185,7 +195,7 @@ function showReveal() {
 
 function revealFlourish() {
   startPetals({
-    colors: ['#34d399', '#10b981', '#6ee7b7', '#f5c76a', '#ffd9a0'],
+    colors: ['#ff5f8f', '#ff2d78', '#ff9ec2', '#ffd3e4', '#ffffff'],
     count: 22,
     duration: 12000,
   });
@@ -260,10 +270,10 @@ function renderShare() {
     b.addEventListener('click', async () => {
       const ch = b.dataset.ch;
       api(`/api/surprise/${code}/share`, { method: 'POST', body: { channel: ch } }).catch(() => {});
-      const text = `I sent you a letter on sendaprize: ${link}`;
+      const text = `I sent you a surprise on sendaprize: ${link}`;
       if (ch === 'whatsapp') window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, '_blank');
       else if (ch === 'x') window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}`, '_blank');
-      else if (ch === 'telegram') window.open(`https://t.me/share/url?url=${encodeURIComponent(link)}&text=${encodeURIComponent('I sent you a letter on sendaprize')}`, '_blank');
+      else if (ch === 'telegram') window.open(`https://t.me/share/url?url=${encodeURIComponent(link)}&text=${encodeURIComponent('I sent you a surprise on sendaprize')}`, '_blank');
       else copyText(link, 'Link copied!');
     });
   });
