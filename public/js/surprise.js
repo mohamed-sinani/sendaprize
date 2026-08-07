@@ -154,7 +154,8 @@ function showReveal() {
     '#0a0a0d',
   ].join(', ');
 
-  $('#rType').innerHTML = `<span class="reveal-emoji">${(OCCASIONS.byKey[state.type] || {}).ico || '💝'}</span>`;
+  $('#rType').innerHTML = `<i data-lucide="${OCCASIONS.iconName(OCCASIONS.byKey[state.type])}"></i>`;
+  refreshIcons();
   $('#rTitle').textContent = state.title;
   $('#rFrom').textContent = `for you, from ${state.from}`;
   $('#rMessage').textContent = state.message;

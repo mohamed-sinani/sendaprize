@@ -475,7 +475,6 @@ footer {
   background: rgba(255, 45, 120, 0.1); border: 1px solid rgba(255, 45, 120, 0.25);
 }
 .type-card .t-ico .lucide { width: 1.5rem; height: 1.5rem; }
-.type-card .t-ico.emoji { font-size: 1.5rem; line-height: 1; }
 .type-card h4 { font-family: var(--font-head); font-size: 1.08rem; }
 .type-card p { font-size: 0.84rem; color: var(--ink-dim); margin-top: 6px; line-height: 1.6; }
 .type-card .t-date {
@@ -489,7 +488,8 @@ footer {
 .occ-search { position: relative; max-width: 460px; }
 .occ-search .s-ico {
   position: absolute; left: 16px; top: 50%; transform: translateY(-50%);
-  font-size: 1.05rem; line-height: 1; pointer-events: none;
+  width: 1.05rem; height: 1.05rem; pointer-events: none;
+  color: var(--ink-dim);
 }
 .occ-search input {
   width: 100%; padding: 13px 18px 13px 44px; border-radius: 999px;
@@ -514,6 +514,7 @@ footer {
   grid-column: 1 / -1; display: flex; align-items: center; gap: 10px;
   margin: 10px 0 2px; font-family: var(--font-head); font-size: 1.05rem; color: var(--ink);
 }
+.cat-head .lucide { width: 1.15rem; height: 1.15rem; flex-shrink: 0; color: var(--pink-2); }
 .cat-head::after { content: ""; flex: 1; height: 1px; background: var(--stroke); }
 
 /* ---------- steps ---------- */
