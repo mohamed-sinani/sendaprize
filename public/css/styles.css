@@ -474,8 +474,46 @@ footer {
   background: rgba(255, 45, 120, 0.1); border: 1px solid rgba(255, 45, 120, 0.25);
 }
 .type-card .t-ico .lucide { width: 1.5rem; height: 1.5rem; }
+.type-card .t-ico.emoji { font-size: 1.5rem; line-height: 1; }
 .type-card h4 { font-family: var(--font-head); font-size: 1.08rem; }
 .type-card p { font-size: 0.84rem; color: var(--ink-dim); margin-top: 6px; line-height: 1.6; }
+.type-card .t-date {
+  display: inline-block; margin-top: 10px; padding: 4px 10px; border-radius: 999px;
+  font-size: 0.7rem; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase;
+  color: var(--pink); background: rgba(255, 45, 120, 0.1); border: 1px solid rgba(255, 45, 120, 0.22);
+}
+
+/* ---------- occasion search + category chips ---------- */
+.occ-tools { display: flex; flex-direction: column; gap: 14px; margin-bottom: 24px; }
+.occ-search { position: relative; max-width: 460px; }
+.occ-search .s-ico {
+  position: absolute; left: 16px; top: 50%; transform: translateY(-50%);
+  font-size: 1.05rem; line-height: 1; pointer-events: none;
+}
+.occ-search input {
+  width: 100%; padding: 13px 18px 13px 44px; border-radius: 999px;
+  background: var(--glass); border: 1px solid var(--stroke); color: var(--ink);
+  font-size: 0.95rem; font-family: inherit; outline: none;
+  transition: border-color 0.25s, box-shadow 0.25s;
+}
+.occ-search input:focus { border-color: rgba(255, 45, 120, 0.5); box-shadow: 0 0 0 4px rgba(255, 45, 120, 0.1); }
+.occ-cats { display: flex; flex-wrap: wrap; gap: 8px; }
+.occ-cat {
+  padding: 8px 16px; border-radius: 999px; border: 1px solid var(--stroke);
+  background: var(--glass); color: var(--ink-dim); cursor: pointer;
+  font-size: 0.8rem; font-weight: 800; letter-spacing: 0.04em; text-transform: uppercase;
+  transition: all 0.25s var(--ease); font-family: inherit;
+}
+.occ-cat:hover { border-color: rgba(255, 45, 120, 0.4); color: var(--ink); }
+.occ-cat.on {
+  color: #fff; border-color: transparent;
+  background: linear-gradient(135deg, var(--pink-2), var(--pink));
+}
+.cat-head {
+  grid-column: 1 / -1; display: flex; align-items: center; gap: 10px;
+  margin: 10px 0 2px; font-family: var(--font-head); font-size: 1.05rem; color: var(--ink);
+}
+.cat-head::after { content: ""; flex: 1; height: 1px; background: var(--stroke); }
 
 /* ---------- steps ---------- */
 .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; counter-reset: step; }

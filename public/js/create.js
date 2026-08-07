@@ -1,45 +1,32 @@
 /* sendaprize, create wizard — surprise gifts for family & loved ones */
 
-const OCCASIONS = {
-  spouse:  { icon: 'heart',           label: 'For my spouse',      hint: 'Affection & mercy between you' },
-  parents: { icon: 'user-heart',      label: 'For my parents',     hint: 'Kindness & gratitude' },
-  family:  { icon: 'users',           label: 'For my family',      hint: 'Ties of kinship' },
-  friend:  { icon: 'heart-handshake', label: 'For a friend',       hint: 'A kind word, well timed' },
-  nikah:   { icon: 'rings',           label: 'Wedding invitation', hint: 'A new beginning, blessed' },
-  baby:    { icon: 'baby',            label: 'Our new baby',       hint: 'A welcome from the heart' },
-  hifz:    { icon: 'book-open-text',  label: 'Quran completed',    hint: 'A milestone of iman' },
-  graduation: { icon: 'graduation-cap', label: 'Graduation',       hint: 'Proud of you, always' },
-  congratulations: { icon: 'party-popper', label: 'Congratulations', hint: 'Good news, well shared' },
-  eidf:    { icon: 'moon-star',       label: 'Eid al-Fitr',        hint: 'A blessed celebration' },
-  eida:    { icon: 'star',            label: 'Eid al-Adha',        hint: 'A day of gratitude' },
-  ramadan: { icon: 'moon',            label: 'Ramadan Kareem',     hint: 'A month of mercy' },
-  maulid:  { icon: 'book-heart',      label: 'Maulid',             hint: 'The Prophet\u2019s blessed birth' },
-  nanenane:{ icon: 'tractor',         label: 'Nane Nane',          hint: 'Farmers\u2019 Day' },
-  sabasaba:{ icon: 'factory',         label: 'Saba Saba',          hint: 'Industry Day' },
-  union:   { icon: 'flag',            label: 'Union Day',          hint: 'One nation, Tanganyika & Zanzibar' },
-  independence: { icon: 'landmark',   label: 'Independence Day',   hint: '9 Desemba, a day of pride' },
-  revolution: { icon: 'waves',        label: 'Zanzibar Revolution', hint: 'A day of freedom' },
-};
-
 const PLACEHOLDERS = {
-  spouse:  { title: 'For my dearest', from: 'Your loving spouse', message: 'I thank Allah for you every day…' },
+  spouse: { title: 'For my dearest', from: 'Your loving spouse', message: 'I thank Allah for you every day…' },
   parents: { title: 'For my parents', from: 'Your loving child', message: 'May Allah reward you for everything you have done for me…' },
-  family:  { title: 'For my family', from: 'Your family', message: 'However far apart we are, you are always in my heart…' },
-  friend:  { title: 'For a dear friend', from: 'Your friend', message: 'A good friend is a blessing from Allah…' },
-  nikah:   { title: 'Our wedding invitation', from: 'Your family', message: 'In the name of Allah, we joyfully invite you to celebrate our new beginning…' },
-  baby:    { title: 'Welcome, little one', from: 'Your family', message: 'Every child is a trust from Allah. May he be a comfort to his parents…' },
-  hifz:    { title: 'Quran completed', from: 'Your family', message: 'May the Quran intercede for you and be your companion…' },
+  family: { title: 'For my family', from: 'Your family', message: 'However far apart we are, you are always in my heart…' },
+  friend: { title: 'For a dear friend', from: 'Your friend', message: 'A good friend is a blessing from Allah…' },
+  nikah: { title: 'Our wedding invitation', from: 'Your family', message: 'In the name of Allah, we joyfully invite you to celebrate our new beginning…' },
+  baby: { title: 'Welcome, little one', from: 'Your family', message: 'Every child is a trust from Allah. May he be a comfort to his parents…' },
+  hifz: { title: 'Quran completed', from: 'Your family', message: 'May the Quran intercede for you and be your companion…' },
   graduation: { title: 'MashaAllah, you graduated!', from: 'Your family', message: 'Alhamdulillah! May this achievement be the beginning of even greater good…' },
   congratulations: { title: 'Congratulations!', from: 'Your family', message: 'Mabarak! May Allah bless you in this new chapter…' },
-  eidf:    { title: 'Eid al-Fitr Mubarak!', from: 'Your family', message: 'May Allah accept our fasting and prayers, and fill this day with peace…' },
-  eida:    { title: 'Eid al-Adha Mubarak!', from: 'Your family', message: 'May Allah accept our sacrifice and fill your home with barakah…' },
+  eidf: { title: 'Eid al-Fitr Mubarak!', from: 'Your family', message: 'May Allah accept our fasting and prayers, and fill this day with peace…' },
+  eida: { title: 'Eid al-Adha Mubarak!', from: 'Your family', message: 'May Allah accept our sacrifice and fill your home with barakah…' },
   ramadan: { title: 'Ramadan Kareem!', from: 'Your family', message: 'May this month bring us closer to Allah and to one another…' },
-  maulid:  { title: 'Maulid Mubarak', from: 'Your family', message: 'May we follow the blessed example of the Prophet ﷺ…' },
-  nanenane:{ title: 'Nane Nane Mubarak', from: 'Your family', message: 'Thank you for feeding this nation. May Allah bless your harvest…' },
-  sabasaba:{ title: 'Saba Saba Mubarak', from: 'Your family', message: 'Proud of you and the work you do. May it keep growing…' },
-  union:   { title: 'Union Day Mubarak', from: 'Your family', message: 'Happy Union Day to all Tanzanians, in unity and peace…' },
+  maulid: { title: 'Maulid Mubarak', from: 'Your family', message: 'May we follow the blessed example of the Prophet ﷺ…' },
+  nanenane: { title: 'Nane Nane Mubarak', from: 'Your family', message: 'Thank you for feeding this nation. May Allah bless your harvest…' },
+  sabasaba: { title: 'Saba Saba Mubarak', from: 'Your family', message: 'Proud of you and the work you do. May it keep growing…' },
+  union: { title: 'Union Day Mubarak', from: 'Your family', message: 'Happy Union Day to all Tanzanians, in unity and peace…' },
   independence: { title: 'Happy Independence Day', from: 'Your family', message: 'Proud to be Tanzanian. May our nation grow in unity and peace…' },
   revolution: { title: 'Zanzibar Revolution Day', from: 'Your family', message: 'Salamu za siku hii ya uhuru, kwa ndugu zetu wa Zanzibar…' },
+};
+
+const PH_DEFAULTS = {
+  family: { title: 'For someone I love', from: 'Your family', message: 'Thinking of you with love and du’a…' },
+  islamic: { title: 'A blessed day', from: 'Your family', message: 'May Allah bless you on this special day…' },
+  celebration: { title: 'Congratulations!', from: 'Your family', message: 'Wishing you all the blessings of this day…' },
+  tanzania: { title: 'Happy holiday', from: 'Your family', message: 'Wishing you a blessed and happy day…' },
+  world: { title: 'Thinking of you', from: 'Your family', message: 'Thinking of you on this day, with love and du’a…' },
 };
 
 const draft = {
@@ -59,36 +46,27 @@ let step = 1;
 const TOTAL_STEPS = 5;
 
 function updatePlaceholders() {
-  const p = PLACEHOLDERS[draft.type] || PLACEHOLDERS.spouse;
-  $('#fTitle').placeholder = p.title;
-  $('#fFrom').placeholder = p.from;
-  $('#fMessage').placeholder = p.message;
+  const o = OCCASIONS.byKey[draft.type] || {};
+  const ph = PLACEHOLDERS[draft.type] || PH_DEFAULTS[o.cat] || PH_DEFAULTS.family;
+  $('#fTitle').placeholder = ph.title;
+  $('#fFrom').placeholder = ph.from;
+  $('#fMessage').placeholder = ph.message;
 }
 
 function renderTypes() {
-  $('#typePick').innerHTML = Object.entries(OCCASIONS)
-    .map(
-      ([k, t]) => `
-      <div class="type-card ${draft.type === k ? 'sel' : ''}" data-key="${k}">
-        <span class="t-ico"><i data-lucide="${t.icon}"></i></span>
-        <h4>${t.label}</h4>
-        <p>${t.hint}</p>
-      </div>`
-    )
-    .join('');
-  $$('#typePick .type-card').forEach((c) =>
-    c.addEventListener('click', () => {
-      draft.type = c.dataset.key;
-      $$('#typePick .type-card').forEach((x) => x.classList.toggle('sel', x === c));
+  OCCASIONS.picker($('#typePick'), {
+    selected: draft.type,
+    placeholder: 'Search occasions…',
+    onPick: (key) => {
+      draft.type = key;
       updatePlaceholders();
       updatePreview();
-    })
-  );
-  refreshIcons();
+    },
+  });
 }
 
 function updatePreview() {
-  $('#pvType').textContent = OCCASIONS[draft.type].label;
+  $('#pvType').textContent = (OCCASIONS.byKey[draft.type] || {}).name || 'For my spouse';
   $('#pvTitle').textContent = draft.title || 'Your surprise preview';
   $('#pvFrom').textContent = `from ${draft.from || 'someone who loves you'}`;
   const badges = [];

@@ -154,28 +154,9 @@
       <div class="section-head">
         <span class="chip">Occasions</span>
         <h2>Made for the ones you love</h2>
-        <p class="muted">Tap one to start writing right away.</p>
+        <p class="muted">Tanzanian holidays, Islamic days and 150+ world days — search or browse, then tap one to start.</p>
       </div>
-      <div class="grid type-grid" id="typeGrid">
-        <div class="type-card reveal" data-type="spouse"><span class="t-ico"><i data-lucide="heart"></i></span><h4>For my spouse</h4><p>Affection and mercy between you both.</p></div>
-        <div class="type-card reveal d1" data-type="parents"><span class="t-ico"><i data-lucide="user-heart"></i></span><h4>For my parents</h4><p>Kindness that can never be repaid.</p></div>
-        <div class="type-card reveal d2" data-type="family"><span class="t-ico"><i data-lucide="users"></i></span><h4>For my family</h4><p>Ties of kinship, kept close.</p></div>
-        <div class="type-card reveal d3" data-type="friend"><span class="t-ico"><i data-lucide="heart-handshake"></i></span><h4>For a friend</h4><p>A kind word, well timed.</p></div>
-        <div class="type-card reveal d4" data-type="nikah"><span class="t-ico"><i data-lucide="rings"></i></span><h4>Wedding invitation</h4><p>A new beginning, blessed.</p></div>
-        <div class="type-card reveal d5" data-type="baby"><span class="t-ico"><i data-lucide="baby"></i></span><h4>Our new baby</h4><p>A welcome from the heart.</p></div>
-        <div class="type-card reveal d1" data-type="hifz"><span class="t-ico"><i data-lucide="book-open-text"></i></span><h4>Quran completed</h4><p>A milestone of iman, celebrated.</p></div>
-        <div class="type-card reveal d2" data-type="graduation"><span class="t-ico"><i data-lucide="graduation-cap"></i></span><h4>Graduation</h4><p>MashaAllah, so proud of you.</p></div>
-        <div class="type-card reveal d3" data-type="congratulations"><span class="t-ico"><i data-lucide="party-popper"></i></span><h4>Congratulations</h4><p>Good news, well shared.</p></div>
-        <div class="type-card reveal d4" data-type="eidf"><span class="t-ico"><i data-lucide="moon-star"></i></span><h4>Eid al-Fitr</h4><p>Eid Mubarak, a blessed celebration.</p></div>
-        <div class="type-card reveal d5" data-type="eida"><span class="t-ico"><i data-lucide="star"></i></span><h4>Eid al-Adha</h4><p>Eid Mubarak, a day of gratitude.</p></div>
-        <div class="type-card reveal d1" data-type="ramadan"><span class="t-ico"><i data-lucide="moon"></i></span><h4>Ramadan Kareem</h4><p>A month of mercy, remembered.</p></div>
-        <div class="type-card reveal d2" data-type="maulid"><span class="t-ico"><i data-lucide="book-heart"></i></span><h4>Maulid</h4><p>The Prophet's blessed birth.</p></div>
-        <div class="type-card reveal d3" data-type="nanenane"><span class="t-ico"><i data-lucide="tractor"></i></span><h4>Nane Nane</h4><p>Farmers' Day, a heartfelt thanks.</p></div>
-        <div class="type-card reveal d4" data-type="sabasaba"><span class="t-ico"><i data-lucide="factory"></i></span><h4>Saba Saba</h4><p>Industry Day, a proud moment.</p></div>
-        <div class="type-card reveal d5" data-type="union"><span class="t-ico"><i data-lucide="flag"></i></span><h4>Union Day</h4><p>Tanganyika & Zanzibar, one nation.</p></div>
-        <div class="type-card reveal d1" data-type="independence"><span class="t-ico"><i data-lucide="landmark"></i></span><h4>Independence Day</h4><p>9 Desemba, a day of pride.</p></div>
-        <div class="type-card reveal d2" data-type="revolution"><span class="t-ico"><i data-lucide="waves"></i></span><h4>Zanzibar Revolution</h4><p>A day of freedom, remembered.</p></div>
-      </div>
+      <div id="occasionsPicker"></div>
     </section>
 
     <section class="section">
@@ -236,14 +217,15 @@
 
   <script src="https://unpkg.com/lucide@latest"></script>
   <script src="/js/app.js"></script>
+  <script src="/js/occasions.js"></script>
   <script>
     refreshIcons();
     revealOnScroll();
-    $$('#typeGrid .type-card').forEach((c) => {
-      c.addEventListener('click', () => {
-        localStorage.setItem('ap_type', c.dataset.type);
+    OCCASIONS.picker($('#occasionsPicker'), {
+      onPick: (key) => {
+        localStorage.setItem('ap_type', key);
         location.href = '/create';
-      });
+      },
     });
 
     /* phone mockup, loops the letter-opening animation */

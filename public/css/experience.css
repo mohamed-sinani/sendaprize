@@ -190,6 +190,7 @@ body.page-shake { animation: shake-page 0.75s cubic-bezier(0.36, 0.07, 0.19, 0.9
 .reveal-inner { max-width: 640px; width: 100%; }
 .reveal-type { margin-bottom: 14px; animation: pop-in 0.7s var(--ease) both; color: var(--pink-2); }
 .reveal-type .lucide { width: 2.8rem; height: 2.8rem; }
+.reveal-emoji { display: inline-block; font-size: 2.8rem; line-height: 1; }
 .reveal-title { font-size: clamp(2rem, 6vw, 3.4rem); line-height: 1.08; margin-bottom: 10px; animation: fade-up 0.9s var(--ease) 0.15s both; }
 .reveal-from { color: var(--ink-dim); font-size: 0.95rem; margin-bottom: 30px; animation: fade-up 0.9s var(--ease) 0.3s both; }
 

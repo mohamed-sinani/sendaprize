@@ -1,26 +1,6 @@
 /* sendaprize, the surprise opening experience */
 
 const REACTION_ICONS = ['heart', 'sparkles', 'smile', 'flame', 'star', 'thumbs-up', 'book-open-text'];
-const OCCASIONS_ICON = {
-  spouse: 'heart',
-  parents: 'user-heart',
-  family: 'users',
-  friend: 'heart-handshake',
-  nikah: 'rings',
-  baby: 'baby',
-  hifz: 'book-open-text',
-  graduation: 'graduation-cap',
-  congratulations: 'party-popper',
-  eidf: 'moon-star',
-  eida: 'star',
-  ramadan: 'moon',
-  maulid: 'book-heart',
-  nanenane: 'tractor',
-  sabasaba: 'factory',
-  union: 'flag',
-  independence: 'landmark',
-  revolution: 'waves',
-};
 
 let state = null;
 
@@ -174,7 +154,7 @@ function showReveal() {
     '#0a0a0d',
   ].join(', ');
 
-  $('#rType').innerHTML = `<i data-lucide="${OCCASIONS_ICON[state.type] || 'heart'}"></i>`;
+  $('#rType').innerHTML = `<span class="reveal-emoji">${(OCCASIONS.byKey[state.type] || {}).ico || '💝'}</span>`;
   $('#rTitle').textContent = state.title;
   $('#rFrom').textContent = `for you, from ${state.from}`;
   $('#rMessage').textContent = state.message;

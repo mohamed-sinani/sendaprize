@@ -1,25 +1,6 @@
 /* sendaprize, story dashboard */
 
-const OCCASIONS_LABEL = {
-  spouse: 'For my spouse',
-  parents: 'For my parents',
-  family: 'For my family',
-  friend: 'For a friend',
-  nikah: 'Wedding invitation',
-  baby: 'Our new baby',
-  hifz: 'Quran completed',
-  graduation: 'Graduation',
-  congratulations: 'Congratulations',
-  eidf: 'Eid al-Fitr',
-  eida: 'Eid al-Adha',
-  ramadan: 'Ramadan Kareem',
-  maulid: 'Maulid',
-  nanenane: 'Nane Nane',
-  sabasaba: 'Saba Saba',
-  union: 'Union Day',
-  independence: 'Independence Day',
-  revolution: 'Zanzibar Revolution',
-};
+const occLabel = (k) => (OCCASIONS.byKey[k] && OCCASIONS.byKey[k].name) || k;
 
 const EVENT_LABEL = {
   USER_CREATED: ['user', 'created a user account'],
@@ -85,7 +66,7 @@ function renderOccasions(occasions) {
     .map(
       ([k, v]) => `
       <div class="bar-row">
-        <span>${OCCASIONS_LABEL[k] || k}</span>
+        <span>${occLabel(k)}</span>
         <div class="bar"><i style="width:0%" data-w="${(v / max) * 100}%"></i></div>
         <b>${v}</b>
       </div>`

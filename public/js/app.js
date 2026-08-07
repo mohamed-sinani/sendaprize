@@ -39,7 +39,9 @@ function copyText(text, msg = 'Copied to clipboard') {
 }
 
 function refreshIcons() {
-  if (window.lucide) window.lucide.createIcons();
+  if (window.lucide) {
+    try { window.lucide.createIcons(); } catch (e) { /* keep going even if one icon is unknown */ }
+  }
 }
 
 /* lightweight confetti burst on a canvas */
