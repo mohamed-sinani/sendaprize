@@ -57,6 +57,7 @@ function renderTypes() {
   OCCASIONS.picker($('#typePick'), {
     selected: draft.type,
     placeholder: 'Search occasions…',
+    collapse: true,
     onPick: (key) => {
       draft.type = key;
       updatePlaceholders();

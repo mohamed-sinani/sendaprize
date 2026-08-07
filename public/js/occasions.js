@@ -476,7 +476,8 @@
     });
   }
 
-  /* Browser-only: builds the search bar + category chips + grid into `el`. */
+  /* Browser-only: builds the search bar + category chips + grid into `el`.
+     With `opts.collapse`, picking a card hides the tools and shows only that card. */
   function picker(el, opts) {
     opts = opts || {};
     var CAT_ORDER = ['family', 'islamic', 'celebration', 'tanzania', 'world'];
@@ -490,6 +491,7 @@
       '</div>' +
       '<div class="grid type-grid"></div>';
 
+    var tools = el.querySelector('.occ-tools');
     var qEl = el.querySelector('.occ-q');
     var catsEl = el.querySelector('.occ-cats');
     var grid = el.querySelector('.type-grid');
@@ -534,6 +536,22 @@
     }
 
     function renderGrid() {
+      if (opts.collapse && state.sel && byKey[state.sel]) {
+        tools.style.display = 'none';
+        grid.innerHTML =
+          '<div class="occ-picked">' +
+          cardHTML(byKey[state.sel], state.sel) +
+          '<button type="button" class="btn btn-ghost occ-change"><i data-lucide="refresh-cw"></i> Change</button>' +
+          '</div>';
+        syncIcons();
+        grid.querySelector('.occ-change').addEventListener('click', function () {
+          state.sel = null;
+          tools.style.display = '';
+          renderGrid();
+        });
+        return;
+      }
+      tools.style.display = '';
       var items = filter(REC, state.q, state.cat);
       var html = '';
       if (state.cat === 'world') {
