@@ -541,7 +541,7 @@
         grid.innerHTML =
           '<div class="occ-picked">' +
           cardHTML(byKey[state.sel], state.sel) +
-          '<button type="button" class="btn btn-ghost occ-change"><i data-lucide="refresh-cw"></i> Change</button>' +
+          '<button type="button" class="btn btn-ghost occ-change"><i data-lucide="refresh-cw"></i> Pick new</button>' +
           '</div>';
         syncIcons();
         grid.querySelector('.occ-change').addEventListener('click', function () {
