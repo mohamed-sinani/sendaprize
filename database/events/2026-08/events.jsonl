@@ -77,3 +77,4 @@
 {"type":"SURPRISE_CREATED","id":"event_bf7df3a60556","user":"user_002","target":"IXRJVW","time":"2026-08-07T23:07:05.501Z"}
 {"id":"event_ed8825737a65","type":"QR_GENERATED","user":"user_002","target":"IXRJVW","time":"2026-08-07T23:07:07.941Z"}
 {"id":"event_3c952f29815c","type":"SURPRISE_VIEWED","user":"anonymous","target":"IXRJVW","time":"2026-08-07T23:07:21.939Z"}
+{"id":"event_3a891f9696f6","type":"SURPRISE_VIEWED","user":"anonymous","target":"4kkpSS","time":"2026-08-07T23:12:50.118Z"}
