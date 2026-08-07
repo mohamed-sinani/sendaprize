@@ -38,15 +38,14 @@ const SURPRISE_DIR = (code) =>
   `database/surprises/${new Date().getFullYear()}/${String(new Date().getMonth() + 1).padStart(2, '0')}`;
 
 const TYPE_LABEL = {
-  love: 'love letter',
-  birthday: 'birthday',
-  graduation: 'graduation',
-  congrats: 'congratulations',
-  anonymous: 'anonymous message',
-  proposal: 'proposal',
-  baby: 'baby announcement',
-  thankyou: 'thank you',
-  openwhen: 'open when letter',
+  spouse: 'letter for a spouse',
+  parents: 'letter for parents',
+  family: 'letter for family',
+  friend: 'letter for a friend',
+  eid: 'Eid Mubarak letter',
+  nikah: 'nikah congratulations letter',
+  baby: 'baby aqiqah announcement',
+  hifz: 'Quran completion letter',
 };
 
 function now() {
@@ -203,14 +202,11 @@ app.post('/api/surprise', api(async (req, res) => {
   const surprise = {
     id: code,
     code,
-    type: b.type || 'love',
-    title: (b.title || 'A surprise for you').slice(0, 120),
+    type: b.type || 'spouse',
+    title: (b.title || 'A letter for you').slice(0, 120),
     message: (b.message || '').slice(0, 5000),
     from: (b.from || 'someone who loves you').slice(0, 60),
-    theme: b.theme || 'rose',
-    animation: b.animation || 'giftbox',
-    music: b.music || null,
-    video: b.video || null,
+    theme: 'emerald',
     media: { images: [], audio: [] },
     passwordHash: b.password ? sha256(String(b.password)) : null,
     openAt: b.openAt || null,
@@ -235,8 +231,8 @@ app.post('/api/surprise', api(async (req, res) => {
   }
 
   // analytics
-  await updateJson(staged, store, 'database/analytics/themes.json', { byTheme: {} }, (t) => {
-    t.byTheme[surprise.theme] = (t.byTheme[surprise.theme] || 0) + 1;
+  await updateJson(staged, store, 'database/analytics/occasions.json', { byType: {} }, (o) => {
+    o.byType[surprise.type] = (o.byType[surprise.type] || 0) + 1;
   });
   await engine.touchAnalytics(staged, { surprises: 1 });
   if (surprise.passwordHash) {
@@ -388,25 +384,20 @@ app.put('/api/surprise/:code', api(async (req, res) => {
   let eventType = 'MESSAGE_UPDATED';
 
   await updateJson(staged, store, surprisePath, null, (s) => {
-    const changes = [];
-    if (typeof b.title === 'string') { s.title = b.title.slice(0, 120); changes.push('title'); }
-    if (typeof b.message === 'string') { s.message = b.message.slice(0, 5000); changes.push('message'); }
-    if (typeof b.from === 'string') { s.from = b.from.slice(0, 60); changes.push('from'); }
-    if (typeof b.theme === 'string') { s.theme = b.theme; changes.push('theme'); eventType = 'THEME_CHANGED'; }
-    if (typeof b.animation === 'string') { s.animation = b.animation; changes.push('animation'); }
-    if ('music' in b) { s.music = b.music || null; changes.push('music'); }
-    if ('video' in b) { s.video = b.video || null; changes.push('video'); }
-    if ('openAt' in b) { s.openAt = b.openAt || null; changes.push('countdown'); }
+    if (typeof b.title === 'string') s.title = b.title.slice(0, 120);
+    if (typeof b.message === 'string') s.message = b.message.slice(0, 5000);
+    if (typeof b.from === 'string') s.from = b.from.slice(0, 60);
+    if ('openAt' in b) s.openAt = b.openAt || null;
     if ('password' in b) {
-      if (b.password) { s.passwordHash = sha256(String(b.password)); changes.push('password'); eventType = 'PASSWORD_CREATED'; }
-      else { s.passwordHash = null; changes.push('password'); }
+      if (b.password) { s.passwordHash = sha256(String(b.password)); eventType = 'PASSWORD_CREATED'; }
+      else { s.passwordHash = null; }
     }
     s.updated_at = now();
   });
 
   const label = TYPE_LABEL[surprise.type] || 'surprise';
-  message = eventType === 'THEME_CHANGED' ? `Change theme of ${label} ${code}`
-    : eventType === 'PASSWORD_CREATED' ? `Add password protection to ${label} ${code}`
+  message = eventType === 'PASSWORD_CREATED'
+    ? `Add password protection to ${label} ${code}`
     : `Update ${label} surprise ${code}`;
 
   await engine.record({
@@ -439,11 +430,11 @@ app.post('/api/surprise/:code/qr', api(async (req, res) => {
 // Admin dashboard
 // ------------------------------------------------------------------
 app.get('/api/admin/stats', api(async (_req, res) => {
-  const [overview, commits, events, themes, recentCommits, userFiles, surpriseFiles] = await Promise.all([
+  const [overview, commits, events, occasions, recentCommits, userFiles, surpriseFiles] = await Promise.all([
     engine.stats(),
     engine.store.countCommits(),
     engine.recentEvents(30),
-    readJson(store, 'database/analytics/themes.json', { byTheme: {} }),
+    readJson(store, 'database/analytics/occasions.json', { byType: {} }),
     store.recentCommits(8).catch(() => []),
     store.listFiles('database/users'),
     store.listFiles(`${SURPRISE_DIR('')}`),
@@ -453,7 +444,7 @@ app.get('/api/admin/stats', api(async (_req, res) => {
     overview,
     commits,
     events,
-    themes: themes.byTheme || {},
+    occasions: occasions.byType || {},
     recentCommits,
     users: userFiles.length,
     surprises: surpriseFiles.filter((f) => f.endsWith('.json')).length,
