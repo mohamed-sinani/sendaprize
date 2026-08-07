@@ -39,6 +39,7 @@ body {
   min-height: 100vh;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: 100%;
   line-height: 1.6;
 }
 
@@ -66,7 +67,7 @@ body::after {
 
 a { color: var(--pink-2); text-decoration: none; }
 img { max-width: 100%; display: block; }
-button { font-family: var(--font-body); }
+button { font-family: var(--font-body); touch-action: manipulation; }
 
 /* ---------- typography ---------- */
 h1, h2, h3, .serif { font-family: var(--font-head); font-weight: 700; letter-spacing: -0.01em; }
@@ -484,7 +485,7 @@ footer {
 }
 
 /* ---------- occasion search + category chips ---------- */
-.occ-tools { display: flex; flex-direction: column; gap: 14px; margin-bottom: 24px; }
+.occ-tools { grid-column: 1 / -1; display: flex; flex-direction: column; gap: 14px; margin-bottom: 24px; }
 .occ-search { position: relative; max-width: 460px; }
 .occ-search .s-ico {
   position: absolute; left: 16px; top: 50%; transform: translateY(-50%);
@@ -593,13 +594,24 @@ footer {
   .type-card .t-ico { margin: 0 auto 12px; }
   .type-card p { margin: 6px auto 0; max-width: 320px; }
   .hero { padding-top: 56px; padding-bottom: 50px; }
-  .hero h1 { font-size: clamp(2.4rem, 10.5vw, 2.7rem); }
+  .hero h1 { font-size: clamp(1.95rem, 9vw, 2.5rem); }
   .hero .actions { flex-wrap: nowrap; gap: 10px; }
   .hero .actions .btn { flex: 1; padding: 13px 12px; font-size: 0.88rem; white-space: normal; }
   .hero .actions .btn .lucide { flex-shrink: 0; }
   .hero-stage .phone-demo { transform: scale(0.64); transform-origin: top center; }
   .section { padding: 60px 0; }
   .cta { padding: 48px 22px; }
+  .occ-cats { flex-wrap: nowrap; overflow-x: auto; padding-bottom: 4px; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+  .occ-cats::-webkit-scrollbar { display: none; }
+  .occ-cat { flex-shrink: 0; }
+  .bar-row { grid-template-columns: 92px 1fr auto; gap: 10px; }
+}
+
+@media (max-width: 400px) {
+  .hero .actions { flex-direction: column; }
+  .hero .actions .btn { width: 100%; }
+  .hero-stage .phone-demo { transform: scale(0.56); }
+  .type-card { padding: 22px 18px; }
 }
 
 /* ---------- reduced motion ---------- */
