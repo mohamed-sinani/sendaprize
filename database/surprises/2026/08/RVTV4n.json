@@ -21,5 +21,8 @@
   "updated_at": null,
   "opens": 5,
   "views": 3,
-  "shares": 2
+  "shares": 2,
+  "reactions": {
+    "smile": 1
+  }
 }
