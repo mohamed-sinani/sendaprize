@@ -5,6 +5,7 @@
 // ------------------------------------------------------------------
 
 const path = require('path');
+const fs = require('fs');
 const express = require('express');
 const config = require('./config');
 const { getStore, updateJson, readJson, appendEvent, pruneCache } = require('./lib/store');
@@ -44,6 +45,14 @@ const SURPRISE_DIR = (code) =>
 
 const OCCASIONS = require('./public/js/occasions.js');
 const typeLabel = (t) => (OCCASIONS.byKey[t] && OCCASIONS.byKey[t].name) || t;
+
+const escapeHtml = (s) =>
+  String(s || '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
 
 function now() {
   return new Date().toISOString();
@@ -460,11 +469,38 @@ app.post('/api/heartbeat', api(async (_req, res) => {
   res.json(result);
 }));
 
-// Serve the surprise page at /s/:code
-app.get('/s/:code', (_req, res) => {
+// Serve the surprise page at /s/:code with a dynamic link preview
+// (WhatsApp, Telegram, iMessage, etc. read the Open Graph tags).
+app.get('/s/:code', api(async (req, res) => {
+  const { code } = req.params;
   res.setHeader('X-Robots-Tag', 'noindex, nofollow');
-  res.sendFile(path.join(config.publicDir, 'surprise.html'));
-});
+  let html = fs.readFileSync(path.join(config.publicDir, 'surprise.html'), 'utf8');
+
+  const surprise = await readJson(store, `${SURPRISE_DIR(code)}/${code}.json`, null);
+  if (surprise) {
+    const from = surprise.from || 'someone';
+    const label = typeLabel(surprise.type);
+    const ogTitle = escapeHtml(surprise.title || `A surprise from ${from}`);
+    const ogDesc = escapeHtml(`A ${label} surprise from ${from}. Open it at the right moment.`);
+    const firstImg = surprise.media && surprise.media.images && surprise.media.images[0];
+    const ogImage = firstImg ? `${config.baseUrl}/${firstImg}` : `${config.baseUrl}/og-image.png`;
+
+    const swap = (re, replacement) => {
+      html = html.replace(re, replacement);
+    };
+    swap(/<title>[^<]*<\/title>/, `<title>${ogTitle}</title>`);
+    swap(/(<meta name="description" content=")[^"]*(")/, `$1${ogDesc}$2`);
+    swap(/(<meta property="og:title" content=")[^"]*(")/, `$1${ogTitle}$2`);
+    swap(/(<meta property="og:description" content=")[^"]*(")/, `$1${ogDesc}$2`);
+    swap(/(<meta property="og:image" content=")[^"]*(")/, `$1${ogImage}$2`);
+    swap(/(<meta property="og:url" content=")[^"]*(")/, `$1${config.baseUrl}/s/${code}$2`);
+    swap(/(<meta name="twitter:title" content=")[^"]*(")/, `$1${ogTitle}$2`);
+    swap(/(<meta name="twitter:description" content=")[^"]*(")/, `$1${ogDesc}$2`);
+    swap(/(<meta name="twitter:image" content=")[^"]*(")/, `$1${ogImage}$2`);
+  }
+
+  res.type('html').send(html);
+}));
 
 // catch-all for unknown API routes
 app.use('/api', (_req, res) => res.status(404).json({ error: 'not found' }));
