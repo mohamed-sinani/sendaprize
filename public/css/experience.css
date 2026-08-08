@@ -504,7 +504,8 @@ body.page-shake { animation: shake-page 0.75s cubic-bezier(0.36, 0.07, 0.19, 0.9
   .success-box .actions .btn { width: 100%; justify-content: center; }
   .preview-live { padding: 20px 14px; }
   .overlay-card { padding: 28px 22px; }
-  .letter { padding: 26px 22px 30px; }
+  .letter { padding: 44px 22px 30px; margin-top: 32px; }
+  .letter::before { font-size: 4rem; top: -24px; }
   .share-row { display: grid; grid-template-columns: 1fr 1fr; }
   .share-btn { justify-content: center; padding: 12px 12px; font-size: 0.84rem; }
   .input, .textarea, .occ-search input { font-size: 16px; }
