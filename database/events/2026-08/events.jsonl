@@ -101,4 +101,4 @@
 {"id":"event_5bba1fdb0087","type":"SURPRISE_OPENED","user":"anonymous","target":"RVTV4n","time":"2026-08-08T08:16:48.770Z"}
 {"channel":"whatsapp","id":"event_928dc420e794","type":"SURPRISE_SHARED","user":"user_002","target":"RVTV4n","time":"2026-08-08T08:17:01.514Z"}
 {"id":"event_1c70f595818c","type":"SURPRISE_VIEWED","user":"anonymous","target":"RVTV4n","time":"2026-08-08T08:36:37.809Z"}
-{"id":"event_713c4215cdc0","type":"SURPRISE_VIEWED","user":"anonymous","target":"RVTV4n","time":"2026-08-08T08:36:43.644Z"}
+{"id":"event_db72c8c9c494","type":"SURPRISE_OPENED","user":"anonymous","target":"RVTV4n","time":"2026-08-08T08:36:44.787Z"}
