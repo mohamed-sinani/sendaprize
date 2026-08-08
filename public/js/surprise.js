@@ -160,7 +160,7 @@ function showReveal() {
   refreshIcons();
   $('#rTitle').textContent = state.title;
   $('#rMessage').textContent = state.message;
-  $('#rSign').textContent = `${state.from}`;
+  $('#rSign').textContent = `Sent to you By ${state.from}`;
 
   renderMedia();
   renderReactions();
