@@ -1,0 +1,22 @@
+{
+  "id": "RVTV4n",
+  "code": "RVTV4n",
+  "type": "nanenane",
+  "title": "Nanenane Day",
+  "message": "Heri ya sikukuu ya Nanenane",
+  "from": "SendAfrica",
+  "theme": "rose",
+  "animation": "giftbox",
+  "music": null,
+  "video": null,
+  "media": {
+    "images": [],
+    "audio": []
+  },
+  "passwordHash": null,
+  "openAt": null,
+  "creatorId": "user_002",
+  "status": "published",
+  "created_at": "2026-08-08T07:50:46.003Z",
+  "updated_at": null
+}

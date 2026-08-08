@@ -90,3 +90,4 @@
 {"id":"event_c108a4a366c8","type":"SURPRISE_OPENED","user":"anonymous","target":"IXRJVW","time":"2026-08-08T00:16:18.087Z"}
 {"id":"event_46135b8b8200","type":"SURPRISE_OPENED","user":"anonymous","target":"IXRJVW","time":"2026-08-08T00:32:15.385Z"}
 {"reaction":"thumbs-up","id":"event_dfcd15baabb1","type":"SURPRISE_REACTED","user":"anonymous","target":"IXRJVW","time":"2026-08-08T00:32:24.218Z"}
+{"type":"SURPRISE_CREATED","id":"event_0a58048706c2","user":"user_002","target":"RVTV4n","time":"2026-08-08T07:50:46.631Z"}
