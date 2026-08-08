@@ -1,8 +1,14 @@
 {
   "byChannel": {
-    "link": 1
+    "link": 1,
+    "whatsapp": 1
   },
   "recent": [
+    {
+      "type": "whatsapp",
+      "surprise": "RVTV4n",
+      "timestamp": "2026-08-08T08:17:01.301Z"
+    },
     {
       "type": "link",
       "surprise": "RVTV4n",
