@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /s/
+Disallow: /api/
+Disallow: /media/
+
+Sitemap: https://sendaprize.click/sitemap.xml

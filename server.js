@@ -27,8 +27,13 @@ app.use((req, res, next) => {
 app.use(express.static(config.publicDir));
 
 // clean page routes
-app.get(['/create', '/surprise', '/admin'], (req, res) => {
+app.get(['/create', '/surprise'], (req, res) => {
   res.sendFile(path.join(config.publicDir, `${req.path.slice(1)}.html`));
+});
+
+app.get('/admin', (_req, res) => {
+  res.setHeader('X-Robots-Tag', 'noindex, nofollow');
+  res.sendFile(path.join(config.publicDir, 'admin.html'));
 });
 
 const store = getStore();
@@ -457,6 +462,7 @@ app.post('/api/heartbeat', api(async (_req, res) => {
 
 // Serve the surprise page at /s/:code
 app.get('/s/:code', (_req, res) => {
+  res.setHeader('X-Robots-Tag', 'noindex, nofollow');
   res.sendFile(path.join(config.publicDir, 'surprise.html'));
 });
 

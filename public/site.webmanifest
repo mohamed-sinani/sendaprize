@@ -1,0 +1,17 @@
+{
+  "name": "SendAPrize — surprise gifts for the ones you love",
+  "short_name": "SendAPrize",
+  "description": "Create a beautiful surprise gift that opens at the right moment.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a0a0d",
+  "theme_color": "#0a0a0d",
+  "icons": [
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
