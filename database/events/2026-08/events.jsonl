@@ -105,3 +105,4 @@
 {"reaction":"smile","id":"event_ecf03081bfaa","type":"SURPRISE_REACTED","user":"anonymous","target":"RVTV4n","time":"2026-08-08T08:37:08.928Z"}
 {"id":"event_7d14ebec9f21","type":"SURPRISE_VIEWED","user":"anonymous","target":"RVTV4n","time":"2026-08-08T08:38:00.327Z"}
 {"id":"event_87e374c9b2bf","type":"SURPRISE_OPENED","user":"anonymous","target":"RVTV4n","time":"2026-08-08T08:38:30.070Z"}
+{"channel":"whatsapp","id":"event_7b4e2a8671f3","type":"SURPRISE_SHARED","user":"user_002","target":"RVTV4n","time":"2026-08-08T08:38:51.912Z"}
