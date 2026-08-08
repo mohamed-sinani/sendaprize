@@ -275,6 +275,10 @@ body.page-shake { animation: shake-page 0.75s cubic-bezier(0.36, 0.07, 0.19, 0.9
 .counts .c b { display: block; font-size: 1.2rem; color: var(--ink); font-family: var(--font-head); }
 .counts .c span { font-size: 0.75rem; color: var(--ink-dim); text-transform: uppercase; letter-spacing: 0.08em; }
 
+.powered { margin-top: 26px; font-size: 0.75rem; color: rgba(185, 173, 182, 0.6); }
+.powered a { color: inherit; text-decoration: none; border-bottom: 1px solid rgba(185, 173, 182, 0.3); transition: color 0.25s, border-color 0.25s; }
+.powered a:hover { color: var(--pink-3); border-color: var(--pink-3); }
+
 /* password + countdown overlays */
 .overlay-card {
   max-width: 420px; width: 100%; text-align: center;
