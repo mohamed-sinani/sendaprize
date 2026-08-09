@@ -121,4 +121,4 @@
 {"day":"2026-08-09","report":"Daily Activity Report - 2026-08-09\n\n15 surprises created\n49 views\n35 opens\n3 shares\n4 reactions\n246 commits in the story\n2 users\n\nThis repository is the living history of SendAPrize.","id":"event_56d564c2de23","type":"HEARTBEAT","user":"system","target":null,"time":"2026-08-09T08:30:53.539Z"}
 {"type":"SURPRISE_CREATED","id":"event_bc06557d5521","user":"user_002","target":"7cLcyP","time":"2026-08-09T20:00:07.187Z"}
 {"id":"event_eb5f64357ca2","type":"QR_GENERATED","user":"user_002","target":"7cLcyP","time":"2026-08-09T20:00:10.724Z"}
-{"id":"event_c8237078a8c8","type":"SURPRISE_VIEWED","user":"anonymous","target":"7cLcyP","time":"2026-08-09T20:00:23.755Z"}
+{"id":"event_bd7256013c85","type":"SURPRISE_OPENED","user":"anonymous","target":"7cLcyP","time":"2026-08-09T20:00:25.759Z"}
