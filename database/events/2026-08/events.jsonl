@@ -125,3 +125,4 @@
 {"type":"SURPRISE_CREATED","id":"event_a5b91681f1a4","user":"user_002","target":"7moEDB","time":"2026-08-09T20:01:49.193Z"}
 {"id":"event_78637cf1d3a6","type":"QR_GENERATED","user":"user_002","target":"7moEDB","time":"2026-08-09T20:01:51.973Z"}
 {"id":"event_26f55a1cfa82","type":"SURPRISE_OPENED","user":"anonymous","target":"7moEDB","time":"2026-08-09T20:02:03.171Z"}
+{"id":"event_b942726351a9","type":"SURPRISE_VIEWED","user":"anonymous","target":"7moEDB","time":"2026-08-09T20:03:30.953Z"}
