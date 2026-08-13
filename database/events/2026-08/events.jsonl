@@ -149,3 +149,4 @@
 {"id":"event_75eee325598d","type":"IMAGE_ADDED","user":"user_002","target":"le74Qb","time":"2026-08-13T19:20:27.101Z"}
 {"id":"event_ad33d4ec3d70","type":"QR_GENERATED","user":"user_002","target":"le74Qb","time":"2026-08-13T19:20:30.880Z"}
 {"id":"event_1bfd3e477de6","type":"SURPRISE_VIEWED","user":"anonymous","target":"le74Qb","time":"2026-08-13T19:21:06.654Z"}
+{"id":"event_68e00970d520","type":"SURPRISE_OPENED","user":"anonymous","target":"le74Qb","time":"2026-08-13T19:21:18.461Z"}
