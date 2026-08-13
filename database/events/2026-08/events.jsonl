@@ -152,3 +152,4 @@
 {"id":"event_68e00970d520","type":"SURPRISE_OPENED","user":"anonymous","target":"le74Qb","time":"2026-08-13T19:21:18.461Z"}
 {"id":"event_8051c24df646","type":"SURPRISE_VIEWED","user":"anonymous","target":"le74Qb","time":"2026-08-13T19:31:50.810Z"}
 {"id":"event_2aab203a1448","type":"SURPRISE_OPENED","user":"anonymous","target":"le74Qb","time":"2026-08-13T19:31:56.742Z"}
+{"reaction":"smile","id":"event_eecb623d2bb8","type":"SURPRISE_REACTED","user":"anonymous","target":"le74Qb","time":"2026-08-13T19:32:23.342Z"}

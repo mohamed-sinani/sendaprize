@@ -1,9 +1,14 @@
 {
   "byType": {
-    "smile": 4,
+    "smile": 5,
     "thumbs-up": 1
   },
   "recent": [
+    {
+      "surprise_id": "le74Qb",
+      "type": "smile",
+      "timestamp": "2026-08-13T19:32:23.128Z"
+    },
     {
       "surprise_id": "RVTV4n",
       "type": "smile",
