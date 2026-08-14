@@ -265,3 +265,4 @@
 {"type":"SURPRISE_CREATED","id":"event_85c3eee6fcd8","user":"user_001","target":"Ex45UZ","time":"2026-08-14T19:06:38.363Z"}
 {"id":"event_15d78b25f3ad","type":"QR_GENERATED","user":"user_001","target":"Ex45UZ","time":"2026-08-14T19:06:44.020Z"}
 {"id":"event_b88573a9d720","type":"SURPRISE_VIEWED","user":"anonymous","target":"Ex45UZ","time":"2026-08-14T19:07:03.247Z"}
+{"id":"event_ade9c306f07e","type":"SURPRISE_OPENED","user":"anonymous","target":"Ex45UZ","time":"2026-08-14T19:07:14.279Z"}
