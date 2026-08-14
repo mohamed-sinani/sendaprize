@@ -3,35 +3,35 @@
     "smile": 5,
     "thumbs-up": 2,
     "heart": 6,
-    "sparkles": 3,
-    "flame": 1,
+    "sparkles": 2,
+    "flame": 2,
     "star": 1
   },
   "recent": [
     {
       "surprise_id": "le74Qb",
       "type": "star",
-      "timestamp": "2026-08-14T07:16:04.172Z"
+      "timestamp": "2026-08-14T07:16:07.689Z"
     },
     {
       "surprise_id": "le74Qb",
       "type": "flame",
-      "timestamp": "2026-08-14T07:15:47.961Z"
+      "timestamp": "2026-08-14T07:15:49.755Z"
+    },
+    {
+      "surprise_id": "le74Qb",
+      "type": "flame",
+      "timestamp": "2026-08-14T07:15:34.194Z"
     },
     {
       "surprise_id": "le74Qb",
       "type": "sparkles",
-      "timestamp": "2026-08-14T07:15:30.024Z"
+      "timestamp": "2026-08-14T07:15:20.107Z"
     },
     {
       "surprise_id": "le74Qb",
       "type": "sparkles",
-      "timestamp": "2026-08-14T07:15:16.533Z"
-    },
-    {
-      "surprise_id": "le74Qb",
-      "type": "sparkles",
-      "timestamp": "2026-08-14T07:14:58.086Z"
+      "timestamp": "2026-08-14T07:14:58.239Z"
     },
     {
       "surprise_id": "le74Qb",
