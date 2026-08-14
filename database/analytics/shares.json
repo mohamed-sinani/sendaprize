@@ -2,13 +2,13 @@
   "byChannel": {
     "link": 1,
     "whatsapp": 3,
-    "x": 1
+    "telegram": 1
   },
   "recent": [
     {
-      "type": "x",
+      "type": "telegram",
       "surprise": "le74Qb",
-      "timestamp": "2026-08-14T20:47:13.741Z"
+      "timestamp": "2026-08-14T20:47:18.493Z"
     },
     {
       "type": "whatsapp",
