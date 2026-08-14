@@ -3,23 +3,24 @@
     "smile": 5,
     "thumbs-up": 2,
     "heart": 6,
-    "sparkles": 3
+    "sparkles": 2,
+    "flame": 1
   },
   "recent": [
     {
       "surprise_id": "le74Qb",
-      "type": "sparkles",
-      "timestamp": "2026-08-14T07:15:30.024Z"
+      "type": "flame",
+      "timestamp": "2026-08-14T07:15:34.194Z"
     },
     {
       "surprise_id": "le74Qb",
       "type": "sparkles",
-      "timestamp": "2026-08-14T07:15:16.533Z"
+      "timestamp": "2026-08-14T07:15:20.107Z"
     },
     {
       "surprise_id": "le74Qb",
       "type": "sparkles",
-      "timestamp": "2026-08-14T07:14:58.086Z"
+      "timestamp": "2026-08-14T07:14:58.239Z"
     },
     {
       "surprise_id": "le74Qb",
