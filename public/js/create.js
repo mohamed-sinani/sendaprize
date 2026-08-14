@@ -42,9 +42,6 @@ const draft = {
   message: '',
   from: '',
   images: [],
-  voice: null,
-  voiceBlob: null,
-  voiceExt: 'webm',
 };
 
 let step = 1;
@@ -55,20 +52,13 @@ function saveDraft() {
   try {
     localStorage.setItem(SAVE_KEY, JSON.stringify({
       type: draft.type, title: draft.title, message: draft.message, from: draft.from,
-      images: draft.images, voice: draft.voice, voiceExt: draft.voiceExt, step,
+      images: draft.images, step,
     }));
   } catch (e) { /* storage full — continue without persistence */ }
 }
 
 function clearDraft() {
   try { localStorage.removeItem(SAVE_KEY); } catch (e) {}
-}
-
-function blobFromB64(b64) {
-  const bin = atob(b64);
-  const arr = new Uint8Array(bin.length);
-  for (let i = 0; i < bin.length; i++) arr[i] = bin.charCodeAt(i);
-  return new Blob([arr], { type: 'audio/webm' });
 }
 
 function restoreDraft() {
@@ -80,9 +70,6 @@ function restoreDraft() {
   draft.message = s.message || '';
   draft.from = s.from || '';
   draft.images = Array.isArray(s.images) ? s.images : [];
-  draft.voice = s.voice || null;
-  draft.voiceExt = s.voiceExt || 'webm';
-  draft.voiceBlob = draft.voice ? blobFromB64(draft.voice) : null;
   if (s.step >= 1 && s.step <= TOTAL_STEPS) step = s.step;
 }
 
@@ -220,7 +207,6 @@ function updatePreview() {
     .join('');
   const badges = [];
   if (draft.images.length) badges.push('Photos');
-  if (draft.voiceBlob) badges.push('Voice note');
   const el = $('#pvBadges');
   if (badges.length) { el.style.display = 'inline-flex'; el.textContent = badges.join(' · '); }
   else el.style.display = 'none';
@@ -427,63 +413,6 @@ function compressImage(file) {
   });
 }
 
-function setupVoice() {
-  const zone = $('#voiceZone');
-  let recorder = null;
-  let chunks = [];
-  let recording = false;
-
-  zone.addEventListener('click', () => {
-    if (recording) {
-      recorder.stop();
-      return;
-    }
-    if (draft.voiceBlob) {
-      draft.voiceBlob = null;
-      draft.voice = null;
-      zone.classList.remove('sel');
-      $('#voiceLabel').textContent = 'Record a voice note';
-      $('#voiceNote').textContent = 'Tap to record, tap again to stop';
-      $('#micIcon').innerHTML = '<i data-lucide="mic"></i>';
-      refreshIcons();
-      saveDraft();
-      return;
-    }
-    navigator.mediaDevices
-      .getUserMedia({ audio: true })
-      .then((stream) => {
-        recording = true;
-        chunks = [];
-        recorder = new MediaRecorder(stream);
-        recorder.ondataavailable = (e) => chunks.push(e.data);
-        recorder.onstop = () => {
-          const blob = new Blob(chunks, { type: 'audio/webm' });
-          const fr = new FileReader();
-          fr.onload = () => {
-            draft.voice = fr.result.split(',')[1];
-            draft.voiceBlob = blob;
-            zone.classList.add('sel');
-            $('#voiceLabel').textContent = 'Voice note recorded';
-            $('#voiceNote').textContent = 'Tap again to remove it';
-            $('#micIcon').innerHTML = '<i data-lucide="volume-2"></i>';
-            refreshIcons();
-            updatePreview();
-          };
-            fr.readAsDataURL(blob);
-            recording = false;
-            stream.getTracks().forEach((t) => t.stop());
-            saveDraft();
-          };
-        recorder.start();
-        $('#voiceLabel').textContent = 'Recording…';
-        $('#voiceNote').textContent = 'Tap to stop';
-        $('#micIcon').innerHTML = '<i data-lucide="mic"></i>';
-        refreshIcons();
-      })
-      .catch(() => toast('Microphone access was blocked'));
-  });
-}
-
 async function ensureUser() {
   let id = localStorage.getItem('ap_user');
   const data = await api('/api/user', { method: 'POST', body: { id: id || null, name: id ? undefined : 'Creator' } });
@@ -515,12 +444,6 @@ async function createSurprise() {
         body: { code, kind: 'image', data: img.dataUrl.split(',')[1], ext: img.ext },
       });
     }
-    if (draft.voice) {
-      await api('/api/media', {
-        method: 'POST',
-        body: { code, kind: 'audio', data: draft.voice, ext: draft.voiceExt },
-      });
-    }
 
     const qr = await api(`/api/surprise/${code}/qr`, { method: 'POST' });
     showSuccess(code, qr.qrUrl);
@@ -535,6 +458,7 @@ async function createSurprise() {
 function showSuccess(code, qrUrl) {
   const link = `${location.origin}/s/${code}`;
   $('#shareLink').value = link;
+  $('#shareLink').size = Math.max(link.length, 12);
   $('#qrImg').src = qrUrl;
   showStep(TOTAL_STEPS + 1);
   clearDraft();
@@ -554,17 +478,10 @@ updatePlaceholders();
 setupFields();
 setupMessageSuggestions();
 setupImages();
-setupVoice();
 $('#fTitle').value = draft.title;
 $('#fFrom').value = draft.from;
 $('#fMessage').value = draft.message;
 renderThumbs();
-if (draft.voiceBlob) {
-  $('#voiceZone').classList.add('sel');
-  $('#voiceLabel').textContent = 'Voice note recorded';
-  $('#voiceNote').textContent = 'Tap again to remove it';
-  $('#micIcon').innerHTML = '<i data-lucide="volume-2"></i>';
-}
 updatePreview();
 refreshIcons();
 showStep(step);
