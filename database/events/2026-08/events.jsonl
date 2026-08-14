@@ -212,3 +212,4 @@
 {"id":"event_4bade1996d12","type":"SURPRISE_OPENED","user":"anonymous","target":"le74Qb","time":"2026-08-14T08:13:00.818Z"}
 {"reaction":"heart","id":"event_74833657ac71","type":"SURPRISE_REACTED","user":"anonymous","target":"le74Qb","time":"2026-08-14T08:13:12.388Z"}
 {"channel":"whatsapp","id":"event_05791fdf47b1","type":"SURPRISE_SHARED","user":"user_002","target":"le74Qb","time":"2026-08-14T08:13:34.193Z"}
+{"id":"event_c4406f29b6c1","type":"SURPRISE_VIEWED","user":"anonymous","target":"le74Qb","time":"2026-08-14T08:29:15.847Z"}
