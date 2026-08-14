@@ -145,8 +145,8 @@ function animateOpen() {
     box.classList.remove('vibrating');
     document.body.classList.remove('page-shake');
     box.classList.add('opening');
-    burstConfetti(box, 320);
-    setTimeout(() => burstConfetti(box, 220), 200);
+    burstConfetti($('#giftBox .cube'), 320);
+    setTimeout(() => burstConfetti($('#giftBox .cube'), 220), 200);
   }, 1200);
 
   setTimeout(() => {
