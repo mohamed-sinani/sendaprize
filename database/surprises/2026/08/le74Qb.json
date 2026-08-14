@@ -18,14 +18,14 @@
   "status": "published",
   "created_at": "2026-08-13T19:20:20.938Z",
   "updated_at": "2026-08-13T19:20:26.851Z",
-  "opens": 10,
-  "views": 9,
+  "opens": 9,
+  "views": 10,
   "reactions": {
-    "smile": 2,
-    "heart": 8,
+    "smile": 1,
+    "heart": 7,
     "thumbs-up": 1,
-    "sparkles": 3,
-    "flame": 2,
+    "sparkles": 4,
+    "flame": 3,
     "star": 2
   }
 }
