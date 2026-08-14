@@ -60,8 +60,14 @@
       <!-- STEP 1 · who is it for -->
       <div class="wizard-step" data-step="1">
         <h2>Who is the surprise for?</h2>
-        <p class="hint">Search a name or pick a moment — every occasion is here.</p>
-        <div class="type-pick" id="typePick"></div>
+        <p class="hint">Start typing — pick a suggestion or write your own.</p>
+        <div class="combobox" id="occBox">
+          <div class="occ-search">
+            <i data-lucide="search" class="s-ico" aria-hidden="true"></i>
+            <input class="input occ-input" id="occInput" type="text" autocomplete="off" placeholder="For my spouse, Birthday, Graduation…" />
+          </div>
+          <div class="occ-list" id="occList"></div>
+        </div>
       </div>
 
       <!-- STEP 2 · the words -->

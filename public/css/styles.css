@@ -498,6 +498,38 @@ footer {
   transition: border-color 0.25s, box-shadow 0.25s;
 }
 .occ-search input:focus { border-color: rgba(255, 45, 120, 0.5); box-shadow: 0 0 0 4px rgba(255, 45, 120, 0.1); }
+
+/* combobox (type to pick or write your own) */
+.combobox { position: relative; max-width: 540px; }
+.combobox .occ-search input { padding-right: 44px; border-radius: 14px; }
+.occ-list {
+  position: absolute; z-index: 20; top: calc(100% + 8px); left: 0; right: 0;
+  max-height: 320px; overflow-y: auto; display: none;
+  padding: 6px; border-radius: 14px;
+  background: rgba(18, 18, 24, 0.97); border: 1px solid var(--stroke);
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+}
+.occ-item {
+  display: flex; align-items: center; gap: 12px; width: 100%;
+  padding: 10px 12px; border-radius: 10px; cursor: pointer;
+  background: transparent; border: 0; color: var(--ink);
+  font-family: inherit; font-size: 0.92rem; text-align: left;
+  transition: background 0.15s;
+}
+.occ-item:hover, .occ-item.sel { background: rgba(255, 45, 120, 0.12); }
+.occ-item .t-ico {
+  display: grid; place-items: center; width: 34px; height: 34px; flex-shrink: 0;
+  border-radius: 9px; color: var(--pink-2);
+  background: rgba(255, 45, 120, 0.1); border: 1px solid rgba(255, 45, 120, 0.22);
+}
+.occ-item .t-ico .lucide { width: 1rem; height: 1rem; }
+.occ-item b { font-size: 0.92rem; }
+.occ-item span { display: block; font-size: 0.78rem; color: var(--ink-dim); }
+.occ-empty {
+  padding: 14px 12px; text-align: center; color: var(--ink-dim);
+  font-size: 0.82rem; line-height: 1.5;
+}
 .occ-cats { display: flex; flex-wrap: wrap; gap: 8px; }
 .occ-cat {
   padding: 8px 16px; border-radius: 999px; border: 1px solid var(--stroke);

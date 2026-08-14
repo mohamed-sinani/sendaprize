@@ -45,21 +45,118 @@ function updatePlaceholders() {
   $('#fMessage').placeholder = ph.message;
 }
 
+function typeFromText(val) {
+  const v = (val || '').trim();
+  if (!v) return { key: 'spouse', name: 'For my spouse', o: null };
+  const match = OCCASIONS.list.find((o) => o.name.toLowerCase() === v.toLowerCase());
+  if (match) return { key: match.key, name: match.name, o: match };
+  return { key: v, name: v, o: null };
+}
+
 function renderTypes() {
-  OCCASIONS.picker($('#typePick'), {
-    selected: draft.type,
-    placeholder: 'Search occasions…',
-    collapseOnPick: true,
-    onPick: (key) => {
-      draft.type = key;
+  const input = $('#occInput');
+  const list = $('#occList');
+  let active = -1;
+
+  const POPULAR = ['spouse', 'parents', 'friend', 'family', 'birthday', 'graduation', 'baby', 'nikah']
+    .map((k) => OCCASIONS.byKey[k]).filter(Boolean);
+
+  function markActive() {
+    Array.prototype.forEach.call(list.querySelectorAll('.occ-item'), (el, i) =>
+      el.classList.toggle('sel', i === active));
+  }
+
+  function scrollActive() {
+    const el = list.querySelectorAll('.occ-item')[active];
+    if (el) el.scrollIntoView({ block: 'nearest' });
+  }
+
+  function showList(items, note) {
+    if (!items.length && !note) { list.style.display = 'none'; return; }
+    list.innerHTML =
+      items.map((o) =>
+        '<button type="button" class="occ-item" data-key="' + o.key + '">' +
+        '<span class="t-ico"><i data-lucide="' + OCCASIONS.iconName(o) + '"></i></span>' +
+        '<span style="flex:1"><b>' + o.name + '</b>' +
+        (o.hint ? '<span>' + o.hint + '</span>' : '') +
+        '</span></button>').join('') +
+      (note ? '<div class="occ-empty">' + note + '</div>' : '');
+    list.style.display = 'block';
+    active = -1;
+    markActive();
+    refreshIcons();
+  }
+
+  function renderSuggestions() {
+    const v = input.value.trim();
+    if (!v) { showList(POPULAR, ''); return; }
+    const q = v.toLowerCase();
+    const items = OCCASIONS.list
+      .filter((o) => (o.name + ' ' + (o.hint || '')).toLowerCase().indexOf(q) !== -1)
+      .slice(0, 8);
+    const known = typeFromText(v);
+    const note = items.length
+      ? (known.o ? '' : 'No exact match — your own words will be used.')
+      : 'No suggestions found — your own words will be used.';
+    showList(items, note);
+  }
+
+  function pick(o) {
+    input.value = o.name;
+    draft.type = o.key;
+    hide();
+    updatePlaceholders();
+    updatePreview();
+  }
+
+  function hide() { list.style.display = 'none'; }
+
+  input.addEventListener('input', renderSuggestions);
+  input.addEventListener('focus', renderSuggestions);
+
+  list.addEventListener('mousedown', (e) => {
+    const item = e.target.closest('.occ-item');
+    if (!item) return;
+    e.preventDefault();
+    pick(OCCASIONS.byKey[item.dataset.key]);
+  });
+
+  list.addEventListener('mouseover', (e) => {
+    const item = e.target.closest('.occ-item');
+    if (!item) return;
+    active = Array.prototype.indexOf.call(list.querySelectorAll('.occ-item'), item);
+    markActive();
+  });
+
+  input.addEventListener('keydown', (e) => {
+    const items = list.querySelectorAll('.occ-item');
+    if (e.key === 'ArrowDown') { e.preventDefault(); active = Math.min(active + 1, items.length - 1); markActive(); scrollActive(); }
+    else if (e.key === 'ArrowUp') { e.preventDefault(); active = Math.max(active - 1, 0); markActive(); scrollActive(); }
+    else if (e.key === 'Enter') {
+      e.preventDefault();
+      if (active >= 0 && items[active]) { pick(OCCASIONS.byKey[items[active].dataset.key]); return; }
+      hide();
+      const t = typeFromText(input.value);
+      draft.type = t.key;
       updatePlaceholders();
       updatePreview();
-    },
+    } else if (e.key === 'Escape') { hide(); }
   });
+
+  input.addEventListener('blur', () => setTimeout(() => {
+    const t = typeFromText(input.value);
+    draft.type = t.key;
+    updatePlaceholders();
+    updatePreview();
+    hide();
+  }, 150));
+
+  const cur = OCCASIONS.byKey[draft.type];
+  input.value = cur ? cur.name : draft.type;
 }
 
 function updatePreview() {
-  $('#pvType').textContent = (OCCASIONS.byKey[draft.type] || {}).name || 'For my spouse';
+  $('#pvType').textContent = (OCCASIONS.byKey[draft.type] || {}).name || draft.type || 'For my spouse';
   $('#pvTitle').textContent = draft.title || 'Your surprise preview';
   $('#pvFrom').textContent = `from ${draft.from || 'someone who loves you'}`;
   const badges = [];
