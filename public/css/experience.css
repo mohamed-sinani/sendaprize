@@ -336,6 +336,18 @@ body.page-shake { animation: shake-page 0.6s var(--ease); }
 .media-zone .mz-ico .lucide { width: 2rem; height: 2rem; }
 .media-zone input { display: none; }
 .media-zone .mz-note { font-size: 0.8rem; color: var(--ink-dim); margin-top: 6px; }
+.media-zone.has-media {
+  border-style: solid; border-color: rgba(255, 45, 120, 0.55);
+  background: rgba(255, 45, 120, 0.09);
+}
+.mz-count {
+  position: absolute; top: 14px; right: 14px;
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 5px 12px; border-radius: 999px;
+  background: var(--pink); color: #fff;
+  font-size: 0.72rem; font-weight: 800; letter-spacing: 0.04em;
+  box-shadow: 0 4px 14px -4px rgba(255, 45, 120, 0.55);
+}
 .media-zone.uploading { opacity: 0.6; pointer-events: none; }
 
 .preview-thumbs { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 14px; }

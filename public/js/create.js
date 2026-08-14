@@ -308,6 +308,19 @@ function setupImages() {
     renderThumbs();
     updatePreview();
   });
+  renderImgZone();
+}
+
+function renderImgZone() {
+  const n = draft.images.length;
+  const zone = $('#imgZone');
+  const note = $('#imgNote');
+  const count = $('#imgCount');
+  $('#imgZone .mz-ico').innerHTML = '<i data-lucide="' + (n > 0 ? 'images' : 'image') + '"></i>';
+  zone.classList.toggle('has-media', n > 0);
+  note.textContent = n > 0 ? 'Tap to add more' : 'Tap to choose images (max 6MB each)';
+  count.textContent = n > 0 ? (n === 1 ? '1 photo' : n + ' photos') + ' attached' : '';
+  refreshIcons();
 }
 
 function renderThumbs() {
@@ -328,6 +341,7 @@ function renderThumbs() {
     })
   );
   refreshIcons();
+  renderImgZone();
 }
 
 function compressImage(file) {
