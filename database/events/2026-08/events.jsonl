@@ -163,4 +163,4 @@
 {"id":"event_e2431ee74430","type":"SURPRISE_OPENED","user":"anonymous","target":"le74Qb","time":"2026-08-14T07:13:06.104Z"}
 {"id":"event_d4633e2ce4eb","type":"SURPRISE_OPENED","user":"anonymous","target":"le74Qb","time":"2026-08-14T07:13:16.017Z"}
 {"id":"event_f9b2840f17ad","type":"SURPRISE_VIEWED","user":"anonymous","target":"le74Qb","time":"2026-08-14T07:13:35.684Z"}
-{"id":"event_3a1e47eece72","type":"SURPRISE_OPENED","user":"anonymous","target":"le74Qb","time":"2026-08-14T07:14:40.973Z"}
+{"reaction":"smile","id":"event_315bd915fe4b","type":"SURPRISE_REACTED","user":"anonymous","target":"le74Qb","time":"2026-08-14T07:14:41.340Z"}
