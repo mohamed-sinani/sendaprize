@@ -172,6 +172,13 @@ function updatePreview() {
   $('#pvType').textContent = (OCCASIONS.byKey[draft.type] || {}).name || draft.type || 'For my spouse';
   $('#pvTitle').textContent = draft.title || 'Your surprise preview';
   $('#pvFrom').textContent = `from ${draft.from || 'someone who loves you'}`;
+  const msgEl = $('#pvMsg');
+  const hasMsg = draft.message && draft.message.trim();
+  msgEl.textContent = draft.message || '';
+  msgEl.style.display = hasMsg ? '' : 'none';
+  $('#pvThumbs').innerHTML = draft.images
+    .map((i) => `<div class="th"><img src="${i.dataUrl}" alt="" /></div>`)
+    .join('');
   const badges = [];
   if (draft.images.length) badges.push('Photos');
   if (draft.voiceBlob) badges.push('Voice note');
@@ -359,7 +366,7 @@ function compressImage(file) {
         canvas.getContext('2d').drawImage(img, 0, 0, width, height);
         const ext = file.name.match(/\.(png|gif)$/i) ? 'png' : 'jpg';
         const mime = ext === 'png' ? 'image/png' : 'image/jpeg';
-        const dataUrl = canvas.toDataURL(mime, 0.82).split(',')[1];
+        const dataUrl = canvas.toDataURL(mime, 0.82);
         resolve({ dataUrl, ext });
       };
       img.src = reader.result;
@@ -451,7 +458,7 @@ async function createSurprise() {
     for (const img of draft.images) {
       await api('/api/media', {
         method: 'POST',
-        body: { code, kind: 'image', data: img.dataUrl, ext: img.ext },
+        body: { code, kind: 'image', data: img.dataUrl.split(',')[1], ext: img.ext },
       });
     }
     if (draft.voice) {

@@ -142,8 +142,10 @@
           <div class="preview-card">
             <span class="chip" id="pvType">For my spouse</span>
             <h3 id="pvTitle" style="margin-top:14px">Your surprise preview</h3>
+            <p id="pvMsg" class="pv-msg" style="display:none"></p>
             <p id="pvFrom" class="muted">from someone who loves you</p>
             <p id="pvBadges" class="badge-pw" style="display:none"></p>
+            <div class="pv-thumbs" id="pvThumbs"></div>
           </div>
         </div>
       </div>
@@ -162,8 +164,8 @@
             <div class="qr-wrap"><img id="qrImg" alt="QR code" /></div>
             <p class="qr-cap">Print it or scan to open on their phone</p>
           </div>
-          <div class="actions" style="justify-content:center; flex-wrap:wrap; gap:18px">
-            <button class="btn btn-wa" id="shareWa"><i data-lucide="send"></i> Share on WhatsApp</button>
+          <div class="actions" style="justify-content:center; flex-wrap:wrap; gap:14px">
+            <button class="btn btn-wa btn-icon" id="shareWa" aria-label="Share on WhatsApp" title="Share on WhatsApp"><i data-lucide="send"></i></button>
             <a class="btn btn-ghost" href="/">Create another</a>
           </div>
         </div>
