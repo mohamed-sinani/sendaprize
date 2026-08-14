@@ -1,0 +1,19 @@
+{
+  "id": "GkR5np",
+  "code": "GkR5np",
+  "type": "world-water-day",
+  "title": "happy",
+  "message": "A good friend is one of life’s greatest gifts…",
+  "from": "Medy",
+  "theme": "emerald",
+  "media": {
+    "images": [],
+    "audio": []
+  },
+  "passwordHash": null,
+  "openAt": null,
+  "creatorId": "user_001",
+  "status": "published",
+  "created_at": "2026-08-14T18:53:13.366Z",
+  "updated_at": null
+}
