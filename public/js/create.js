@@ -1,32 +1,26 @@
 /* sendaprize, create wizard — surprise gifts for family & loved ones */
 
 const PLACEHOLDERS = {
-  spouse: { title: 'For my dearest', from: 'Your loving spouse', message: 'I thank Allah for you every day…' },
-  parents: { title: 'For my parents', from: 'Your loving child', message: 'May Allah reward you for everything you have done for me…' },
+  spouse: { title: 'For my dearest', from: 'Your loving spouse', message: 'Every day with you is a gift…' },
+  parents: { title: 'For my parents', from: 'Your loving child', message: 'Thank you for everything you have always done for me…' },
   family: { title: 'For my family', from: 'Your family', message: 'However far apart we are, you are always in my heart…' },
-  friend: { title: 'For a dear friend', from: 'Your friend', message: 'A good friend is a blessing from Allah…' },
-  nikah: { title: 'Our wedding invitation', from: 'Your family', message: 'In the name of Allah, we joyfully invite you to celebrate our new beginning…' },
-  baby: { title: 'Welcome, little one', from: 'Your family', message: 'Every child is a trust from Allah. May he be a comfort to his parents…' },
-  hifz: { title: 'Quran completed', from: 'Your family', message: 'May the Quran intercede for you and be your companion…' },
-  graduation: { title: 'MashaAllah, you graduated!', from: 'Your family', message: 'Alhamdulillah! May this achievement be the beginning of even greater good…' },
-  congratulations: { title: 'Congratulations!', from: 'Your family', message: 'Mabarak! May Allah bless you in this new chapter…' },
-  eidf: { title: 'Eid al-Fitr Mubarak!', from: 'Your family', message: 'May Allah accept our fasting and prayers, and fill this day with peace…' },
-  eida: { title: 'Eid al-Adha Mubarak!', from: 'Your family', message: 'May Allah accept our sacrifice and fill your home with barakah…' },
-  ramadan: { title: 'Ramadan Kareem!', from: 'Your family', message: 'May this month bring us closer to Allah and to one another…' },
-  maulid: { title: 'Maulid Mubarak', from: 'Your family', message: 'May we follow the blessed example of the Prophet ﷺ…' },
-  nanenane: { title: 'Nane Nane Mubarak', from: 'Your family', message: 'Thank you for feeding this nation. May Allah bless your harvest…' },
-  sabasaba: { title: 'Saba Saba Mubarak', from: 'Your family', message: 'Proud of you and the work you do. May it keep growing…' },
-  union: { title: 'Union Day Mubarak', from: 'Your family', message: 'Happy Union Day to all Tanzanians, in unity and peace…' },
+  friend: { title: 'For a dear friend', from: 'Your friend', message: 'A good friend is one of life\u2019s greatest gifts…' },
+  nikah: { title: 'Our wedding invitation', from: 'Your family', message: 'We joyfully invite you to celebrate our new beginning…' },
+  baby: { title: 'Welcome, little one', from: 'Your family', message: 'Welcome to the world, little one. May you always know how loved you are…' },
+  graduation: { title: 'Congratulations, you graduated!', from: 'Your family', message: 'So proud of you. May this achievement be the start of even greater things…' },
+  congratulations: { title: 'Congratulations!', from: 'Your family', message: 'So happy for you! Wishing you every good thing in this new chapter…' },
+  nanenane: { title: 'Nane Nane', from: 'Your family', message: 'Thank you for feeding this nation. Wishing you a bountiful harvest…' },
+  sabasaba: { title: 'Happy Saba Saba', from: 'Your family', message: 'Proud of you and the work you do. May it keep growing…' },
+  union: { title: 'Happy Union Day', from: 'Your family', message: 'Happy Union Day to all Tanzanians, in unity and peace…' },
   independence: { title: 'Happy Independence Day', from: 'Your family', message: 'Proud to be Tanzanian. May our nation grow in unity and peace…' },
   revolution: { title: 'Zanzibar Revolution Day', from: 'Your family', message: 'Salamu za siku hii ya uhuru, kwa ndugu zetu wa Zanzibar…' },
 };
 
 const PH_DEFAULTS = {
-  family: { title: 'For someone I love', from: 'Your family', message: 'Thinking of you with love and du’a…' },
-  islamic: { title: 'A blessed day', from: 'Your family', message: 'May Allah bless you on this special day…' },
-  celebration: { title: 'Congratulations!', from: 'Your family', message: 'Wishing you all the blessings of this day…' },
-  tanzania: { title: 'Happy holiday', from: 'Your family', message: 'Wishing you a blessed and happy day…' },
-  world: { title: 'Thinking of you', from: 'Your family', message: 'Thinking of you on this day, with love and du’a…' },
+  family: { title: 'For someone I love', from: 'Your family', message: 'Thinking of you with all my love…' },
+  celebration: { title: 'Congratulations!', from: 'Your family', message: 'Wishing you all the best on this special day…' },
+  tanzania: { title: 'Happy holiday', from: 'Your family', message: 'Wishing you a happy and joyful day…' },
+  world: { title: 'Thinking of you', from: 'Your family', message: 'Thinking of you on this day, with love…' },
 };
 
 const draft = {
