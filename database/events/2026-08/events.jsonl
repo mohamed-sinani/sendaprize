@@ -194,4 +194,4 @@
 {"id":"event_bf87d23e48e3","type":"SURPRISE_OPENED","user":"anonymous","target":"le74Qb","time":"2026-08-14T07:39:43.100Z"}
 {"id":"event_565abefdc7ce","type":"SURPRISE_VIEWED","user":"anonymous","target":"le74Qb","time":"2026-08-14T07:46:34.195Z"}
 {"id":"event_aa0e7d265e64","type":"SURPRISE_OPENED","user":"anonymous","target":"le74Qb","time":"2026-08-14T07:46:36.779Z"}
-{"reaction":"thumbs-up","id":"event_2b3aaaa0d2d8","type":"SURPRISE_REACTED","user":"anonymous","target":"le74Qb","time":"2026-08-14T07:46:44.230Z"}
+{"reaction":"heart","id":"event_09741e4ed0a0","type":"SURPRISE_REACTED","user":"anonymous","target":"le74Qb","time":"2026-08-14T07:46:46.034Z"}
