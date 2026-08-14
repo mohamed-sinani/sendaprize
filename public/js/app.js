@@ -57,8 +57,13 @@ function burstConfetti(originEl, count = 160) {
   const colors = ['#ff2d78', '#ff5f8f', '#ff9ec2', '#ffd3e4', '#ffffff', '#ffd9a0'];
   const parts = [];
 
-  const ox = originEl ? originEl.getBoundingClientRect().left + originEl.offsetWidth / 2 : innerWidth / 2;
-  const oy = originEl ? originEl.getBoundingClientRect().top + originEl.offsetHeight / 2 : innerHeight / 2;
+  // the origin must be the on-screen (projected) center of the element.
+  // using offsetWidth/2 is wrong here: with a 3D perspective on the gift
+  // stage, the projected rect width differs from the layout width, which
+  // shoves the burst sideways on small screens.
+  const originRect = originEl ? originEl.getBoundingClientRect() : null;
+  const ox = originRect ? originRect.left + originRect.width / 2 : innerWidth / 2;
+  const oy = originRect ? originRect.top + originRect.height / 2 : innerHeight / 2;
 
   for (let i = 0; i < count; i++) {
     const angle = Math.random() * Math.PI * 2;
