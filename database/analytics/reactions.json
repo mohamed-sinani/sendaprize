@@ -1,26 +1,26 @@
 {
   "byType": {
-    "smile": 6,
+    "smile": 7,
     "thumbs-up": 2,
     "heart": 6,
-    "sparkles": 2,
+    "sparkles": 1,
     "flame": 1
   },
   "recent": [
     {
       "surprise_id": "le74Qb",
       "type": "flame",
-      "timestamp": "2026-08-14T07:15:36.221Z"
+      "timestamp": "2026-08-14T07:15:40.315Z"
+    },
+    {
+      "surprise_id": "le74Qb",
+      "type": "smile",
+      "timestamp": "2026-08-14T07:15:23.988Z"
     },
     {
       "surprise_id": "le74Qb",
       "type": "sparkles",
-      "timestamp": "2026-08-14T07:15:21.956Z"
-    },
-    {
-      "surprise_id": "le74Qb",
-      "type": "sparkles",
-      "timestamp": "2026-08-14T07:15:07.501Z"
+      "timestamp": "2026-08-14T07:15:09.788Z"
     },
     {
       "surprise_id": "le74Qb",
