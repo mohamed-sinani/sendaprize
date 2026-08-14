@@ -1,14 +1,14 @@
 {
   "byType": {
-    "smile": 5,
+    "smile": 6,
     "thumbs-up": 2,
-    "heart": 6
+    "heart": 5
   },
   "recent": [
     {
       "surprise_id": "le74Qb",
-      "type": "heart",
-      "timestamp": "2026-08-14T07:14:42.399Z"
+      "type": "smile",
+      "timestamp": "2026-08-14T07:14:43.579Z"
     },
     {
       "surprise_id": "le74Qb",
