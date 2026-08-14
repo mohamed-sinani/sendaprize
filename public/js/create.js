@@ -49,6 +49,42 @@ const draft = {
 
 let step = 1;
 const TOTAL_STEPS = 4;
+const SAVE_KEY = 'ap_draft_v1';
+
+function saveDraft() {
+  try {
+    localStorage.setItem(SAVE_KEY, JSON.stringify({
+      type: draft.type, title: draft.title, message: draft.message, from: draft.from,
+      images: draft.images, voice: draft.voice, voiceExt: draft.voiceExt, step,
+    }));
+  } catch (e) { /* storage full — continue without persistence */ }
+}
+
+function clearDraft() {
+  try { localStorage.removeItem(SAVE_KEY); } catch (e) {}
+}
+
+function blobFromB64(b64) {
+  const bin = atob(b64);
+  const arr = new Uint8Array(bin.length);
+  for (let i = 0; i < bin.length; i++) arr[i] = bin.charCodeAt(i);
+  return new Blob([arr], { type: 'audio/webm' });
+}
+
+function restoreDraft() {
+  let s = null;
+  try { s = JSON.parse(localStorage.getItem(SAVE_KEY)); } catch (e) {}
+  if (!s) return;
+  draft.type = s.type || draft.type;
+  draft.title = s.title || '';
+  draft.message = s.message || '';
+  draft.from = s.from || '';
+  draft.images = Array.isArray(s.images) ? s.images : [];
+  draft.voice = s.voice || null;
+  draft.voiceExt = s.voiceExt || 'webm';
+  draft.voiceBlob = draft.voice ? blobFromB64(draft.voice) : null;
+  if (s.step >= 1 && s.step <= TOTAL_STEPS) step = s.step;
+}
 
 function updatePlaceholders() {
   const o = OCCASIONS.byKey[draft.type] || {};
@@ -120,6 +156,7 @@ function renderTypes() {
     hide();
     updatePlaceholders();
     updatePreview();
+    saveDraft();
   }
 
   function hide() { list.style.display = 'none'; }
@@ -153,6 +190,7 @@ function renderTypes() {
       draft.type = t.key;
       updatePlaceholders();
       updatePreview();
+      saveDraft();
     } else if (e.key === 'Escape') { hide(); }
   });
 
@@ -161,6 +199,7 @@ function renderTypes() {
     draft.type = t.key;
     updatePlaceholders();
     updatePreview();
+    saveDraft();
     hide();
   }, 150));
 
@@ -210,6 +249,7 @@ function showStep(n) {
   refreshIcons();
   $('#btnBack').style.display = n === 1 || success ? 'none' : '';
   $('#wizActions').style.display = success ? 'none' : '';
+  saveDraft();
 }
 
 function validateStep(n) {
@@ -251,6 +291,7 @@ function setupMessageSuggestions() {
     draft.message = m;
     list.style.display = 'none';
     ta.focus();
+    saveDraft();
   }
 
   ta.addEventListener('focus', render);
@@ -298,6 +339,7 @@ function setupFields() {
     el.addEventListener('input', () => {
       draft[key] = el.value;
       if (id === 'fTitle' || id === 'fFrom') updatePreview();
+      saveDraft();
     });
   });
 }
@@ -317,6 +359,7 @@ function setupImages() {
     draft.images.push(...added);
     renderThumbs();
     updatePreview();
+    saveDraft();
   });
   renderImgZone();
 }
@@ -351,6 +394,7 @@ function renderThumbs() {
       draft.images.splice(Number(b.dataset.i), 1);
       renderThumbs();
       updatePreview();
+      saveDraft();
     })
   );
   const addMore = $('#addMoreThumb');
@@ -402,6 +446,7 @@ function setupVoice() {
       $('#voiceNote').textContent = 'Tap to record, tap again to stop';
       $('#micIcon').innerHTML = '<i data-lucide="mic"></i>';
       refreshIcons();
+      saveDraft();
       return;
     }
     navigator.mediaDevices
@@ -424,10 +469,11 @@ function setupVoice() {
             refreshIcons();
             updatePreview();
           };
-          fr.readAsDataURL(blob);
-          recording = false;
-          stream.getTracks().forEach((t) => t.stop());
-        };
+            fr.readAsDataURL(blob);
+            recording = false;
+            stream.getTracks().forEach((t) => t.stop());
+            saveDraft();
+          };
         recorder.start();
         $('#voiceLabel').textContent = 'Recording…';
         $('#voiceNote').textContent = 'Tap to stop';
@@ -491,6 +537,7 @@ function showSuccess(code, qrUrl) {
   $('#shareLink').value = link;
   $('#qrImg').src = qrUrl;
   showStep(TOTAL_STEPS + 1);
+  clearDraft();
   burstConfetti();
   startHeartRain(10);
   $('#copyLinkBtn').addEventListener('click', () => copyText(link, 'Link copied!'));
@@ -501,15 +548,28 @@ function showSuccess(code, qrUrl) {
 }
 
 /* boot */
+restoreDraft();
 renderTypes();
 updatePlaceholders();
 setupFields();
 setupMessageSuggestions();
 setupImages();
 setupVoice();
+$('#fTitle').value = draft.title;
+$('#fFrom').value = draft.from;
+$('#fMessage').value = draft.message;
+renderThumbs();
+if (draft.voiceBlob) {
+  $('#voiceZone').classList.add('sel');
+  $('#voiceLabel').textContent = 'Voice note recorded';
+  $('#voiceNote').textContent = 'Tap again to remove it';
+  $('#micIcon').innerHTML = '<i data-lucide="volume-2"></i>';
+}
 updatePreview();
 refreshIcons();
-showStep(1);
+showStep(step);
+
+window.addEventListener('beforeunload', saveDraft);
 
 $('#btnBack').addEventListener('click', () => showStep(step - 1));
 $('#btnNext').addEventListener('click', () => {
