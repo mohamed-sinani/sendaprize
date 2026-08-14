@@ -246,3 +246,4 @@
 {"id":"event_fed840e65fe7","type":"SURPRISE_VIEWED","user":"anonymous","target":"4kkpSS","time":"2026-08-14T18:24:18.174Z"}
 {"type":"SURPRISE_CREATED","id":"event_41af359f9ec0","user":"user_001","target":"Zrs5s4","time":"2026-08-14T18:24:33.312Z"}
 {"id":"event_a2da555460ee","type":"IMAGE_ADDED","user":"user_001","target":"Zrs5s4","time":"2026-08-14T18:24:41.270Z"}
+{"id":"event_1b4cea4762ed","type":"QR_GENERATED","user":"user_001","target":"Zrs5s4","time":"2026-08-14T18:24:52.064Z"}
