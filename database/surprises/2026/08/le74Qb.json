@@ -19,12 +19,13 @@
   "created_at": "2026-08-13T19:20:20.938Z",
   "updated_at": "2026-08-13T19:20:26.851Z",
   "opens": 4,
-  "views": 3,
+  "views": 4,
   "reactions": {
-    "smile": 3,
-    "heart": 5,
+    "smile": 1,
+    "heart": 6,
     "thumbs-up": 1,
-    "sparkles": 2,
-    "flame": 2
+    "sparkles": 3,
+    "flame": 1,
+    "star": 1
   }
 }
