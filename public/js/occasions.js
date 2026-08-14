@@ -453,7 +453,7 @@
   function picker(el, opts) {
     opts = opts || {};
     var CAT_ORDER = ['family', 'celebration', 'tanzania', 'world'];
-    var state = { cat: opts.cat || 'all', q: '', sel: opts.selected || null };
+    var state = { cat: opts.cat || 'all', q: '', sel: opts.selected || null, collapsed: false };
 
     el.innerHTML =
       '<div class="occ-tools">' +
@@ -508,19 +508,10 @@
     }
 
     function renderGrid() {
-      if (opts.collapse && state.sel && byKey[state.sel]) {
+      if (opts.collapseOnPick && state.collapsed && state.sel && byKey[state.sel]) {
         tools.style.display = 'none';
-        grid.innerHTML =
-          '<div class="occ-picked">' +
-          cardHTML(byKey[state.sel], state.sel) +
-          '<button type="button" class="btn btn-ghost occ-change"><i data-lucide="refresh-cw"></i> Pick new</button>' +
-          '</div>';
+        grid.innerHTML = '<div class="occ-picked">' + cardHTML(byKey[state.sel], state.sel) + '</div>';
         syncIcons();
-        grid.querySelector('.occ-change').addEventListener('click', function () {
-          state.sel = null;
-          tools.style.display = '';
-          renderGrid();
-        });
         return;
       }
       tools.style.display = '';
@@ -548,6 +539,7 @@
         c.addEventListener('click', function () {
           var key = c.getAttribute('data-key');
           state.sel = key;
+          if (opts.collapseOnPick) state.collapsed = true;
           renderGrid();
           opts.onPick && opts.onPick(key);
         });
