@@ -23,6 +23,19 @@ const PH_DEFAULTS = {
   world: { title: 'Thinking of you', from: 'Your family', message: 'Thinking of you on this day, with love…' },
 };
 
+const MESSAGE_IDEAS = [
+  'Every day with you is a gift…',
+  'Thank you for everything you have always done for me…',
+  'However far apart we are, you are always in my heart…',
+  'A good friend is one of life\u2019s greatest gifts…',
+  'So proud of you. May this achievement be the start of even greater things…',
+  'So happy for you! Wishing you every good thing in this new chapter…',
+  'Thinking of you today, and wishing you all the happiness in the world…',
+  'I wanted to send you a little reminder of how much you mean to me…',
+  'On this special day, I just want you to know how loved you are…',
+  'No matter what, I\u2019m always here for you…',
+];
+
 const draft = {
   type: localStorage.getItem('ap_type') || 'spouse',
   title: '',
@@ -198,6 +211,77 @@ function validateStep(n) {
     if (!$('#fTitle').value.trim()) { toast('Give your surprise a title'); return false; }
   }
   return true;
+}
+
+function setupMessageSuggestions() {
+  const ta = $('#fMessage');
+  const list = $('#msgList');
+  let active = -1;
+
+  const esc = (s) => s.replace(/&/g, '&amp;').replace(/"/g, '&quot;');
+
+  function markActive() {
+    Array.prototype.forEach.call(list.querySelectorAll('.occ-item'), (el, i) =>
+      el.classList.toggle('sel', i === active));
+  }
+
+  function render() {
+    const v = ta.value.trim().toLowerCase();
+    const items = MESSAGE_IDEAS.filter((m) => m.toLowerCase().indexOf(v) !== -1).slice(0, 6);
+    if (!items.length) { list.style.display = 'none'; return; }
+    list.innerHTML = items.map((m) =>
+      '<button type="button" class="occ-item msg" data-text="' + esc(m) + '">' +
+      '<span class="t-ico"><i data-lucide="quote"></i></span>' +
+      '<span style="flex:1"><b>' + m + '</b></span></button>').join('');
+    list.style.display = 'block';
+    active = -1;
+    markActive();
+    refreshIcons();
+  }
+
+  function fill(m) {
+    ta.value = m;
+    draft.message = m;
+    list.style.display = 'none';
+    ta.focus();
+  }
+
+  ta.addEventListener('focus', render);
+  ta.addEventListener('input', render);
+
+  list.addEventListener('mousedown', (e) => {
+    const item = e.target.closest('.occ-item');
+    if (!item) return;
+    e.preventDefault();
+    fill(item.dataset.text);
+  });
+
+  list.addEventListener('mouseover', (e) => {
+    const item = e.target.closest('.occ-item');
+    if (!item) return;
+    active = Array.prototype.indexOf.call(list.querySelectorAll('.occ-item'), item);
+    markActive();
+  });
+
+  ta.addEventListener('keydown', (e) => {
+    const items = list.querySelectorAll('.occ-item');
+    if (e.key === 'ArrowDown' && list.style.display === 'block') {
+      e.preventDefault(); active = Math.min(active + 1, items.length - 1); markActive();
+      items[active] && items[active].scrollIntoView({ block: 'nearest' });
+    } else if (e.key === 'ArrowUp' && list.style.display === 'block') {
+      e.preventDefault(); active = Math.max(active - 1, 0); markActive();
+      items[active] && items[active].scrollIntoView({ block: 'nearest' });
+    } else if (e.key === 'Enter' && active >= 0 && items[active]) {
+      e.preventDefault();
+      fill(items[active].dataset.text);
+    } else if (e.key === 'Escape') {
+      list.style.display = 'none';
+    }
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.combobox') && list.style.display === 'block') list.style.display = 'none';
+  });
 }
 
 function setupFields() {
@@ -391,6 +475,7 @@ function showSuccess(code, qrUrl) {
 renderTypes();
 updatePlaceholders();
 setupFields();
+setupMessageSuggestions();
 setupImages();
 setupVoice();
 updatePreview();

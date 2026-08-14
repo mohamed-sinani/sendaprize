@@ -530,6 +530,8 @@ footer {
   padding: 14px 12px; text-align: center; color: var(--ink-dim);
   font-size: 0.82rem; line-height: 1.5;
 }
+.combobox.open-up .occ-list { top: auto; bottom: calc(100% + 8px); }
+.combobox.open-up .textarea { min-height: 120px; }
 .occ-cats { display: flex; flex-wrap: wrap; gap: 8px; }
 .occ-cat {
   padding: 8px 16px; border-radius: 999px; border: 1px solid var(--stroke);
