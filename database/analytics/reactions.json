@@ -1,6 +1,6 @@
 {
   "byType": {
-    "smile": 5,
+    "smile": 6,
     "thumbs-up": 2,
     "heart": 6,
     "sparkles": 1
@@ -9,12 +9,17 @@
     {
       "surprise_id": "le74Qb",
       "type": "sparkles",
-      "timestamp": "2026-08-14T07:14:58.239Z"
+      "timestamp": "2026-08-14T07:15:07.501Z"
     },
     {
       "surprise_id": "le74Qb",
       "type": "heart",
-      "timestamp": "2026-08-14T07:14:44.822Z"
+      "timestamp": "2026-08-14T07:14:52.440Z"
+    },
+    {
+      "surprise_id": "le74Qb",
+      "type": "smile",
+      "timestamp": "2026-08-14T07:14:41.157Z"
     },
     {
       "surprise_id": "le74Qb",
