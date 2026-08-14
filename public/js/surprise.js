@@ -134,6 +134,7 @@ function animateOpen() {
   const box = $('#giftBox');
   box.classList.remove('float', 'pulse');
   box.classList.add('shaking');
+  playShake();
 
   setTimeout(() => {
     box.classList.remove('shaking');
@@ -145,6 +146,7 @@ function animateOpen() {
     box.classList.remove('vibrating');
     document.body.classList.remove('page-shake');
     box.classList.add('opening');
+    playExplosion();
     burstConfetti($('#giftBox .cube'), 320);
     setTimeout(() => burstConfetti($('#giftBox .cube'), 220), 200);
   }, 1200);
@@ -152,6 +154,7 @@ function animateOpen() {
   setTimeout(() => {
     $('#lock').style.display = 'none';
     showReveal();
+    playChime();
   }, 2150);
 }
 

@@ -205,4 +205,107 @@ function initNav() {
   });
 }
 
+/* --- synthesized sound effects (WebAudio, no asset files) --- */
+
+let sfxCtx = null;
+
+function ensureSfx() {
+  try {
+    if (!sfxCtx) sfxCtx = new (window.AudioContext || window.webkitAudioContext)();
+    if (sfxCtx.state === 'suspended') sfxCtx.resume();
+  } catch { /* audio unsupported, stay silent */ }
+  return sfxCtx;
+}
+
+/* unlock audio on the first user gesture (iOS/mobile autoplay policy) */
+['pointerdown', 'keydown', 'touchstart'].forEach((ev) =>
+  document.addEventListener(ev, ensureSfx, { once: false })
+);
+
+function sfxNoise(ctx, dur) {
+  const buf = ctx.createBuffer(1, Math.max(1, Math.floor(ctx.sampleRate * dur)), ctx.sampleRate);
+  const d = buf.getChannelData(0);
+  for (let i = 0; i < d.length; i++) d[i] = Math.random() * 2 - 1;
+  return buf;
+}
+
+/* soft rattle while the box shakes */
+function playShake() {
+  const ctx = ensureSfx(); if (!ctx) return;
+  const t = ctx.currentTime;
+  for (let i = 0; i < 4; i++) {
+    const src = ctx.createBufferSource();
+    src.buffer = sfxNoise(ctx, 0.12);
+    const f = ctx.createBiquadFilter();
+    f.type = 'bandpass';
+    f.frequency.value = 420 + i * 110;
+    f.Q.value = 2.2;
+    const g = ctx.createGain();
+    const st = t + i * 0.17;
+    g.gain.setValueAtTime(0.0001, st);
+    g.gain.linearRampToValueAtTime(0.1, st + 0.02);
+    g.gain.exponentialRampToValueAtTime(0.0001, st + 0.12);
+    src.connect(f); f.connect(g); g.connect(ctx.destination);
+    src.start(st); src.stop(st + 0.13);
+  }
+}
+
+/* pop + sparkle when the box bursts open */
+function playExplosion() {
+  const ctx = ensureSfx(); if (!ctx) return;
+  const t = ctx.currentTime;
+  const osc = ctx.createOscillator();
+  osc.type = 'sine';
+  osc.frequency.setValueAtTime(220, t);
+  osc.frequency.exponentialRampToValueAtTime(55, t + 0.35);
+  const g = ctx.createGain();
+  g.gain.setValueAtTime(0.75, t);
+  g.gain.exponentialRampToValueAtTime(0.001, t + 0.42);
+  osc.connect(g); g.connect(ctx.destination);
+  osc.start(t); osc.stop(t + 0.45);
+
+  const src = ctx.createBufferSource();
+  src.buffer = sfxNoise(ctx, 0.5);
+  const bp = ctx.createBiquadFilter();
+  bp.type = 'bandpass';
+  bp.frequency.value = 2200;
+  bp.Q.value = 0.8;
+  const ng = ctx.createGain();
+  ng.gain.setValueAtTime(0.45, t);
+  ng.gain.exponentialRampToValueAtTime(0.001, t + 0.5);
+  src.connect(bp); bp.connect(ng); ng.connect(ctx.destination);
+  src.start(t); src.stop(t + 0.55);
+
+  [880, 1108.7, 1318.5, 1760].forEach((f, i) => {
+    const o = ctx.createOscillator();
+    o.type = 'triangle';
+    o.frequency.value = f;
+    const og = ctx.createGain();
+    const st = t + 0.08 + i * 0.06;
+    og.gain.setValueAtTime(0.0001, st);
+    og.gain.exponentialRampToValueAtTime(0.2, st + 0.02);
+    og.gain.exponentialRampToValueAtTime(0.0001, st + 0.45);
+    o.connect(og); og.connect(ctx.destination);
+    o.start(st); o.stop(st + 0.5);
+  });
+}
+
+/* gentle rising chime when the message is revealed */
+function playChime() {
+  const ctx = ensureSfx(); if (!ctx) return;
+  const t = ctx.currentTime;
+  [523.25, 659.25, 783.99, 1046.5].forEach((f, i) => {
+    const o = ctx.createOscillator();
+    o.type = 'sine';
+    o.frequency.value = f;
+    const g = ctx.createGain();
+    const st = t + i * 0.13;
+    g.gain.setValueAtTime(0.0001, st);
+    g.gain.exponentialRampToValueAtTime(0.16, st + 0.03);
+    g.gain.exponentialRampToValueAtTime(0.0001, st + 0.9);
+    o.connect(g); g.connect(ctx.destination);
+    o.start(st); o.stop(st + 1);
+  });
+}
+
 document.addEventListener('DOMContentLoaded', initNav);
