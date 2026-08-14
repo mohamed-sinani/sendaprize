@@ -4,14 +4,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>Create a surprise gift — sendaprize</title>
-  <meta name="description" content="Create a beautiful surprise gift in minutes — choose the person, the moment, and your own words. A sealed gift that opens at the right time for the ones you love." />
+  <meta name="description" content="Create a beautiful surprise gift in minutes — choose the person and write your own words. A gift that opens with light and gentle motion for the ones you love." />
   <meta name="theme-color" content="#0a0a0d" />
   <meta name="robots" content="index, follow, max-image-preview:large" />
   <link rel="canonical" href="https://sendaprize.click/create" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="SendAPrize" />
   <meta property="og:title" content="Create a surprise gift — sendaprize" />
-  <meta property="og:description" content="Create a beautiful surprise gift in minutes — choose the person, the moment, and your own words. A sealed gift that opens at the right time for the ones you love." />
+  <meta property="og:description" content="Create a beautiful surprise gift in minutes — choose the person and write your own words. A gift that opens with light and gentle motion for the ones you love." />
   <meta property="og:url" content="https://sendaprize.click/create" />
   <meta property="og:image" content="https://sendaprize.click/og-image.png" />
   <meta property="og:image:width" content="1200" />
@@ -19,7 +19,7 @@
   <meta property="og:locale" content="en_US" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Create a surprise gift — sendaprize" />
-  <meta name="twitter:description" content="Create a beautiful surprise gift in minutes — choose the person, the moment, and your own words." />
+  <meta name="twitter:description" content="Create a beautiful surprise gift in minutes — choose the person and write your own words." />
   <meta name="twitter:image" content="https://sendaprize.click/og-image.png" />
   <script type="application/ld+json">
   {
@@ -27,7 +27,7 @@
     "@type": "WebPage",
     "name": "Create a surprise gift",
     "url": "https://sendaprize.click/create",
-    "description": "Create a sealed surprise gift that opens at the right moment for the ones you love.",
+    "description": "Create a beautiful surprise gift for the ones you love.",
     "isPartOf": { "@type": "WebSite", "name": "SendAPrize", "url": "https://sendaprize.click/" }
   }
   </script>
@@ -64,26 +64,8 @@
         <div class="type-pick" id="typePick"></div>
       </div>
 
-      <!-- STEP 2 · the moment -->
+      <!-- STEP 2 · the words -->
       <div class="wizard-step" data-step="2">
-        <h2>Choose the moment</h2>
-        <p class="hint">Keep the surprise sealed until the right time, or let them open it whenever.</p>
-        <div class="grid fields-2">
-          <div class="field">
-            <label>Open on (optional)</label>
-            <input class="input" id="fOpenAt" type="datetime-local" />
-            <span class="muted small">The surprise stays sealed until this moment.</span>
-          </div>
-          <div class="field">
-            <label>Secret word (optional)</label>
-            <input class="input" id="fPassword" type="text" placeholder="Leave empty for no secret" maxlength="40" />
-            <span class="muted small">They'll need this to open the surprise.</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- STEP 3 · the words -->
-      <div class="wizard-step" data-step="3">
         <h2>Write the words</h2>
         <p class="hint">This is the moment they'll read when the surprise opens.</p>
         <div class="grid fields-2">
@@ -102,8 +84,8 @@
         </div>
       </div>
 
-      <!-- STEP 4 · memories -->
-      <div class="wizard-step" data-step="4">
+      <!-- STEP 3 · memories -->
+      <div class="wizard-step" data-step="3">
         <h2>Add a memory to the surprise</h2>
         <p class="hint">Photos and a voice note, all optional.</p>
         <div class="media-pick">
@@ -123,8 +105,8 @@
         </div>
       </div>
 
-      <!-- STEP 5 · preview -->
-      <div class="wizard-step" data-step="5">
+      <!-- STEP 4 · preview -->
+      <div class="wizard-step" data-step="4">
         <h2>Almost there</h2>
         <p class="hint">Here is how the surprise will feel.</p>
         <div class="preview-live">
@@ -156,12 +138,12 @@
         </div>
       </div>
 
-      <!-- STEP 6 · success -->
-      <div class="wizard-step" data-step="6" style="display:none">
+      <!-- STEP 5 · success -->
+      <div class="wizard-step" data-step="5" style="display:none">
         <div class="success-box">
           <div class="tick"><i data-lucide="heart"></i></div>
           <h2>Your surprise is ready!</h2>
-          <p class="muted">Send this link, the surprise will open at the right moment.</p>
+          <p class="muted">Send this link, the surprise opens when they are ready.</p>
           <div class="link-copy">
             <input id="shareLink" readonly />
             <button class="btn btn-primary" id="copyLinkBtn">Copy</button>

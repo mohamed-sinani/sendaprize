@@ -28,8 +28,6 @@ const draft = {
   title: '',
   message: '',
   from: '',
-  password: '',
-  openAt: '',
   images: [],
   voice: null,
   voiceBlob: null,
@@ -37,7 +35,7 @@ const draft = {
 };
 
 let step = 1;
-const TOTAL_STEPS = 5;
+const TOTAL_STEPS = 4;
 
 function updatePlaceholders() {
   const o = OCCASIONS.byKey[draft.type] || {};
@@ -65,8 +63,6 @@ function updatePreview() {
   $('#pvTitle').textContent = draft.title || 'Your surprise preview';
   $('#pvFrom').textContent = `from ${draft.from || 'someone who loves you'}`;
   const badges = [];
-  if (draft.password) badges.push('Sealed with a secret');
-  if (draft.openAt) badges.push('Opens at a set time');
   if (draft.images.length) badges.push('Photos');
   if (draft.voiceBlob) badges.push('Voice note');
   const el = $('#pvBadges');
@@ -100,7 +96,7 @@ function showStep(n) {
 }
 
 function validateStep(n) {
-  if (n === 3) {
+  if (n === 2) {
     if (!$('#fMessage').value.trim()) { toast('Write a message to put inside the surprise'); return false; }
     if (!$('#fTitle').value.trim()) { toast('Give your surprise a title'); return false; }
   }
@@ -108,17 +104,13 @@ function validateStep(n) {
 }
 
 function setupFields() {
-  ['fTitle', 'fFrom', 'fMessage', 'fPassword'].forEach((id) => {
+  ['fTitle', 'fFrom', 'fMessage'].forEach((id) => {
     const el = document.getElementById(id);
-    const key = id === 'fTitle' ? 'title' : id === 'fFrom' ? 'from' : id === 'fMessage' ? 'message' : 'password';
+    const key = id === 'fTitle' ? 'title' : id === 'fFrom' ? 'from' : 'message';
     el.addEventListener('input', () => {
       draft[key] = el.value;
       if (id === 'fTitle' || id === 'fFrom') updatePreview();
     });
-  });
-  $('#fOpenAt').addEventListener('change', (e) => {
-    draft.openAt = e.target.value ? new Date(e.target.value).toISOString() : '';
-    updatePreview();
   });
 }
 
@@ -256,8 +248,6 @@ async function createSurprise() {
         title: draft.title,
         message: draft.message,
         from: draft.from,
-        password: draft.password || null,
-        openAt: draft.openAt || null,
         creatorId,
       },
     });
