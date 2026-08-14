@@ -1,17 +1,22 @@
 {
   "byType": {
-    "smile": 5,
+    "smile": 6,
     "thumbs-up": 2,
-    "heart": 8,
+    "heart": 9,
     "sparkles": 2,
-    "flame": 4,
+    "flame": 3,
     "star": 2
   },
   "recent": [
     {
       "surprise_id": "le74Qb",
-      "type": "flame",
-      "timestamp": "2026-08-14T07:26:15.216Z"
+      "type": "smile",
+      "timestamp": "2026-08-14T07:26:15.868Z"
+    },
+    {
+      "surprise_id": "le74Qb",
+      "type": "heart",
+      "timestamp": "2026-08-14T07:26:11.911Z"
     },
     {
       "surprise_id": "le74Qb",
