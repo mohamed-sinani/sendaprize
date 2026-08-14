@@ -381,13 +381,49 @@ footer {
 .phone-demo .phone-status__icons i:nth-child(2) { height: 9px; }
 .phone-demo .phone-status__icons i:nth-child(3) { height: 12px; }
 
-/* the gift box, scaled to live inside the screen */
-.phone-demo .demo-box { position: absolute; left: 50%; top: 47%; transform: translate(-50%, -50%); }
+/* mini Chrome browser wrapped around the demo */
+.phone-demo .demo-browser {
+  position: absolute; inset: 0; z-index: 3;
+  display: flex; flex-direction: column;
+  padding-top: 46px;
+}
+.phone-demo .demo-browser__bar {
+  display: flex; align-items: center; gap: 8px;
+  padding: 8px 12px;
+  background: rgba(32, 33, 36, 0.97);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+.phone-demo .demo-browser__tab {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-size: 0.6rem; font-weight: 700; letter-spacing: 0.02em;
+  color: rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 7px 7px 0 0; padding: 4px 8px;
+  white-space: nowrap;
+}
+.phone-demo .demo-browser__tab .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--pink); flex-shrink: 0; }
+.phone-demo .demo-browser__url {
+  flex: 1; display: flex; align-items: center; gap: 6px;
+  font-size: 0.62rem; font-weight: 600; font-variant-numeric: tabular-nums;
+  color: rgba(255, 255, 255, 0.85);
+  background: rgba(255, 255, 255, 0.09);
+  border-radius: 999px; padding: 6px 12px;
+  min-width: 0; white-space: nowrap;
+}
+.phone-demo .demo-browser__url span { overflow: hidden; text-overflow: ellipsis; }
+.phone-demo .demo-browser__url .lucide { width: 0.7rem; height: 0.7rem; flex-shrink: 0; color: #8ab4f8; }
+.phone-demo .demo-browser__more { display: grid; place-items: center; color: rgba(255, 255, 255, 0.6); flex-shrink: 0; }
+.phone-demo .demo-browser__more .lucide { width: 0.9rem; height: 0.9rem; }
+.phone-demo .demo-browser__page { flex: 1; position: relative; overflow: hidden; }
+
+/* the gift box, scaled to live inside the browser page */
+.phone-demo .demo-box { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); }
 .phone-demo .gift-stage { transform: scale(0.5); transform-origin: center; }
 
 /* caption under the box */
 .phone-demo .demo-caption {
-  position: absolute; left: 0; right: 0; bottom: 26px; text-align: center; z-index: 2;
+  position: absolute; left: 0; right: 0; bottom: 16px; text-align: center; z-index: 2;
 }
 .phone-demo .demo-chip {
   display: inline-flex; align-items: center; gap: 6px;
@@ -399,7 +435,7 @@ footer {
 
 /* full-screen mini-reveal after the box opens */
 .phone-demo .demo-reveal {
-  position: absolute; inset: 0; z-index: 4;
+  position: absolute; inset: 0; z-index: 7;
   display: flex; flex-direction: column; align-items: center; justify-content: center;
   gap: 8px; padding: 30px 26px; text-align: center;
   background:
