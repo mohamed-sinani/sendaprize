@@ -243,4 +243,5 @@
 {"id":"event_1931c36dd7aa","type":"SURPRISE_VIEWED","user":"anonymous","target":"4kkpSS","time":"2026-08-14T18:21:51.761Z"}
 {"id":"event_0fed34cf9b8f","type":"SURPRISE_VIEWED","user":"anonymous","target":"4kkpSS","time":"2026-08-14T18:23:26.129Z"}
 {"id":"event_04dc1c3763ee","type":"SURPRISE_VIEWED","user":"anonymous","target":"4kkpSS","time":"2026-08-14T18:23:32.985Z"}
-{"id":"event_3a3d1618ae11","type":"SURPRISE_VIEWED","user":"anonymous","target":"4kkpSS","time":"2026-08-14T18:24:22.125Z"}
+{"id":"event_fed840e65fe7","type":"SURPRISE_VIEWED","user":"anonymous","target":"4kkpSS","time":"2026-08-14T18:24:18.174Z"}
+{"type":"SURPRISE_CREATED","id":"event_41af359f9ec0","user":"user_001","target":"Zrs5s4","time":"2026-08-14T18:24:33.312Z"}
