@@ -54,7 +54,7 @@
 .bow .knot { position: absolute; left: -11px; top: 20px; width: 22px; height: 22px; background: var(--pink); border-radius: 50%; box-shadow: 0 0 18px var(--pink); }
 
 /* the light bursting out when opened */
-.gift .burst { position: absolute; left: 50%; bottom: 210px; transform: translate(-50%, 30px) translateZ(70px); opacity: 0; transition: 0.5s var(--ease); pointer-events: none; }
+.gift .burst { position: absolute; left: 50%; bottom: 105px; transform: translate(-50%, 20px) translateZ(70px); opacity: 0; transition: 0.5s var(--ease); pointer-events: none; }
 .gift .burst i { position: absolute; width: 10px; height: 10px; border-radius: 50%; background: var(--pink-3); filter: blur(1px); }
 
 /* light beam + glow that grow out of the open box */
@@ -115,10 +115,10 @@
   100% { transform: scale(1.02); }
 }
 .gift.opening .lid {
-  transform: translateX(-50%) translateY(-260px) translateZ(-40px) rotateX(-58deg) rotateZ(16deg);
+  transform: translateX(-50%) translateY(-260px) rotateX(-58deg);
   transition: transform 0.7s cubic-bezier(0.34, 1.4, 0.64, 1);
 }
-.gift.opening .burst { opacity: 1; transform: translate(-50%, -50px) translateZ(70px); }
+.gift.opening .burst { opacity: 1; transform: translate(-50%, 0) translateZ(70px); }
 .gift.opening .burst i { animation: bursty 1.15s ease-out forwards; }
 .gift.opening .beam { animation: beam-grow 1s var(--ease) 0.15s forwards; }
 .gift.opening::after { animation: open-glow 0.9s var(--ease) 0.08s forwards; }
@@ -187,11 +187,12 @@ body.page-shake { animation: shake-page 0.6s var(--ease); }
 
 /* lock screen */
 #lock { display: flex; flex-direction: column; align-items: center; flex: 1; padding-top: clamp(16px, 8vh, 64px); }
-#lock .gift-stage { margin: auto 0; }
-.lock-title { font-size: clamp(1.4rem, 3.6vw, 2.1rem); margin-bottom: 10px; }
-.lock-sub { color: var(--ink-dim); max-width: 400px; margin: 0 auto 0; font-size: 0.96rem; }
-.lock-btn { margin-top: 34px; }
-.lock-hint { margin-top: 22px; color: rgba(185, 173, 182, 0.7); font-size: 0.78rem; }
+#lock .gift-stage { margin: auto 0 0; }
+.lock-title { font-size: clamp(1.4rem, 3.6vw, 2.1rem); margin: 30px 0 8px; }
+.lock-sub { color: var(--ink-dim); max-width: 400px; margin: 0 auto 30px; font-size: 0.96rem; }
+.lock-btn { margin-top: 0; }
+.lock-hint { margin: 18px auto 0; max-width: 320px; color: rgba(185, 173, 182, 0.7); font-size: 0.78rem; }
+#lock .powered { margin-top: auto; padding-top: 20px; }
 
 /* reveal screen */
 .reveal-screen {
@@ -542,11 +543,12 @@ body.page-shake { animation: shake-page 0.6s var(--ease); }
 @media (max-width: 600px) {
   .stat-grid { grid-template-columns: 1fr 1fr; }
   .gift-stage, .experience__main .gift-stage { transform: scale(0.6); }
-  .experience__main .gift-stage, .preview-live .gift-stage, #lock .gift-stage { height: 192px; }
-  #lock .lock-btn { margin-top: 22px; }
+  .experience__main .gift-stage, .preview-live .gift-stage, #lock .gift-stage { height: 176px; }
+  #lock .lock-btn { margin-top: 0; }
   #lock .lock-hint { margin-top: 14px; }
-  #lock .powered { margin-top: 18px; }
-  #lock .lock-title { margin-bottom: 6px; }
+  #lock .powered { margin-top: auto; padding-top: 16px; }
+  #lock .lock-title { margin: 18px 0 6px; }
+  #lock .lock-sub { margin-bottom: 20px; }
   .experience__main { padding: calc(64px + env(safe-area-inset-top, 0px)) 16px calc(48px + env(safe-area-inset-bottom, 0px)); }
   .wizard { padding: 28px 0 calc(72px + env(safe-area-inset-bottom, 0px)); }
   .wizard-card { padding: 26px 18px; }
