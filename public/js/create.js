@@ -306,12 +306,15 @@ function setupImages() {
   const zone = $('#imgZone');
   const input = $('#imgInput');
   zone.addEventListener('click', () => input.click());
-  input.addEventListener('change', () => {
-    for (const file of input.files) {
-      if (draft.images.length >= 6) { toast('Up to 6 photos per surprise'); break; }
-      compressImage(file).then(({ dataUrl, ext }) => draft.images.push({ dataUrl, ext }));
-    }
+  input.addEventListener('change', async () => {
+    const files = [...input.files];
     input.value = '';
+    const added = [];
+    for (const file of files) {
+      if (draft.images.length + added.length >= 6) { toast('Up to 6 photos per surprise'); break; }
+      added.push(await compressImage(file));
+    }
+    draft.images.push(...added);
     renderThumbs();
     updatePreview();
   });
