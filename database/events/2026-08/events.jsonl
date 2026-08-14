@@ -184,5 +184,6 @@
 {"id":"event_a7cd72f38fcd","type":"SURPRISE_VIEWED","user":"anonymous","target":"le74Qb","time":"2026-08-14T07:25:36.899Z"}
 {"id":"event_52f67078daf2","type":"SURPRISE_OPENED","user":"anonymous","target":"le74Qb","time":"2026-08-14T07:25:42.746Z"}
 {"reaction":"heart","id":"event_dffea9111424","type":"SURPRISE_REACTED","user":"anonymous","target":"le74Qb","time":"2026-08-14T07:26:12.172Z"}
-{"reaction":"smile","id":"event_87851bd2d736","type":"SURPRISE_REACTED","user":"anonymous","target":"le74Qb","time":"2026-08-14T07:26:16.095Z"}
-{"reaction":"sparkles","id":"event_4b173b23fcdb","type":"SURPRISE_REACTED","user":"anonymous","target":"le74Qb","time":"2026-08-14T07:26:19.985Z"}
+{"reaction":"flame","id":"event_b0dcbaa92655","type":"SURPRISE_REACTED","user":"anonymous","target":"le74Qb","time":"2026-08-14T07:26:15.459Z"}
+{"id":"event_0ad731147550","type":"SURPRISE_VIEWED","user":"anonymous","target":"le74Qb","time":"2026-08-14T07:26:18.582Z"}
+{"reaction":"sparkles","id":"event_703e40ee3807","type":"SURPRISE_REACTED","user":"anonymous","target":"le74Qb","time":"2026-08-14T07:26:22.411Z"}
