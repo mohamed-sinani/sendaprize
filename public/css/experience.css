@@ -490,7 +490,7 @@ body.page-shake { animation: shake-page 0.75s cubic-bezier(0.36, 0.07, 0.19, 0.9
   .gift-stage, .experience__main .gift-stage { transform: scale(0.7); }
   .experience__main .gift-stage, .preview-live .gift-stage { height: 224px; }
   .experience__main { padding: calc(64px + env(safe-area-inset-top, 0px)) 16px calc(48px + env(safe-area-inset-bottom, 0px)); }
-  .wizard { padding: 28px 0 72px; }
+  .wizard { padding: 28px 0 calc(72px + env(safe-area-inset-bottom, 0px)); }
   .wizard-card { padding: 26px 18px; }
   .type-pick .type-grid { gap: 12px; }
   .fields-2 { grid-template-columns: 1fr; gap: 14px; }

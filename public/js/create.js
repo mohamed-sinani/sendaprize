@@ -91,7 +91,7 @@ function renderTypes() {
         '<button type="button" class="occ-item" data-key="' + o.key + '">' +
         '<span class="t-ico"><i data-lucide="' + OCCASIONS.iconName(o) + '"></i></span>' +
         '<span style="flex:1"><b>' + o.name + '</b>' +
-        (o.hint ? '<span>' + o.hint + '</span>' : '') +
+        (o.hint ? '<span class="hint">' + o.hint + '</span>' : '') +
         '</span></button>').join('') +
       (note ? '<div class="occ-empty">' + note + '</div>' : '');
     list.style.display = 'block';
