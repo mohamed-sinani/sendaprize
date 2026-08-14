@@ -137,15 +137,22 @@ function animateOpen() {
 
   setTimeout(() => {
     box.classList.remove('shaking');
+    box.classList.add('vibrating');
+    document.body.classList.add('page-shake');
+  }, 700);
+
+  setTimeout(() => {
+    box.classList.remove('vibrating');
+    document.body.classList.remove('page-shake');
     box.classList.add('opening');
-    burstConfetti(box, 300);
-    setTimeout(() => burstConfetti(box, 200), 250);
-  }, 520);
+    burstConfetti(box, 320);
+    setTimeout(() => burstConfetti(box, 220), 200);
+  }, 1200);
 
   setTimeout(() => {
     $('#lock').style.display = 'none';
     showReveal();
-  }, 1350);
+  }, 2150);
 }
 
 function showReveal() {
