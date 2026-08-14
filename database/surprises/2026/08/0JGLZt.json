@@ -15,5 +15,6 @@
   "creatorId": "user_001",
   "status": "published",
   "created_at": "2026-08-14T18:44:24.239Z",
-  "updated_at": null
+  "updated_at": null,
+  "opens": 1
 }
