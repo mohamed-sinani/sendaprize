@@ -334,15 +334,18 @@ function renderImgZone() {
 }
 
 function renderThumbs() {
-  $('#imgThumbs').innerHTML = draft.images
+  const n = draft.images.length;
+  let html = draft.images
     .map(
       (img, i) => `
       <div class="th">
-        <img src="${img.dataUrl}" />
-        <button class="x" data-i="${i}"><i data-lucide="x"></i></button>
+        <img src="${img.dataUrl}" alt="" />
+        <button class="x" data-i="${i}" aria-label="Remove photo"><i data-lucide="x"></i></button>
       </div>`
     )
     .join('');
+  if (n && n < 6) html += `<button type="button" class="th add" id="addMoreThumb" aria-label="Add more photos"><i data-lucide="plus"></i></button>`;
+  $('#imgThumbs').innerHTML = html;
   $$('#imgThumbs .x').forEach((b) =>
     b.addEventListener('click', () => {
       draft.images.splice(Number(b.dataset.i), 1);
@@ -350,6 +353,8 @@ function renderThumbs() {
       updatePreview();
     })
   );
+  const addMore = $('#addMoreThumb');
+  if (addMore) addMore.addEventListener('click', () => $('#imgInput').click());
   refreshIcons();
   renderImgZone();
 }
