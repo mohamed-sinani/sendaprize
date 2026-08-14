@@ -12,7 +12,6 @@
 
   var CATS = {
     family: 'Family',
-    islamic: 'Islamic',
     celebration: 'Celebrations',
     tanzania: 'Tanzania',
     world: 'World Days',
@@ -45,7 +44,7 @@
     science: 'flask-conical',
     sport: 'trophy',
     food: 'utensils',
-    faith: 'church',
+    faith: 'sun',
     family: 'users',
   };
 
@@ -59,24 +58,11 @@
     sibling: 'users-round',
     mother: 'flower',
     father: 'tree-deciduous',
-    /* islamic */
-    ramadan: 'moon',
-    laylatulqadr: 'sparkles',
-    eidf: 'moon-star',
-    arafah: 'hand-heart',
-    eida: 'star',
-    hajj: 'compass',
-    islmyr: 'calendar',
-    ashura: 'cloud-moon',
-    maulid: 'book-heart',
-    isrami: 'rocket',
-    hifz: 'book-open-text',
     /* celebrations */
     nikah: 'heart-handshake',
     engagement: 'heart-handshake',
     anniversary: 'heart',
     baby: 'baby',
-    aqiqah: 'utensils',
     graduation: 'graduation-cap',
     congratulations: 'party-popper',
     birthday: 'cake',
@@ -164,39 +150,25 @@
   }
 
   /* family */
-  add({ key: 'spouse', name: 'For my spouse', cat: 'family', hint: 'Affection & mercy between you' });
+  add({ key: 'spouse', name: 'For my spouse', cat: 'family', hint: 'Affection & love between you' });
   add({ key: 'parents', name: 'For my parents', cat: 'family', hint: 'Kindness that can never be repaid' });
   add({ key: 'family', name: 'For my family', cat: 'family', hint: 'Ties of kinship, kept close' });
   add({ key: 'friend', name: 'For a friend', cat: 'family', hint: 'A kind word, well timed' });
   add({ key: 'grandparents', name: 'For my grandparents', cat: 'family', hint: 'Wisdom & endless love' });
   add({ key: 'sibling', name: 'For my sibling', cat: 'family', hint: 'Together since the start' });
-  add({ key: 'mother', name: 'For my mother', cat: 'family', hint: 'A mother\u2019s du\u2019a, always' });
+  add({ key: 'mother', name: 'For my mother', cat: 'family', hint: 'A mother\u2019s love, always' });
   add({ key: 'father', name: 'For my father', cat: 'family', hint: 'Strength & kindness' });
 
-  /* islamic */
-  add({ key: 'ramadan', name: 'Ramadan Kareem', cat: 'islamic', hint: 'A month of mercy & fasting', month: 2, day: 18, note: 'Lunar date' });
-  add({ key: 'laylatulqadr', name: 'Laylat al-Qadr', cat: 'islamic', hint: 'The Night of Power', month: 3, day: 14, note: 'Lunar date' });
-  add({ key: 'eidf', name: 'Eid al-Fitr', cat: 'islamic', hint: 'A blessed celebration', month: 3, day: 20, note: 'Lunar date' });
-  add({ key: 'arafah', name: 'Day of Arafah', cat: 'islamic', hint: 'A day of du\u2019a & forgiveness', month: 5, day: 26, note: 'Lunar date' });
-  add({ key: 'eida', name: 'Eid al-Adha', cat: 'islamic', hint: 'A day of gratitude & sacrifice', month: 5, day: 27, note: 'Lunar date' });
-  add({ key: 'hajj', name: 'Hajj', cat: 'islamic', hint: 'The sacred journey', month: 5, day: 25, note: 'Lunar date' });
-  add({ key: 'islmyr', name: 'Islamic New Year', cat: 'islamic', hint: 'A new Hijri year begins', month: 6, day: 15, note: 'Lunar date' });
-  add({ key: 'ashura', name: 'Day of Ashura', cat: 'islamic', hint: 'Fasting & remembrance', month: 6, day: 24, note: 'Lunar date' });
-  add({ key: 'maulid', name: 'Maulid (Prophet\u2019s Birthday)', cat: 'islamic', hint: 'The Prophet\u2019s blessed birth', month: 8, day: 26, note: 'Lunar date' });
-  add({ key: 'isrami', name: 'Isra & Mi\u2019raj', cat: 'islamic', hint: 'The night journey', month: 1, day: 8, note: 'Lunar date' });
-  add({ key: 'hifz', name: 'Quran completed', cat: 'islamic', hint: 'A milestone of iman, celebrated' });
-
   /* celebrations */
-  add({ key: 'nikah', name: 'Wedding invitation', cat: 'celebration', hint: 'A new beginning, blessed' });
+  add({ key: 'nikah', name: 'Wedding invitation', cat: 'celebration', hint: 'A new beginning, together' });
   add({ key: 'engagement', name: 'Engagement', cat: 'celebration', hint: 'A promise about to begin' });
-  add({ key: 'anniversary', name: 'Anniversary', cat: 'celebration', hint: 'Years of love & mercy' });
+  add({ key: 'anniversary', name: 'Anniversary', cat: 'celebration', hint: 'Years of love & laughter' });
   add({ key: 'baby', name: 'Our new baby', cat: 'celebration', hint: 'A welcome from the heart' });
-  add({ key: 'aqiqah', name: 'Aqiqah', cat: 'celebration', hint: 'A name & a blessing' });
   add({ key: 'graduation', name: 'Graduation', cat: 'celebration', hint: 'Proud of you, always' });
   add({ key: 'congratulations', name: 'Congratulations', cat: 'celebration', hint: 'Good news, well shared' });
-  add({ key: 'birthday', name: 'Birthday', cat: 'celebration', hint: 'Another year of barakah' });
+  add({ key: 'birthday', name: 'Birthday', cat: 'celebration', hint: 'Another year to celebrate' });
   add({ key: 'retirement', name: 'Retirement', cat: 'celebration', hint: 'A new chapter of rest' });
-  add({ key: 'housewarming', name: 'Housewarming', cat: 'celebration', hint: 'A home full of barakah' });
+  add({ key: 'housewarming', name: 'Housewarming', cat: 'celebration', hint: 'A home full of love' });
 
   /* tanzania public holidays */
   add({ key: 'newyear', name: 'New Year\u2019s Day', cat: 'tanzania', hint: 'A fresh beginning', month: 1, day: 1 });
@@ -480,7 +452,7 @@
      With `opts.collapse`, picking a card hides the tools and shows only that card. */
   function picker(el, opts) {
     opts = opts || {};
-    var CAT_ORDER = ['family', 'islamic', 'celebration', 'tanzania', 'world'];
+    var CAT_ORDER = ['family', 'celebration', 'tanzania', 'world'];
     var state = { cat: opts.cat || 'all', q: '', sel: opts.selected || null };
 
     el.innerHTML =
