@@ -313,4 +313,5 @@
 {"id":"event_e82f5c2241a4","type":"SURPRISE_OPENED","user":"anonymous","target":"le74Qb","time":"2026-08-15T08:39:09.341Z"}
 {"id":"event_dcecf80aacde","type":"SURPRISE_OPENED","user":"anonymous","target":"le74Qb","time":"2026-08-15T08:39:16.380Z"}
 {"reaction":"heart","id":"event_894cd0c8cbdd","type":"SURPRISE_REACTED","user":"anonymous","target":"le74Qb","time":"2026-08-15T08:39:21.867Z"}
-{"id":"event_dddc472fb186","type":"SURPRISE_OPENED","user":"anonymous","target":"le74Qb","time":"2026-08-15T08:39:30.840Z"}
+{"reaction":"sparkles","id":"event_aa4ddb8ee8d9","type":"SURPRISE_REACTED","user":"anonymous","target":"le74Qb","time":"2026-08-15T08:39:29.128Z"}
+{"id":"event_acfb7f443e46","type":"SURPRISE_OPENED","user":"anonymous","target":"le74Qb","time":"2026-08-15T08:39:45.136Z"}
