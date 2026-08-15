@@ -662,8 +662,12 @@ footer {
   .type-card .t-date { margin-top: 8px; }
   .hero { padding-top: 52px; padding-bottom: 50px; }
   .hero h1 { font-size: clamp(2.2rem, 10.5vw, 2.9rem); }
-  .hero .actions { flex-wrap: nowrap; gap: 10px; }
-  .hero .actions .btn { flex: 1; padding: 13px 12px; font-size: 0.88rem; white-space: normal; }
+  .hero__copy { display: contents; }
+  .hero h1 { order: 1; }
+  .hero p.lead { order: 2; }
+  .hero-stage { order: 3; }
+  .hero .actions { order: 4; flex-direction: column; align-items: stretch; gap: 10px; }
+  .hero .actions .btn { width: 100%; flex: none; padding: 14px 12px; font-size: 0.88rem; white-space: normal; }
   .occ-item { padding: 12px 14px; min-height: 48px; }
   .occ-item .t-ico { width: 38px; height: 38px; }
   .occ-list { max-height: 260px; }
@@ -681,8 +685,6 @@ footer {
 
 @media (max-width: 400px) {
   .steps { grid-template-columns: 1fr; }
-  .hero .actions { flex-direction: column; }
-  .hero .actions .btn { width: 100%; }
   .hero-stage { height: 340px; }
   .hero-stage .phone-demo { transform: scale(0.56); }
   .type-card { padding: 16px 12px; }
