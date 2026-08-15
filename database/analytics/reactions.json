@@ -4,10 +4,15 @@
     "thumbs-up": 3,
     "heart": 24,
     "sparkles": 4,
-    "flame": 4,
+    "flame": 5,
     "star": 3
   },
   "recent": [
+    {
+      "surprise_id": "g54Ptm",
+      "type": "flame",
+      "timestamp": "2026-08-15T19:27:40.481Z"
+    },
     {
       "surprise_id": "le74Qb",
       "type": "sparkles",
