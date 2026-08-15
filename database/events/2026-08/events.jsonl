@@ -338,3 +338,4 @@
 {"id":"event_da750bbeabeb","type":"SURPRISE_VIEWED","user":"anonymous","target":"uvubuA","time":"2026-08-15T19:05:47.647Z"}
 {"id":"event_eae6ef048a5f","type":"SURPRISE_OPENED","user":"anonymous","target":"uvubuA","time":"2026-08-15T19:06:07.232Z"}
 {"id":"event_059016764d0c","type":"USER_CREATED","user":"user_010","target":null,"time":"2026-08-15T19:20:55.941Z"}
+{"type":"SURPRISE_CREATED","id":"event_aa9f83ea07ee","user":"user_010","target":"g54Ptm","time":"2026-08-15T19:20:59.307Z"}
