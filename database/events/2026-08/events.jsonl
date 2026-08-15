@@ -341,3 +341,4 @@
 {"type":"SURPRISE_CREATED","id":"event_aa9f83ea07ee","user":"user_010","target":"g54Ptm","time":"2026-08-15T19:20:59.307Z"}
 {"id":"event_8d2f24c31413","type":"QR_GENERATED","user":"user_010","target":"g54Ptm","time":"2026-08-15T19:21:02.800Z"}
 {"id":"event_350f4436e9c2","type":"SURPRISE_OPENED","user":"anonymous","target":"g54Ptm","time":"2026-08-15T19:22:21.455Z"}
+{"id":"event_7c6088418f11","type":"SURPRISE_VIEWED","user":"anonymous","target":"g54Ptm","time":"2026-08-15T19:23:37.341Z"}
