@@ -1,0 +1,19 @@
+{
+  "id": "KSwl5j",
+  "code": "KSwl5j",
+  "type": "spouse",
+  "title": "For my love",
+  "message": "A little something just for you.",
+  "from": "someone who loves you",
+  "theme": "emerald",
+  "media": {
+    "images": [],
+    "audio": []
+  },
+  "passwordHash": null,
+  "openAt": null,
+  "creatorId": "user_009",
+  "status": "published",
+  "created_at": "2026-08-15T18:57:21.249Z",
+  "updated_at": null
+}
