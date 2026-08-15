@@ -556,7 +556,7 @@ body.page-shake { animation: shake-page 0.6s var(--ease); }
   #lock .lock-title { margin: 18px 0 6px; }
   #lock .lock-sub { margin-bottom: 20px; }
   .experience__main { padding: calc(64px + env(safe-area-inset-top, 0px)) 16px calc(48px + env(safe-area-inset-bottom, 0px)); }
-  .wizard { padding: 28px 0 calc(72px + env(safe-area-inset-bottom, 0px)); }
+  .wizard { padding: 28px 16px calc(72px + env(safe-area-inset-bottom, 0px)); }
   .wizard-card { padding: 26px 18px; }
   .type-pick .type-grid { gap: 12px; }
   .fields-2 { grid-template-columns: 1fr; gap: 14px; }
