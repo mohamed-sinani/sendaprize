@@ -351,3 +351,4 @@
 {"id":"event_190f920bb68e","type":"SURPRISE_VIEWED","user":"anonymous","target":"g54Ptm","time":"2026-08-15T19:27:28.191Z"}
 {"id":"event_1acb4858b88e","type":"SURPRISE_OPENED","user":"anonymous","target":"g54Ptm","time":"2026-08-15T19:27:34.179Z"}
 {"reaction":"flame","id":"event_b79e82c61888","type":"SURPRISE_REACTED","user":"anonymous","target":"g54Ptm","time":"2026-08-15T19:27:40.674Z"}
+{"reaction":"heart","id":"event_7d790100b631","type":"SURPRISE_REACTED","user":"anonymous","target":"g54Ptm","time":"2026-08-15T19:27:53.509Z"}
