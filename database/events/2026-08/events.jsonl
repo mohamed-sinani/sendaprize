@@ -335,3 +335,4 @@
 {"id":"event_7a0cb2bed314","type":"USER_CREATED","user":"user_009","target":null,"time":"2026-08-15T18:57:15.577Z"}
 {"type":"SURPRISE_CREATED","id":"event_ebd3598602b2","user":"user_009","target":"KSwl5j","time":"2026-08-15T18:57:23.155Z"}
 {"id":"event_0008e4eacc83","type":"QR_GENERATED","user":"user_009","target":"KSwl5j","time":"2026-08-15T18:57:27.955Z"}
+{"id":"event_da750bbeabeb","type":"SURPRISE_VIEWED","user":"anonymous","target":"uvubuA","time":"2026-08-15T19:05:47.647Z"}
