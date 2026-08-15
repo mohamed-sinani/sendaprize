@@ -1,6 +1,6 @@
 {
   "byType": {
-    "smile": 6,
+    "smile": 7,
     "thumbs-up": 3,
     "heart": 29,
     "sparkles": 4,
@@ -8,6 +8,11 @@
     "star": 3
   },
   "recent": [
+    {
+      "surprise_id": "g54Ptm",
+      "type": "smile",
+      "timestamp": "2026-08-15T19:35:46.511Z"
+    },
     {
       "surprise_id": "g54Ptm",
       "type": "heart",
