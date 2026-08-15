@@ -316,3 +316,4 @@
 {"reaction":"sparkles","id":"event_aa4ddb8ee8d9","type":"SURPRISE_REACTED","user":"anonymous","target":"le74Qb","time":"2026-08-15T08:39:29.128Z"}
 {"id":"event_acfb7f443e46","type":"SURPRISE_OPENED","user":"anonymous","target":"le74Qb","time":"2026-08-15T08:39:45.136Z"}
 {"type":"SURPRISE_CREATED","id":"event_3d473cf27381","user":"anonymous","target":"tYhEXv","time":"2026-08-15T08:59:33.361Z"}
+{"id":"event_b9f45b7cdf63","type":"SURPRISE_VIEWED","user":"anonymous","target":"tYhEXv","time":"2026-08-15T08:59:47.469Z"}
