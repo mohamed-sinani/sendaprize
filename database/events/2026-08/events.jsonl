@@ -348,3 +348,4 @@
 {"id":"event_d09068084c5a","type":"QR_GENERATED","user":"user_011","target":"MYcAiX","time":"2026-08-15T19:24:31.979Z"}
 {"id":"event_ab0dc7c6e648","type":"SURPRISE_VIEWED","user":"anonymous","target":"MYcAiX","time":"2026-08-15T19:24:53.760Z"}
 {"id":"event_7b36355d6c93","type":"SURPRISE_OPENED","user":"anonymous","target":"MYcAiX","time":"2026-08-15T19:25:07.661Z"}
+{"id":"event_190f920bb68e","type":"SURPRISE_VIEWED","user":"anonymous","target":"g54Ptm","time":"2026-08-15T19:27:28.191Z"}
