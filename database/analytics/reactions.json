@@ -2,7 +2,7 @@
   "byType": {
     "smile": 6,
     "thumbs-up": 3,
-    "heart": 26,
+    "heart": 27,
     "sparkles": 4,
     "flame": 5,
     "star": 3
@@ -11,7 +11,12 @@
     {
       "surprise_id": "g54Ptm",
       "type": "heart",
-      "timestamp": "2026-08-15T19:28:18.220Z"
+      "timestamp": "2026-08-15T19:28:20.368Z"
+    },
+    {
+      "surprise_id": "g54Ptm",
+      "type": "heart",
+      "timestamp": "2026-08-15T19:28:16.841Z"
     },
     {
       "surprise_id": "g54Ptm",
