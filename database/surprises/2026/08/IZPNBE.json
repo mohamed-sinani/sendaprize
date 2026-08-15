@@ -1,0 +1,19 @@
+{
+  "id": "IZPNBE",
+  "code": "IZPNBE",
+  "type": "spouse",
+  "title": "For my love",
+  "message": "A little something just for you.",
+  "from": "someone who loves you",
+  "theme": "emerald",
+  "media": {
+    "images": [],
+    "audio": []
+  },
+  "passwordHash": null,
+  "openAt": null,
+  "creatorId": "user_008",
+  "status": "published",
+  "created_at": "2026-08-15T18:56:38.434Z",
+  "updated_at": null
+}
