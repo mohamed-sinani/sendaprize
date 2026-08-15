@@ -2,7 +2,7 @@
   "byType": {
     "smile": 6,
     "thumbs-up": 3,
-    "heart": 27,
+    "heart": 28,
     "sparkles": 4,
     "flame": 5,
     "star": 3
@@ -11,12 +11,17 @@
     {
       "surprise_id": "g54Ptm",
       "type": "heart",
-      "timestamp": "2026-08-15T19:28:32.737Z"
+      "timestamp": "2026-08-15T19:28:34.628Z"
     },
     {
       "surprise_id": "g54Ptm",
       "type": "heart",
-      "timestamp": "2026-08-15T19:28:18.220Z"
+      "timestamp": "2026-08-15T19:28:21.746Z"
+    },
+    {
+      "surprise_id": "g54Ptm",
+      "type": "heart",
+      "timestamp": "2026-08-15T19:28:17.153Z"
     },
     {
       "surprise_id": "g54Ptm",
