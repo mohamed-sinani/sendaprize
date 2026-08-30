@@ -18,11 +18,10 @@
   "status": "published",
   "created_at": "2026-08-13T19:10:28.718Z",
   "updated_at": "2026-08-13T19:10:35.180Z",
-  "opens": 9,
+  "opens": 10,
   "reactions": {
-    "heart": 3,
-    "sparkles": 1,
-    "book-open-text": 1
+    "heart": 4,
+    "star": 1
   },
   "views": 1
 }
