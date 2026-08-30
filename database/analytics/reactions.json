@@ -2,12 +2,17 @@
   "byType": {
     "smile": 7,
     "thumbs-up": 3,
-    "heart": 33,
+    "heart": 34,
     "sparkles": 5,
     "flame": 5,
     "star": 3
   },
   "recent": [
+    {
+      "surprise_id": "uvubuA",
+      "type": "heart",
+      "timestamp": "2026-08-30T22:32:53.295Z"
+    },
     {
       "surprise_id": "uvubuA",
       "type": "sparkles",
