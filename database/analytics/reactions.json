@@ -1,22 +1,23 @@
 {
   "byType": {
     "smile": 7,
-    "thumbs-up": 4,
-    "heart": 34,
-    "sparkles": 5,
+    "thumbs-up": 3,
+    "heart": 33,
+    "sparkles": 6,
     "flame": 5,
-    "star": 3
+    "star": 3,
+    "book-open-text": 1
   },
   "recent": [
     {
       "surprise_id": "uvubuA",
-      "type": "thumbs-up",
-      "timestamp": "2026-08-30T22:32:57.561Z"
+      "type": "book-open-text",
+      "timestamp": "2026-08-30T22:32:58.285Z"
     },
     {
       "surprise_id": "uvubuA",
-      "type": "heart",
-      "timestamp": "2026-08-30T22:32:53.295Z"
+      "type": "sparkles",
+      "timestamp": "2026-08-30T22:32:54.330Z"
     },
     {
       "surprise_id": "uvubuA",
