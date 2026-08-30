@@ -384,4 +384,4 @@
 {"id":"event_d4d65f9d01b1","type":"SURPRISE_OPENED","user":"anonymous","target":"uvubuA","time":"2026-08-30T22:32:34.804Z"}
 {"id":"event_79a4a48da69c","type":"SURPRISE_OPENED","user":"anonymous","target":"uvubuA","time":"2026-08-30T22:32:47.514Z"}
 {"reaction":"heart","id":"event_119d381a64d8","type":"SURPRISE_REACTED","user":"anonymous","target":"uvubuA","time":"2026-08-30T22:32:53.479Z"}
-{"reaction":"flame","id":"event_770c53e358d1","type":"SURPRISE_REACTED","user":"anonymous","target":"uvubuA","time":"2026-08-30T22:32:56.368Z"}
+{"reaction":"star","id":"event_828a335c52f1","type":"SURPRISE_REACTED","user":"anonymous","target":"uvubuA","time":"2026-08-30T22:32:56.596Z"}
