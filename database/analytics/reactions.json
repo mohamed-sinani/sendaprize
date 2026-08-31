@@ -1,18 +1,18 @@
 {
   "byType": {
     "smile": 7,
-    "thumbs-up": 4,
+    "thumbs-up": 5,
     "heart": 36,
     "sparkles": 7,
     "flame": 5,
-    "star": 5,
+    "star": 4,
     "book-open-text": 3
   },
   "recent": [
     {
       "surprise_id": "tDKLgh",
-      "type": "star",
-      "timestamp": "2026-08-31T09:41:15.692Z"
+      "type": "thumbs-up",
+      "timestamp": "2026-08-31T09:41:16.447Z"
     },
     {
       "surprise_id": "tDKLgh",
