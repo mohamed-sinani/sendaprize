@@ -422,5 +422,5 @@
 {"channel":"telegram","id":"event_5a31d4e1f6e9","type":"SURPRISE_SHARED","user":"user_012","target":"tDKLgh","time":"2026-08-31T09:39:46.902Z"}
 {"channel":"whatsapp","id":"event_b4c627b4b896","type":"SURPRISE_SHARED","user":"user_012","target":"tDKLgh","time":"2026-08-31T09:40:36.221Z"}
 {"id":"event_5f6fd2cd3471","type":"SURPRISE_OPENED","user":"anonymous","target":"tDKLgh","time":"2026-08-31T09:40:56.454Z"}
-{"reaction":"heart","id":"event_483d54fa8f3c","type":"SURPRISE_REACTED","user":"anonymous","target":"tDKLgh","time":"2026-08-31T09:41:08.743Z"}
-{"reaction":"flame","id":"event_85ebc23902e4","type":"SURPRISE_REACTED","user":"anonymous","target":"tDKLgh","time":"2026-08-31T09:41:14.108Z"}
+{"reaction":"sparkles","id":"event_a2695ee883d3","type":"SURPRISE_REACTED","user":"anonymous","target":"tDKLgh","time":"2026-08-31T09:41:10.466Z"}
+{"reaction":"star","id":"event_7f80510c2074","type":"SURPRISE_REACTED","user":"anonymous","target":"tDKLgh","time":"2026-08-31T09:41:15.893Z"}
