@@ -4,7 +4,7 @@
     "thumbs-up": 3,
     "heart": 36,
     "sparkles": 6,
-    "flame": 5,
+    "flame": 6,
     "star": 3,
     "book-open-text": 2
   },
@@ -12,22 +12,27 @@
     {
       "surprise_id": "uvubuA",
       "type": "book-open-text",
-      "timestamp": "2026-08-31T08:17:48.173Z"
+      "timestamp": "2026-08-31T08:17:50.446Z"
+    },
+    {
+      "surprise_id": "uvubuA",
+      "type": "flame",
+      "timestamp": "2026-08-31T08:17:36.518Z"
     },
     {
       "surprise_id": "uvubuA",
       "type": "heart",
-      "timestamp": "2026-08-31T08:17:34.481Z"
+      "timestamp": "2026-08-31T08:17:23.524Z"
     },
     {
       "surprise_id": "uvubuA",
       "type": "heart",
-      "timestamp": "2026-08-31T08:17:21.595Z"
+      "timestamp": "2026-08-31T08:17:10.559Z"
     },
     {
       "surprise_id": "uvubuA",
       "type": "heart",
-      "timestamp": "2026-08-31T08:17:07.082Z"
+      "timestamp": "2026-08-31T08:17:06.869Z"
     },
     {
       "surprise_id": "uvubuA",
