@@ -2,8 +2,8 @@
   "byType": {
     "smile": 7,
     "thumbs-up": 4,
-    "heart": 37,
-    "sparkles": 6,
+    "heart": 36,
+    "sparkles": 7,
     "flame": 5,
     "star": 4,
     "book-open-text": 3
@@ -11,8 +11,8 @@
   "recent": [
     {
       "surprise_id": "tDKLgh",
-      "type": "heart",
-      "timestamp": "2026-08-31T09:41:08.422Z"
+      "type": "sparkles",
+      "timestamp": "2026-08-31T09:41:10.262Z"
     },
     {
       "surprise_id": "uvubuA",
