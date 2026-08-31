@@ -18,12 +18,12 @@
   "status": "published",
   "created_at": "2026-08-13T19:10:28.718Z",
   "updated_at": "2026-08-13T19:10:35.180Z",
-  "opens": 29,
+  "opens": 30,
   "reactions": {
     "heart": 7,
-    "star": 2,
-    "book-open-text": 2,
-    "thumbs-up": 1
+    "star": 1,
+    "thumbs-up": 1,
+    "book-open-text": 2
   },
   "views": 1
 }
