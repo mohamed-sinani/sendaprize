@@ -413,3 +413,4 @@
 {"reaction":"book-open-text","id":"event_9b57dcd3569a","type":"SURPRISE_REACTED","user":"anonymous","target":"uvubuA","time":"2026-08-31T08:17:58.883Z"}
 {"reaction":"book-open-text","id":"event_de06df271b14","type":"SURPRISE_REACTED","user":"anonymous","target":"uvubuA","time":"2026-08-31T08:18:12.480Z"}
 {"id":"event_bfb1211e3f70","type":"SURPRISE_OPENED","user":"anonymous","target":"uvubuA","time":"2026-08-31T08:18:25.907Z"}
+{"id":"event_249a5983513c","type":"USER_CREATED","user":"user_012","target":null,"time":"2026-08-31T09:38:10.738Z"}
