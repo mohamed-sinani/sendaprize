@@ -22,6 +22,7 @@
   "reactions": {
     "heart": 7,
     "star": 1,
+    "flame": 1,
     "book-open-text": 2
   },
   "views": 1
