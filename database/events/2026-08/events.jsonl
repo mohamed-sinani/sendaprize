@@ -415,3 +415,4 @@
 {"id":"event_bfb1211e3f70","type":"SURPRISE_OPENED","user":"anonymous","target":"uvubuA","time":"2026-08-31T08:18:25.907Z"}
 {"id":"event_249a5983513c","type":"USER_CREATED","user":"user_012","target":null,"time":"2026-08-31T09:38:10.738Z"}
 {"type":"SURPRISE_CREATED","id":"event_804250889418","user":"user_012","target":"tDKLgh","time":"2026-08-31T09:38:14.265Z"}
+{"id":"event_cc6f4b1b22f9","type":"IMAGE_ADDED","user":"user_012","target":"tDKLgh","time":"2026-08-31T09:38:25.773Z"}
