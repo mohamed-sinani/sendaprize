@@ -1,10 +1,10 @@
 {
   "byType": {
-    "smile": 7,
+    "smile": 8,
     "thumbs-up": 3,
     "heart": 36,
     "sparkles": 6,
-    "flame": 6,
+    "flame": 5,
     "star": 3,
     "book-open-text": 3
   },
@@ -12,32 +12,32 @@
     {
       "surprise_id": "uvubuA",
       "type": "book-open-text",
-      "timestamp": "2026-08-31T08:18:03.526Z"
+      "timestamp": "2026-08-31T08:18:05.968Z"
     },
     {
       "surprise_id": "uvubuA",
       "type": "book-open-text",
-      "timestamp": "2026-08-31T08:17:50.446Z"
+      "timestamp": "2026-08-31T08:17:52.711Z"
     },
     {
       "surprise_id": "uvubuA",
-      "type": "flame",
-      "timestamp": "2026-08-31T08:17:36.518Z"
-    },
-    {
-      "surprise_id": "uvubuA",
-      "type": "heart",
-      "timestamp": "2026-08-31T08:17:23.524Z"
+      "type": "smile",
+      "timestamp": "2026-08-31T08:17:38.913Z"
     },
     {
       "surprise_id": "uvubuA",
       "type": "heart",
-      "timestamp": "2026-08-31T08:17:10.559Z"
+      "timestamp": "2026-08-31T08:17:25.641Z"
     },
     {
       "surprise_id": "uvubuA",
       "type": "heart",
-      "timestamp": "2026-08-31T08:17:06.869Z"
+      "timestamp": "2026-08-31T08:17:13.412Z"
+    },
+    {
+      "surprise_id": "uvubuA",
+      "type": "heart",
+      "timestamp": "2026-08-31T08:17:06.916Z"
     },
     {
       "surprise_id": "uvubuA",
