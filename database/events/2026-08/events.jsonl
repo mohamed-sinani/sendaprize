@@ -423,4 +423,5 @@
 {"channel":"whatsapp","id":"event_b4c627b4b896","type":"SURPRISE_SHARED","user":"user_012","target":"tDKLgh","time":"2026-08-31T09:40:36.221Z"}
 {"id":"event_5f6fd2cd3471","type":"SURPRISE_OPENED","user":"anonymous","target":"tDKLgh","time":"2026-08-31T09:40:56.454Z"}
 {"reaction":"sparkles","id":"event_a2695ee883d3","type":"SURPRISE_REACTED","user":"anonymous","target":"tDKLgh","time":"2026-08-31T09:41:10.466Z"}
-{"reaction":"thumbs-up","id":"event_650ee4eb5f0f","type":"SURPRISE_REACTED","user":"anonymous","target":"tDKLgh","time":"2026-08-31T09:41:16.645Z"}
+{"reaction":"star","id":"event_7f80510c2074","type":"SURPRISE_REACTED","user":"anonymous","target":"tDKLgh","time":"2026-08-31T09:41:15.893Z"}
+{"channel":"link","id":"event_5bd825dfbdda","type":"SURPRISE_SHARED","user":"user_012","target":"tDKLgh","time":"2026-08-31T09:41:23.593Z"}
