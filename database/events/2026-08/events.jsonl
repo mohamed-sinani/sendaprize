@@ -406,9 +406,10 @@
 {"id":"event_74bdfbbba000","type":"SURPRISE_OPENED","user":"anonymous","target":"uvubuA","time":"2026-08-31T08:16:24.268Z"}
 {"id":"event_b5b05af213be","type":"SURPRISE_OPENED","user":"anonymous","target":"uvubuA","time":"2026-08-31T08:16:30.173Z"}
 {"id":"event_43613a123d53","type":"SURPRISE_OPENED","user":"anonymous","target":"uvubuA","time":"2026-08-31T08:16:36.521Z"}
-{"reaction":"heart","id":"event_96a49d565137","type":"SURPRISE_REACTED","user":"anonymous","target":"uvubuA","time":"2026-08-31T08:17:07.326Z"}
-{"reaction":"heart","id":"event_3b7111f5f8d9","type":"SURPRISE_REACTED","user":"anonymous","target":"uvubuA","time":"2026-08-31T08:17:21.792Z"}
-{"reaction":"heart","id":"event_9c0c37ac5548","type":"SURPRISE_REACTED","user":"anonymous","target":"uvubuA","time":"2026-08-31T08:17:34.691Z"}
-{"reaction":"book-open-text","id":"event_6c19f44cf6e7","type":"SURPRISE_REACTED","user":"anonymous","target":"uvubuA","time":"2026-08-31T08:17:48.364Z"}
-{"reaction":"book-open-text","id":"event_632ddeb750f7","type":"SURPRISE_REACTED","user":"anonymous","target":"uvubuA","time":"2026-08-31T08:18:01.210Z"}
-{"reaction":"book-open-text","id":"event_16b75194a7d9","type":"SURPRISE_REACTED","user":"anonymous","target":"uvubuA","time":"2026-08-31T08:18:14.305Z"}
+{"reaction":"heart","id":"event_cf33bc6c0908","type":"SURPRISE_REACTED","user":"anonymous","target":"uvubuA","time":"2026-08-31T08:17:07.063Z"}
+{"reaction":"heart","id":"event_56f8f430cbfe","type":"SURPRISE_REACTED","user":"anonymous","target":"uvubuA","time":"2026-08-31T08:17:10.798Z"}
+{"reaction":"heart","id":"event_a53f5d91f1b4","type":"SURPRISE_REACTED","user":"anonymous","target":"uvubuA","time":"2026-08-31T08:17:23.737Z"}
+{"reaction":"flame","id":"event_6049a6b16ca0","type":"SURPRISE_REACTED","user":"anonymous","target":"uvubuA","time":"2026-08-31T08:17:36.743Z"}
+{"reaction":"book-open-text","id":"event_d88446f8296a","type":"SURPRISE_REACTED","user":"anonymous","target":"uvubuA","time":"2026-08-31T08:17:50.659Z"}
+{"reaction":"book-open-text","id":"event_a84746c8ec71","type":"SURPRISE_REACTED","user":"anonymous","target":"uvubuA","time":"2026-08-31T08:18:03.763Z"}
+{"reaction":"book-open-text","id":"event_63422bee443a","type":"SURPRISE_REACTED","user":"anonymous","target":"uvubuA","time":"2026-08-31T08:18:16.711Z"}
