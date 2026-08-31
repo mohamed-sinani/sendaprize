@@ -417,3 +417,4 @@
 {"type":"SURPRISE_CREATED","id":"event_804250889418","user":"user_012","target":"tDKLgh","time":"2026-08-31T09:38:14.265Z"}
 {"id":"event_cc6f4b1b22f9","type":"IMAGE_ADDED","user":"user_012","target":"tDKLgh","time":"2026-08-31T09:38:25.773Z"}
 {"id":"event_3a9537678bfa","type":"QR_GENERATED","user":"user_012","target":"tDKLgh","time":"2026-08-31T09:38:29.432Z"}
+{"id":"event_72bb790b755c","type":"SURPRISE_VIEWED","user":"anonymous","target":"tDKLgh","time":"2026-08-31T09:39:11.246Z"}
