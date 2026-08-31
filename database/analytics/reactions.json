@@ -2,7 +2,7 @@
   "byType": {
     "smile": 7,
     "thumbs-up": 3,
-    "heart": 35,
+    "heart": 36,
     "sparkles": 6,
     "flame": 5,
     "star": 3,
@@ -12,12 +12,17 @@
     {
       "surprise_id": "uvubuA",
       "type": "heart",
-      "timestamp": "2026-08-31T08:17:21.595Z"
+      "timestamp": "2026-08-31T08:17:23.524Z"
     },
     {
       "surprise_id": "uvubuA",
       "type": "heart",
-      "timestamp": "2026-08-31T08:17:07.082Z"
+      "timestamp": "2026-08-31T08:17:10.559Z"
+    },
+    {
+      "surprise_id": "uvubuA",
+      "type": "heart",
+      "timestamp": "2026-08-31T08:17:06.869Z"
     },
     {
       "surprise_id": "uvubuA",
